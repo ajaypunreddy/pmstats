@@ -492,6 +492,365 @@
   </section>
 
 
+  <!-- ═══════════════ SECTION 4B: REAL-WORLD EXAMPLES ═══════════════ -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="section-title"><i class="bi bi-building me-2"></i>Real-World Scope Hierarchy in Action</h2>
+        <p class="section-subtitle">How the 5-level cascade works across industries — from Fortune 500 enterprises to individual consumers</p>
+      </div>
+
+      <!-- ── ENTERPRISE: FINANCIAL SERVICES ── -->
+      <div class="card mb-4 fade-up" style="background:var(--bg-card);border:1px solid var(--border);border-radius:16px;overflow:hidden">
+        <div class="card-header d-flex align-items-center gap-2" style="background:rgba(13,202,240,0.08);border-bottom:1px solid var(--border);padding:1rem 1.5rem">
+          <i class="bi bi-bank2 fs-4" style="color:var(--accent-cyan)"></i>
+          <div>
+            <h5 class="mb-0" style="color:var(--accent-cyan)">Enterprise: Global Investment Bank</h5>
+            <small class="text-muted">Compliance-heavy, multi-team, strict data walls</small>
+          </div>
+          <span class="badge bg-info ms-auto">Financial Services</span>
+        </div>
+        <div class="card-body" style="padding:1.5rem">
+          <div class="table-responsive">
+            <table class="table table-sm mb-0" style="color:var(--text);font-size:.88rem">
+              <thead><tr style="border-bottom:2px solid var(--border)">
+                <th style="width:80px">Level</th><th style="width:140px">Scope</th><th style="width:180px">Index Name</th><th>What's Stored</th><th style="width:160px">Who Sees It</th>
+              </tr></thead>
+              <tbody>
+                <tr>
+                  <td><span class="badge" style="background:#f97316">P5</span></td>
+                  <td><i class="bi bi-person-fill text-warning me-1"></i>Personal</td>
+                  <td><code>cw-email-prefs-a8f2c1</code></td>
+                  <td>"My default disclaimer: This email is not investment advice. — Sarah Chen, VP Equity Research"</td>
+                  <td>Only Sarah</td>
+                </tr>
+                <tr>
+                  <td><span class="badge" style="background:#a855f7">P4</span></td>
+                  <td><i class="bi bi-people-fill" style="color:#a855f7"></i> Group</td>
+                  <td><code>cw-email-group-index</code></td>
+                  <td>"Equity Research team: All outbound emails MUST include SEC disclaimer. No forward-looking statements without legal pre-approval."</td>
+                  <td>Equity Research team only</td>
+                </tr>
+                <tr>
+                  <td><span class="badge bg-primary">P3</span></td>
+                  <td><i class="bi bi-building-fill text-primary me-1"></i>Org</td>
+                  <td><code>cw-email-index</code></td>
+                  <td>"Goldman-wide policy: max 50 external emails/day per person. No client PII in email subjects. BCC compliance@gs.com on all client communications."</td>
+                  <td>Everyone at the firm</td>
+                </tr>
+                <tr>
+                  <td><span class="badge bg-info text-dark">P2</span></td>
+                  <td><i class="bi bi-puzzle-fill text-info me-1"></i>Plugin</td>
+                  <td><code>email-assistant-index</code></td>
+                  <td>"Email plugin docs: use email-send for individual messages, email-send-html for formatted reports. Calendar integration available via calendar-create."</td>
+                  <td>All email plugin users</td>
+                </tr>
+                <tr>
+                  <td><span class="badge bg-secondary">P1</span></td>
+                  <td><i class="bi bi-gear-fill me-1"></i>Engine</td>
+                  <td><code>mcp1-index</code></td>
+                  <td>"Company handbook: Goldman Sachs Code of Conduct, insider trading policies, communication standards, approved vendor list."</td>
+                  <td>Everyone on the platform</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="mt-3 p-3" style="background:rgba(13,202,240,0.06);border-radius:10px;font-size:.85rem">
+            <strong style="color:var(--accent-cyan)"><i class="bi bi-chat-dots me-1"></i> What happens when Sarah asks: "Send our Q3 earnings preview to the client list"</strong>
+            <ol class="mb-0 mt-2" style="line-height:1.8">
+              <li><strong>[P3 ORG_POLICY]</strong> kicks in: "BCC compliance@gs.com" — <em>hard limit, automatically enforced</em></li>
+              <li><strong>[P4 GROUP_POLICY]</strong> triggers: "Include SEC disclaimer" — <em>hard limit, appended to email</em></li>
+              <li><strong>[P4 GROUP_POLICY]</strong> blocks: "No forward-looking statements without legal pre-approval" — <em>agent asks Sarah to get approval first</em></li>
+              <li><strong>[P5 USER_PREFERENCE]</strong> adds: Sarah's personal disclaimer signature — <em>additive, appended</em></li>
+            </ol>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── ENTERPRISE: HEALTHCARE ── -->
+      <div class="card mb-4 fade-up fade-up-d1" style="background:var(--bg-card);border:1px solid var(--border);border-radius:16px;overflow:hidden">
+        <div class="card-header d-flex align-items-center gap-2" style="background:rgba(220,53,69,0.08);border-bottom:1px solid var(--border);padding:1rem 1.5rem">
+          <i class="bi bi-heart-pulse-fill fs-4 text-danger"></i>
+          <div>
+            <h5 class="mb-0 text-danger">Enterprise: Hospital Network</h5>
+            <small class="text-muted">HIPAA compliance, patient data isolation, role-based access</small>
+          </div>
+          <span class="badge bg-danger ms-auto">Healthcare</span>
+        </div>
+        <div class="card-body" style="padding:1.5rem">
+          <div class="table-responsive">
+            <table class="table table-sm mb-0" style="color:var(--text);font-size:.88rem">
+              <thead><tr style="border-bottom:2px solid var(--border)">
+                <th style="width:80px">Level</th><th style="width:140px">Scope</th><th>Policy Example</th><th style="width:160px">Who Sees It</th>
+              </tr></thead>
+              <tbody>
+                <tr>
+                  <td><span class="badge" style="background:#f97316">P5</span></td>
+                  <td>Personal</td>
+                  <td>"Dr. Patel's preferences: Always include ICD-10 codes in referral letters. Preferred pharmacy: CVS on Main St."</td>
+                  <td>Only Dr. Patel</td>
+                </tr>
+                <tr>
+                  <td><span class="badge" style="background:#a855f7">P4</span></td>
+                  <td>Group</td>
+                  <td>"Cardiology Dept: Use AHA risk calculator template for all referrals. Max 20 patient records per batch query. Escalate arrhythmia alerts to on-call within 5 min."</td>
+                  <td>Cardiology team</td>
+                </tr>
+                <tr>
+                  <td><span class="badge bg-primary">P3</span></td>
+                  <td>Org</td>
+                  <td>"Hospital-wide: NEVER include patient SSN in any email. All patient data queries logged to HIPAA audit trail. No external sharing of PHI without patient consent form #HC-401."</td>
+                  <td>All hospital staff</td>
+                </tr>
+                <tr>
+                  <td><span class="badge bg-info text-dark">P2</span></td>
+                  <td>Plugin</td>
+                  <td>"EHR plugin docs: use patient-lookup by MRN, patient-history for visit records. Never expose raw lab values without clinical context."</td>
+                  <td>All EHR users</td>
+                </tr>
+                <tr>
+                  <td><span class="badge bg-secondary">P1</span></td>
+                  <td>Engine</td>
+                  <td>"Medical knowledge base: Drug interaction database, clinical guidelines (NICE, WHO), hospital formulary, approved procedure codes."</td>
+                  <td>Everyone</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="mt-3 p-3" style="background:rgba(220,53,69,0.06);border-radius:10px;font-size:.85rem">
+            <strong class="text-danger"><i class="bi bi-shield-exclamation me-1"></i> HIPAA in action:</strong> When a nurse in Orthopedics searches "patient John Smith labs," they see <strong>zero results</strong> from Cardiology's private patient records — the index ACL ensures cross-department isolation at the search layer, not just the prompt layer.
+          </div>
+        </div>
+      </div>
+
+      <!-- ── ENTERPRISE: TECHNOLOGY ── -->
+      <div class="card mb-4 fade-up fade-up-d2" style="background:var(--bg-card);border:1px solid var(--border);border-radius:16px;overflow:hidden">
+        <div class="card-header d-flex align-items-center gap-2" style="background:rgba(25,135,84,0.08);border-bottom:1px solid var(--border);padding:1rem 1.5rem">
+          <i class="bi bi-code-square fs-4 text-success"></i>
+          <div>
+            <h5 class="mb-0 text-success">Enterprise: SaaS Company (500 Engineers)</h5>
+            <small class="text-muted">DevOps pipelines, incident response, multi-team with different clearances</small>
+          </div>
+          <span class="badge bg-success ms-auto">Technology</span>
+        </div>
+        <div class="card-body" style="padding:1.5rem">
+          <div class="table-responsive">
+            <table class="table table-sm mb-0" style="color:var(--text);font-size:.88rem">
+              <thead><tr style="border-bottom:2px solid var(--border)">
+                <th style="width:80px">Level</th><th style="width:140px">Scope</th><th>Policy Example</th><th style="width:160px">Who Sees It</th>
+              </tr></thead>
+              <tbody>
+                <tr>
+                  <td><span class="badge" style="background:#f97316">P5</span></td>
+                  <td>Personal</td>
+                  <td>"My GitHub: ajaypunreddy, default branch: main, preferred CI template: node-18-docker. My PagerDuty: escalation level 2."</td>
+                  <td>Only this developer</td>
+                </tr>
+                <tr>
+                  <td><span class="badge" style="background:#a855f7">P4</span></td>
+                  <td>Group</td>
+                  <td>"Platform Team: All deployments require 2 approvals. No direct pushes to production. Canary rollout mandatory for services with >10K RPM. Budget cap: $5K/month AWS spend per service."</td>
+                  <td>Platform team</td>
+                </tr>
+                <tr>
+                  <td><span class="badge bg-primary">P3</span></td>
+                  <td>Org</td>
+                  <td>"Company-wide: No secrets in code repos. All PRs require code review. SOC2 compliance: retain logs 90 days. Approved cloud regions: us-east-1, eu-west-1 only."</td>
+                  <td>All engineers</td>
+                </tr>
+                <tr>
+                  <td><span class="badge bg-info text-dark">P2</span></td>
+                  <td>Plugin</td>
+                  <td>"GitHub plugin: use github-create-issue for bugs, github-list-pulls for PR review queue. Supports GitHub Enterprise at github.company.com/api/v3."</td>
+                  <td>All GitHub users</td>
+                </tr>
+                <tr>
+                  <td><span class="badge bg-secondary">P1</span></td>
+                  <td>Engine</td>
+                  <td>"Engineering handbook: architecture decision records, API design guidelines, incident response runbook, on-call rotation schedule."</td>
+                  <td>Everyone</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="mt-3 p-3" style="background:rgba(25,135,84,0.06);border-radius:10px;font-size:.85rem">
+            <strong class="text-success"><i class="bi bi-terminal me-1"></i> In practice:</strong> When a junior developer asks "deploy my feature to production," the agent finds <strong>[P4 GROUP_POLICY]</strong>: "2 approvals required + canary rollout." The <code>read_only</code> toggle blocks the deploy tool entirely for viewer-role interns — they can't even attempt it.
+          </div>
+        </div>
+      </div>
+
+      <!-- ── B2C: PERSONAL FINANCE ── -->
+      <div class="card mb-4 fade-up fade-up-d3" style="background:var(--bg-card);border:1px solid var(--border);border-radius:16px;overflow:hidden">
+        <div class="card-header d-flex align-items-center gap-2" style="background:rgba(255,193,7,0.08);border-bottom:1px solid var(--border);padding:1rem 1.5rem">
+          <i class="bi bi-wallet2 fs-4 text-warning"></i>
+          <div>
+            <h5 class="mb-0 text-warning">B2C: Personal Finance App</h5>
+            <small class="text-muted">Family accounts, shared budgets, individual spending preferences</small>
+          </div>
+          <span class="badge bg-warning text-dark ms-auto">Consumer</span>
+        </div>
+        <div class="card-body" style="padding:1.5rem">
+          <div class="table-responsive">
+            <table class="table table-sm mb-0" style="color:var(--text);font-size:.88rem">
+              <thead><tr style="border-bottom:2px solid var(--border)">
+                <th style="width:80px">Level</th><th style="width:140px">Scope</th><th>What's Configured</th><th style="width:160px">Who Sees It</th>
+              </tr></thead>
+              <tbody>
+                <tr>
+                  <td><span class="badge" style="background:#f97316">P5</span></td>
+                  <td>Personal</td>
+                  <td>"My preferences: Alert me when any single charge exceeds $200. Preferred payment: Visa ending 4242. Never auto-pay subscriptions over $50/month."</td>
+                  <td>Only this family member</td>
+                </tr>
+                <tr>
+                  <td><span class="badge" style="background:#a855f7">P4</span></td>
+                  <td>Group (Family)</td>
+                  <td>"Smith Family budget: Monthly dining cap $800. Kids' accounts limited to $100/transaction. No cryptocurrency purchases. Shared grocery budget: $600/month."</td>
+                  <td>All family members</td>
+                </tr>
+                <tr>
+                  <td><span class="badge bg-primary">P3</span></td>
+                  <td>Org (Platform)</td>
+                  <td>"Platform rules: Max single transaction $10,000. Require 2FA for transactions over $1,000. Fraud detection: flag if >5 transactions in 10 minutes."</td>
+                  <td>All app users</td>
+                </tr>
+                <tr>
+                  <td><span class="badge bg-info text-dark">P2</span></td>
+                  <td>Plugin</td>
+                  <td>"Payments plugin: use payments-charge to make purchases, payments-balance to check funds. Supports Visa, Mastercard, Apple Pay."</td>
+                  <td>All payments users</td>
+                </tr>
+                <tr>
+                  <td><span class="badge bg-secondary">P1</span></td>
+                  <td>Engine</td>
+                  <td>"Financial literacy: budgeting tips, tax deduction categories, retirement planning basics, credit score factors."</td>
+                  <td>Everyone</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="mt-3 p-3" style="background:rgba(255,193,7,0.06);border-radius:10px;font-size:.85rem">
+            <strong class="text-warning"><i class="bi bi-cart me-1"></i> Scenario:</strong> 16-year-old Emma asks "buy me AirPods Pro for $249." The cascade: <strong>[P4 FAMILY]</strong> "Kids limited to $100/transaction" → <strong>BLOCKED.</strong> Dad asks the same thing → <strong>[P5 PERSONAL]</strong> "Alert me over $200" → agent warns him, he confirms → <strong>approved</strong> and charged to his Visa 4242.
+          </div>
+        </div>
+      </div>
+
+      <!-- ── B2C: FREELANCER ── -->
+      <div class="card mb-4 fade-up fade-up-d4" style="background:var(--bg-card);border:1px solid var(--border);border-radius:16px;overflow:hidden">
+        <div class="card-header d-flex align-items-center gap-2" style="background:rgba(168,85,247,0.08);border-bottom:1px solid var(--border);padding:1rem 1.5rem">
+          <i class="bi bi-person-workspace fs-4" style="color:#a855f7"></i>
+          <div>
+            <h5 class="mb-0" style="color:#a855f7">B2C: Freelance Consultant</h5>
+            <small class="text-muted">Multiple clients, isolated workspaces, per-client credentials</small>
+          </div>
+          <span class="badge ms-auto" style="background:#a855f7">Freelancer</span>
+        </div>
+        <div class="card-body" style="padding:1.5rem">
+          <div class="table-responsive">
+            <table class="table table-sm mb-0" style="color:var(--text);font-size:.88rem">
+              <thead><tr style="border-bottom:2px solid var(--border)">
+                <th style="width:80px">Level</th><th style="width:140px">Scope</th><th>What's Configured</th><th style="width:160px">Who Sees It</th>
+              </tr></thead>
+              <tbody>
+                <tr>
+                  <td><span class="badge" style="background:#f97316">P5</span></td>
+                  <td>Personal</td>
+                  <td>"My invoice template: Net-30 payment terms. My hourly rate: $150. Tax ID: ***-**-7890. Preferred invoice tool: Stripe Invoicing."</td>
+                  <td>Only the freelancer</td>
+                </tr>
+                <tr>
+                  <td><span class="badge" style="background:#a855f7">P4</span></td>
+                  <td>Group (Client A)</td>
+                  <td>"Acme Corp project: NDA active — never mention Project Phoenix outside this workspace. Budget remaining: $12,400. Contact: jane@acme.com. GitHub repo: acme/phoenix."</td>
+                  <td>Freelancer when working for Acme</td>
+                </tr>
+                <tr>
+                  <td><span class="badge" style="background:#a855f7">P4</span></td>
+                  <td>Group (Client B)</td>
+                  <td>"StartupXYZ project: Move fast, no approval needed for charges under $500. Tech stack: React + Supabase. Deploy via Vercel. Contact: bob@startupxyz.io."</td>
+                  <td>Freelancer when working for StartupXYZ</td>
+                </tr>
+                <tr>
+                  <td><span class="badge bg-primary">P3</span></td>
+                  <td>Org (Platform)</td>
+                  <td>"Freelancer platform rules: All client data siloed — Client A cannot see Client B's code, emails, or documents. Automatic time tracking on all tool calls."</td>
+                  <td>All freelancers</td>
+                </tr>
+                <tr>
+                  <td><span class="badge bg-secondary">P1</span></td>
+                  <td>Engine</td>
+                  <td>"Freelancer knowledge base: contract templates, tax deduction guide, best practices for client communication, rate negotiation tips."</td>
+                  <td>Everyone</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="mt-3 p-3" style="background:rgba(168,85,247,0.06);border-radius:10px;font-size:.85rem">
+            <strong style="color:#a855f7"><i class="bi bi-shield-lock me-1"></i> Data wall in action:</strong> When working on Acme's project, the freelancer asks "show me the latest code changes." The agent searches <strong>only Acme's GitHub repo</strong> — StartupXYZ's repo is in a different group index and completely invisible. Switch to StartupXYZ workspace → Acme's data disappears.
+          </div>
+        </div>
+      </div>
+
+      <!-- ── ENTERPRISE: RETAIL ── -->
+      <div class="card mb-4 fade-up fade-up-d5" style="background:var(--bg-card);border:1px solid var(--border);border-radius:16px;overflow:hidden">
+        <div class="card-header d-flex align-items-center gap-2" style="background:rgba(13,202,240,0.08);border-bottom:1px solid var(--border);padding:1rem 1.5rem">
+          <i class="bi bi-shop fs-4" style="color:var(--accent-cyan)"></i>
+          <div>
+            <h5 class="mb-0" style="color:var(--accent-cyan)">Enterprise: Global Retail Chain</h5>
+            <small class="text-muted">Regional managers, store-level policies, seasonal promotions</small>
+          </div>
+          <span class="badge bg-info text-dark ms-auto">Retail</span>
+        </div>
+        <div class="card-body" style="padding:1.5rem">
+          <div class="table-responsive">
+            <table class="table table-sm mb-0" style="color:var(--text);font-size:.88rem">
+              <thead><tr style="border-bottom:2px solid var(--border)">
+                <th style="width:80px">Level</th><th style="width:140px">Scope</th><th>Policy Example</th><th style="width:160px">Who Sees It</th>
+              </tr></thead>
+              <tbody>
+                <tr>
+                  <td><span class="badge" style="background:#f97316">P5</span></td>
+                  <td>Personal</td>
+                  <td>"Store Manager Lisa's preferences: Send daily sales report at 6 PM. Alert if any SKU drops below 10 units. My override discount limit: 25%."</td>
+                  <td>Only Lisa</td>
+                </tr>
+                <tr>
+                  <td><span class="badge" style="background:#a855f7">P4</span></td>
+                  <td>Group (West Region)</td>
+                  <td>"West Coast stores: Holiday hours Nov 15–Jan 5. California-specific: sales tax 7.25%. Approved local suppliers: FreshProduce Co, Bay Area Bakery. Regional promotion: 15% off surfwear."</td>
+                  <td>All West region managers</td>
+                </tr>
+                <tr>
+                  <td><span class="badge bg-primary">P3</span></td>
+                  <td>Org</td>
+                  <td>"Corporate policy: Max discount 30% without VP approval. Return window 90 days. No competitor price-matching below cost. Gift cards non-refundable. Uniform: company polo required."</td>
+                  <td>All 2,000+ employees</td>
+                </tr>
+                <tr>
+                  <td><span class="badge bg-info text-dark">P2</span></td>
+                  <td>Plugin</td>
+                  <td>"Inventory plugin: use inventory-check for stock levels, inventory-reorder for purchase orders. Supports real-time sync with SAP."</td>
+                  <td>All inventory users</td>
+                </tr>
+                <tr>
+                  <td><span class="badge bg-secondary">P1</span></td>
+                  <td>Engine</td>
+                  <td>"Retail playbook: visual merchandising guidelines, customer service scripts, loss prevention procedures, health & safety checklist."</td>
+                  <td>Everyone</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="mt-3 p-3" style="background:rgba(13,202,240,0.06);border-radius:10px;font-size:.85rem">
+            <strong style="color:var(--accent-cyan)"><i class="bi bi-receipt me-1"></i> Cascade example:</strong> East Coast store manager asks "give this customer 35% off." <strong>[P3 ORG_POLICY]</strong>: "Max 30% without VP approval" → <strong>BLOCKED.</strong> West Coast manager asks "apply regional surfwear promotion" → <strong>[P4 GROUP]</strong> allows 15% off surfwear → <strong>approved.</strong> Lisa asks for 25% off → <strong>[P5 PERSONAL]</strong> her override limit covers it → <strong>approved.</strong>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
   <!-- ═══════════════ SECTION 5: POLICY AS CODE ═══════════════ -->
   <section class="section">
     <div class="container">
