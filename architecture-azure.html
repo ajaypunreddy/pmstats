@@ -140,7 +140,8 @@
                   <div class="detail">
                     Personal Tenant<br>
                     <code>21343dd5-****</code><br>
-                    Users: <code>ajaymgr@&hellip;</code> etc.
+                    Users: <code>ajaymgr@&hellip;</code> etc.<br>
+                    <span class="badge bg-success" style="font-size:.6rem;margin-top:.3rem">MFA via Conditional Access</span>
                   </div>
                 </div>
               </div>
@@ -265,7 +266,8 @@
         <div class="inner-block mt-3">
           <h6 style="color:var(--amber)"><i class="bi bi-fingerprint me-2"></i>Managed Identity: aiopm-mi</h6>
           <div class="detail mb-2">
-            Object ID: <code>7ee52e99-****</code> &bull; Federated credentials for both namespace ServiceAccounts
+            Object ID: <code>7ee52e99-****</code> &bull; Federated credentials for both namespace ServiceAccounts<br>
+            <span style="font-size:.75rem;color:var(--text-muted)"><i class="bi bi-shield-check me-1"></i>X.509 cert, auto-rotated &mdash; no MFA needed (machine auth is stronger than password+MFA)</span>
           </div>
           <div>
             <span class="role-pill">Contributor</span>
@@ -398,6 +400,7 @@
         <span class="sec-badge"><i class="bi bi-person-badge"></i> Workload Identity</span>
         <span class="sec-badge"><i class="bi bi-key-fill"></i> Azure Key Vault</span>
         <span class="sec-badge"><i class="bi bi-person-lock"></i> Entra ID SSO</span>
+        <span class="sec-badge"><i class="bi bi-phone-lock"></i> MFA via Conditional Access</span>
       </div>
     </div>
   </section>

@@ -160,7 +160,8 @@
               <ul class="list-unstyled mb-0" style="font-size:.85rem">
                 <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-2"></i>App Registration / OAuth Client</li>
                 <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-2"></i>OIDC authorization code flow</li>
-                <li><i class="bi bi-check-circle-fill text-success me-2"></i>JWT tokens with roles + groups</li>
+                <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-2"></i>JWT tokens with roles + groups</li>
+                <li><i class="bi bi-check-circle-fill text-success me-2"></i>MFA via Conditional Access (customer-controlled)</li>
               </ul>
             </div>
           </div>
@@ -602,6 +603,12 @@
         </div>
         <div class="col-md-6 col-lg-4 fade-up fade-up-d6">
           <div class="block block-red" style="height:100%">
+            <h6 class="fw-bold mb-2"><i class="bi bi-phone-lock text-danger me-2"></i>Two-Tier MFA</h6>
+            <p class="text-muted mb-0" style="font-size:.85rem">Customer login via Entra Conditional Access MFA. Provider admin access requires MFA. Runtime uses Managed Identity (X.509 certs) &mdash; stronger than password+MFA.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4 fade-up fade-up-d6">
+          <div class="block block-red" style="height:100%">
             <h6 class="fw-bold mb-2"><i class="bi bi-credit-card text-danger me-2"></i>No Card Data on Platform</h6>
             <p class="text-muted mb-0" style="font-size:.85rem">Card data never touches the platform. Stripe Checkout handles PCI compliance &mdash; we only store Stripe tokens.</p>
           </div>
@@ -739,6 +746,7 @@
         <span class="sec-badge"><i class="bi bi-globe2"></i> HTTPS + WAF</span>
         <span class="sec-badge"><i class="bi bi-key-fill"></i> Vault-Backed Secrets</span>
         <span class="sec-badge"><i class="bi bi-person-lock"></i> Per-User Isolation</span>
+        <span class="sec-badge"><i class="bi bi-phone-lock"></i> Two-Tier MFA</span>
         <span class="sec-badge"><i class="bi bi-credit-card-2-front"></i> PCI via Stripe</span>
       </div>
     </div>

@@ -291,6 +291,11 @@
               <td class="col-trad"><i class="bi bi-x-circle-fill text-danger me-1"></i> Trust the LLM to &ldquo;behave&rdquo; &mdash; no hard controls</td>
               <td class="col-cw"><i class="bi bi-check-circle-fill text-success me-1"></i> <span class="badge bg-warning text-dark">Maintenance mode</span> <span class="badge bg-info text-dark">Read-only</span> <span class="badge bg-secondary">Approval required</span> &mdash; enforced in code</td>
             </tr>
+            <tr>
+              <td class="aspect"><i class="bi bi-phone-lock me-2"></i>MFA</td>
+              <td class="col-trad"><i class="bi bi-x-circle-fill text-danger me-1"></i> No MFA integration &mdash; API keys have no second factor</td>
+              <td class="col-cw"><i class="bi bi-check-circle-fill text-success me-1"></i> Two-tier MFA: Customer login via Entra Conditional Access + Provider admin MFA. Runtime uses Managed Identity (unhackable machine certs)</td>
+            </tr>
           </tbody>
         </table>
       </div>
@@ -405,6 +410,86 @@
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════ SECTION 3B: TWO-TIER MFA MODEL ═══════════════ -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="section-title"><i class="bi bi-phone-lock me-2"></i>Two-Tier MFA Model</h2>
+        <p class="section-subtitle">Multi-factor authentication where it matters &mdash; machine identity where it&rsquo;s stronger</p>
+      </div>
+
+      <div class="row g-4 justify-content-center">
+        <!-- Customer MFA -->
+        <div class="col-md-4 fade-up">
+          <div class="arch-diagram secure h-100" style="text-align:center">
+            <span class="diagram-label" style="background:rgba(167,139,250,0.15);color:#a78bfa;border:1px solid rgba(167,139,250,0.3)">
+              <i class="bi bi-person-badge me-1"></i> Customer Tenant (Runtime)
+            </span>
+            <div class="flow-row" style="justify-content:center">
+              <div class="flow-node user"><i class="bi bi-person-fill"></i> Human</div>
+              <div class="flow-arrow">&rarr;</div>
+              <div class="flow-node engine"><i class="bi bi-phone-lock"></i> Entra MFA</div>
+              <div class="flow-arrow">&rarr;</div>
+              <div class="flow-node plugin"><i class="bi bi-check-circle"></i> Proves Identity</div>
+            </div>
+            <div class="flow-annotation">
+              <i class="bi bi-info-circle-fill text-info me-1"></i>
+              User login via Entra OIDC supports MFA via Conditional Access &mdash; customer admin controls this
+            </div>
+          </div>
+        </div>
+
+        <!-- Engine RBAC -->
+        <div class="col-md-4 fade-up fade-up-d2">
+          <div class="arch-diagram secure h-100" style="text-align:center">
+            <span class="diagram-label" style="background:rgba(13,202,240,0.15);color:#0dcaf0;border:1px solid rgba(13,202,240,0.3)">
+              <i class="bi bi-shield-lock me-1"></i> Engine RBAC
+            </span>
+            <div class="flow-row" style="justify-content:center">
+              <div class="flow-node user"><i class="bi bi-person-check"></i> Identity</div>
+              <div class="flow-arrow">&rarr;</div>
+              <div class="flow-node engine"><i class="bi bi-gear-wide-connected"></i> Role/Group Checks</div>
+            </div>
+            <div class="flow-annotation">
+              <i class="bi bi-info-circle-fill text-info me-1"></i>
+              MFA-verified identity feeds into role and group permission checks at the MCP engine level
+            </div>
+          </div>
+        </div>
+
+        <!-- Provider MI -->
+        <div class="col-md-4 fade-up fade-up-d3">
+          <div class="arch-diagram secure h-100" style="text-align:center">
+            <span class="diagram-label" style="background:rgba(25,135,84,0.15);color:#75b798;border:1px solid rgba(25,135,84,0.3)">
+              <i class="bi bi-fingerprint me-1"></i> Provider MI (Runtime)
+            </span>
+            <div class="flow-row" style="justify-content:center">
+              <div class="flow-node engine"><i class="bi bi-cpu"></i> Machine Cert</div>
+              <div class="flow-arrow">&rarr;</div>
+              <div class="flow-node api"><i class="bi bi-cloud-check"></i> Azure Services</div>
+            </div>
+            <div class="flow-annotation">
+              <i class="bi bi-shield-fill-check text-success me-1"></i>
+              Managed Identity (X.509 cert, auto-rotated) &mdash; no MFA needed or possible. More secure than password+MFA because nothing to phish
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row justify-content-center mt-4">
+        <div class="col-lg-8 fade-up">
+          <div class="cascade-info">
+            <h6><i class="bi bi-exclamation-diamond-fill me-2"></i>Provider Admin Access</h6>
+            <p class="mb-0" style="font-size:.9rem;line-height:1.7">
+              Azure Portal, <code>kubectl</code>, and Key Vault admin access <strong>require MFA</strong> via Conditional Access on the provider Entra tenant. This protects infrastructure management while runtime machine-to-machine communication uses Managed Identity &mdash; which is inherently stronger than any password+MFA combination.
+            </p>
           </div>
         </div>
       </div>
