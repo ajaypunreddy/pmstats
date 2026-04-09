@@ -775,6 +775,45 @@
     </div>
   </section>
 
+  <!-- ═══════════════ SRE OBSERVABILITY ═══════════════ -->
+  <section class="section">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="section-title fade-up"><i class="bi bi-graph-up-arrow me-2"></i>SRE Observability</h2>
+        <p class="section-subtitle fade-up fade-up-d1">Production-grade monitoring with Prometheus + Grafana — embedded directly in the platform</p>
+      </div>
+      <div class="row g-4 mb-4">
+        <div class="col-md-3">
+          <div class="card h-100 p-3" style="border-left:3px solid #ff6b6b">
+            <h5 style="color:#ff6b6b"><i class="bi bi-heart-pulse me-1"></i> Prometheus + Grafana</h5>
+            <p class="mb-0" style="font-size:.85rem;color:var(--text-muted)">Full metrics stack deployed alongside the application. Prometheus scrapes all services; Grafana provides real-time visualization via the <strong>Monitoring</strong> tab — no context-switching to external tools.</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card h-100 p-3" style="border-left:3px solid #0dcaf0">
+            <h5 style="color:#0dcaf0"><i class="bi bi-speedometer2 me-1"></i> 5 Dashboards</h5>
+            <p class="mb-0" style="font-size:.85rem;color:var(--text-muted)"><strong>Platform Overview</strong>, <strong>MCP Engine</strong>, <strong>RAG &amp; Search</strong>, <strong>Security Audit</strong>, and <strong>User Activity</strong> — each with tailored panels covering latency, throughput, errors, and saturation.</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card h-100 p-3" style="border-left:3px solid #ffc107">
+            <h5 style="color:#ffc107"><i class="bi bi-bell me-1"></i> 12 Alerting Rules</h5>
+            <p class="mb-0" style="font-size:.85rem;color:var(--text-muted)">Alertmanager rules cover API latency, error rates, MCP tool failures, RAG indexing delays, auth failures, pod restarts, and resource saturation — with severity-based routing.</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card h-100 p-3" style="border-left:3px solid #198754">
+            <h5 style="color:#198754"><i class="bi bi-shield-lock me-1"></i> Zero PII in Metrics</h5>
+            <p class="mb-0" style="font-size:.85rem;color:var(--text-muted)">All user identifiers are <code>sha256</code>-hashed before emission. No raw emails, names, or IPs in Prometheus — compliant with GDPR, SOC2, and HIPAA audit requirements.</p>
+          </div>
+        </div>
+      </div>
+      <div class="text-center">
+        <span class="text-muted" style="font-size:.85rem"><i class="bi bi-info-circle me-1"></i>Dashboards are embedded in the app via the <strong>Monitoring</strong> tab &mdash; deploy with <code>deploy-monitoring.sh</code></span>
+      </div>
+    </div>
+  </section>
+
   <!-- ═══════════════ SECURITY BADGES ═══════════════ -->
   <section class="section section-alt" style="padding:2.5rem 0">
     <div class="container text-center">
