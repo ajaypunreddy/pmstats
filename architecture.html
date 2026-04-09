@@ -735,6 +735,45 @@
     </div>
   </section>
 
+  <!-- ═══════════════ INFRASTRUCTURE AS CODE ═══════════════ -->
+  <section class="section">
+    <div class="container">
+      <div class="text-center mb-4">
+        <h2 class="section-title fade-up"><i class="bi bi-code-square me-2"></i>Infrastructure as Code</h2>
+        <p class="section-subtitle fade-up fade-up-d1">Deploy the entire platform from scratch in ~20 minutes with Terraform</p>
+      </div>
+      <div class="row g-4 mb-4">
+        <div class="col-md-3">
+          <div class="card h-100 p-3" style="border-left:3px solid #a78bfa">
+            <h5 style="color:#a78bfa"><i class="bi bi-boxes me-1"></i> 9 Cloud-Agnostic Modules</h5>
+            <p class="mb-0" style="font-size:.85rem;color:var(--text-muted)">Kubernetes, database, LLM, search, vault, registry, identity, networking, and DNS — each module provisions the correct cloud-native resource based on a single <code>cloud</code> variable.</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card h-100 p-3" style="border-left:3px solid #0dcaf0">
+            <h5 style="color:#0dcaf0"><i class="bi bi-cloud-check me-1"></i> Azure Primary</h5>
+            <p class="mb-0" style="font-size:.85rem;color:var(--text-muted)">Fully tested Azure environment: AKS, Cosmos DB, Azure OpenAI, AI Search, Key Vault, ACR, and DNS. AWS and GCP modules are ready — swap by changing one directory.</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card h-100 p-3" style="border-left:3px solid #198754">
+            <h5 style="color:#198754"><i class="bi bi-diagram-3 me-1"></i> Helm Charts</h5>
+            <p class="mb-0" style="font-size:.85rem;color:var(--text-muted)">Two Helm charts (<strong>cerebro-app</strong> and <strong>mcp-engine</strong>) deploy Kubernetes workloads. Infrastructure endpoints are injected automatically by Terraform.</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card h-100 p-3" style="border-left:3px solid #ffc107">
+            <h5 style="color:#ffc107"><i class="bi bi-terminal me-1"></i> Bootstrap Script</h5>
+            <p class="mb-0" style="font-size:.85rem;color:var(--text-muted)">One-time <code>bootstrap.sh</code> creates remote state storage and a service principal. Then <code>terraform apply</code> handles everything else — infrastructure + workloads in a single command.</p>
+          </div>
+        </div>
+      </div>
+      <div class="text-center">
+        <a href="../terraform/README.md" class="fw-semibold" style="color:var(--accent-purple)">Full Terraform documentation &rarr;</a>
+      </div>
+    </div>
+  </section>
+
   <!-- ═══════════════ SECURITY BADGES ═══════════════ -->
   <section class="section section-alt" style="padding:2.5rem 0">
     <div class="container text-center">
