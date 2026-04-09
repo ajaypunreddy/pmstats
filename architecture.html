@@ -759,7 +759,7 @@
         <div class="col-md-3">
           <div class="card h-100 p-3" style="border-left:3px solid #198754">
             <h5 style="color:#198754"><i class="bi bi-diagram-3 me-1"></i> Helm Charts</h5>
-            <p class="mb-0" style="font-size:.85rem;color:var(--text-muted)">Two Helm charts (<strong>cerebro-app</strong> and <strong>mcp-engine</strong>) deploy Kubernetes workloads. Infrastructure endpoints are injected automatically by Terraform.</p>
+            <p class="mb-0" style="font-size:.85rem;color:var(--text-muted)">Two Helm charts (<strong>cerebro-app</strong> rev 5 and <strong>mcp-engine</strong> rev 3) deploy Kubernetes workloads. Day-2 operations via <code>helm upgrade</code> / <code>helm rollback</code>. Infrastructure endpoints are injected automatically by Terraform.</p>
           </div>
         </div>
         <div class="col-md-3">
@@ -780,7 +780,7 @@
     <div class="container">
       <div class="text-center mb-5">
         <h2 class="section-title fade-up"><i class="bi bi-graph-up-arrow me-2"></i>SRE Observability</h2>
-        <p class="section-subtitle fade-up fade-up-d1">Production-grade monitoring with Prometheus + Grafana — embedded directly in the platform</p>
+        <p class="section-subtitle fade-up fade-up-d1">Production-grade monitoring with Prometheus + Grafana + Loki — embedded directly in the platform</p>
       </div>
       <div class="row g-4 mb-4">
         <div class="col-md-3">
@@ -790,9 +790,15 @@
           </div>
         </div>
         <div class="col-md-3">
+          <div class="card h-100 p-3" style="border-left:3px solid #20c997">
+            <h5 style="color:#20c997"><i class="bi bi-journal-text me-1"></i> Loki 3 Log Aggregation</h5>
+            <p class="mb-0" style="font-size:.85rem;color:var(--text-muted)"><strong>Loki 3.x</strong> + <strong>Promtail</strong> for centralized log aggregation. Search logs via <strong>LogQL</strong> in Grafana Explore. Log volume histogram colored by <code>detected_level</code>. 7-day retention.</p>
+          </div>
+        </div>
+        <div class="col-md-3">
           <div class="card h-100 p-3" style="border-left:3px solid #0dcaf0">
-            <h5 style="color:#0dcaf0"><i class="bi bi-speedometer2 me-1"></i> 5 Dashboards</h5>
-            <p class="mb-0" style="font-size:.85rem;color:var(--text-muted)"><strong>Platform Overview</strong>, <strong>MCP Engine</strong>, <strong>RAG &amp; Search</strong>, <strong>Security Audit</strong>, and <strong>User Activity</strong> — each with tailored panels covering latency, throughput, errors, and saturation.</p>
+            <h5 style="color:#0dcaf0"><i class="bi bi-speedometer2 me-1"></i> 7 Dashboards</h5>
+            <p class="mb-0" style="font-size:.85rem;color:var(--text-muted)"><strong>Overview</strong>, <strong>MCP Engine</strong>, <strong>RAG</strong>, <strong>Security</strong>, <strong>Users</strong>, <strong>Alerts</strong>, and <strong>Logs</strong> — embedded via iframe with a dashboard switcher in the <strong>Monitoring</strong> tab.</p>
           </div>
         </div>
         <div class="col-md-3">
@@ -801,15 +807,29 @@
             <p class="mb-0" style="font-size:.85rem;color:var(--text-muted)">Alertmanager rules cover API latency, error rates, MCP tool failures, RAG indexing delays, auth failures, pod restarts, and resource saturation — with severity-based routing.</p>
           </div>
         </div>
-        <div class="col-md-3">
+      </div>
+      <div class="row g-4 mb-4">
+        <div class="col-md-4">
           <div class="card h-100 p-3" style="border-left:3px solid #198754">
             <h5 style="color:#198754"><i class="bi bi-shield-lock me-1"></i> Zero PII in Metrics</h5>
-            <p class="mb-0" style="font-size:.85rem;color:var(--text-muted)">All user identifiers are <code>sha256</code>-hashed before emission. No raw emails, names, or IPs in Prometheus — compliant with GDPR, SOC2, and HIPAA audit requirements.</p>
+            <p class="mb-0" style="font-size:.85rem;color:var(--text-muted)">All user identifiers are <code>sha256</code>-hashed before emission. No raw emails, names, or IPs in Prometheus or Loki — compliant with GDPR, SOC2, and HIPAA audit requirements.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card h-100 p-3" style="border-left:3px solid #a78bfa">
+            <h5 style="color:#a78bfa"><i class="bi bi-hdd-rack me-1"></i> Cluster View</h5>
+            <p class="mb-0" style="font-size:.85rem;color:var(--text-muted)">Horizontal card layout showing all namespaces (<code>default</code>, <code>mcp1</code>, <code>ingress-nginx</code>, <code>monitoring</code>). Expandable pod details with images, digests, resources, and Helm metadata.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card h-100 p-3" style="border-left:3px solid #e94560">
+            <h5 style="color:#e94560"><i class="bi bi-box-seam me-1"></i> Helm-Managed Deployments</h5>
+            <p class="mb-0" style="font-size:.85rem;color:var(--text-muted)">Both workloads managed via Helm charts (<strong>cerebro-app</strong> rev 5, <strong>mcp1</strong> rev 3). Day-2 operations via <code>helm upgrade</code> and <code>helm rollback</code>.</p>
           </div>
         </div>
       </div>
       <div class="text-center">
-        <span class="text-muted" style="font-size:.85rem"><i class="bi bi-info-circle me-1"></i>Dashboards are embedded in the app via the <strong>Monitoring</strong> tab &mdash; deploy with <code>deploy-monitoring.sh</code></span>
+        <span class="text-muted" style="font-size:.85rem"><i class="bi bi-info-circle me-1"></i>Dashboards are embedded in the app via the <strong>Monitoring</strong> tab &mdash; deploy with <code>deploy-monitoring.sh</code>. Logs aggregated via Loki 3 + Promtail with 7-day retention.</span>
       </div>
     </div>
   </section>

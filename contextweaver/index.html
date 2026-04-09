@@ -627,14 +627,14 @@
           <div class="card h-100 p-3" style="border-left:3px solid #20c997">
             <h5 style="color:#20c997"><i class="bi bi-code-square"></i> Infrastructure as Code</h5>
             <p class="text-muted mb-2" style="font-size:.85rem">Other platforms require days of manual setup, clicking through cloud consoles, and tribal knowledge.</p>
-            <p style="font-size:.85rem">Deploy the entire ContextWeaver platform from scratch in <strong>~20 minutes</strong> with Terraform. 9 cloud-agnostic modules, 2 Helm charts, one command. Swap between <strong>Azure, AWS, or GCP</strong> by changing one directory &mdash; same app code, same Helm charts, same security model.</p>
+            <p style="font-size:.85rem">Deploy the entire ContextWeaver platform from scratch in <strong>~20 minutes</strong> with Terraform. 9 cloud-agnostic modules, 2 Helm charts (cerebro-app rev 5, mcp1 rev 3), one command. Day-2 operations via <code>helm upgrade</code> / <code>helm rollback</code>. Swap between <strong>Azure, AWS, or GCP</strong> by changing one directory &mdash; same app code, same Helm charts, same security model.</p>
           </div>
         </div>
         <div class="col-md-4">
           <div class="card h-100 p-3" style="border-left:3px solid #ff6b6b">
             <h5 style="color:#ff6b6b"><i class="bi bi-graph-up-arrow"></i> Built-in SRE Observability</h5>
             <p class="text-muted mb-2" style="font-size:.85rem">Most AI platforms ship with zero monitoring. When something breaks, you're flying blind.</p>
-            <p style="font-size:.85rem">Built-in SRE monitoring with <strong>Prometheus + Grafana</strong>. 5 dashboards, 12 alert rules, zero PII &mdash; all user IDs are <code>sha256</code>-hashed. Embedded in the app via the <strong>Monitoring</strong> tab, not bolted on as an afterthought.</p>
+            <p style="font-size:.85rem">Built-in SRE monitoring with <strong>Prometheus + Grafana + Loki 3</strong>. 7 dashboards, 12 alert rules, centralized log aggregation with LogQL search, zero PII &mdash; all user IDs are <code>sha256</code>-hashed. Embedded in the app via the <strong>Monitoring</strong> tab with an iframe dashboard switcher, plus a <strong>Cluster View</strong> tab showing all namespaces and pod details. Not bolted on as an afterthought.</p>
           </div>
         </div>
       </div>
@@ -836,17 +836,24 @@
 
       <div class="row g-4 mt-1">
         <!-- Blueprint Save/Load -->
-        <div class="col-md-6">
+        <div class="col-md-4">
           <div class="card h-100 p-3" style="border-left:3px solid #a78bfa">
             <h5 style="color:#a78bfa"><i class="bi bi-save me-1"></i> Blueprint Save &amp; Load</h5>
             <p class="text-muted mb-0" style="font-size:.85rem;line-height:1.7">Save your entire engine topology as a blueprint to Cosmos DB. Load, version, and share blueprints across teams. Deploy full topologies from saved designs with one click.</p>
           </div>
         </div>
         <!-- Tooltips / UX -->
-        <div class="col-md-6">
+        <div class="col-md-4">
           <div class="card h-100 p-3" style="border-left:3px solid #0dcaf0">
             <h5 style="color:#0dcaf0"><i class="bi bi-chat-square-text me-1"></i> Real-Time Guidance</h5>
             <p class="text-muted mb-0" style="font-size:.85rem;line-height:1.7">Every interactive element on the canvas shows contextual tooltips. Hover any button, toggle, or card for an instant explanation &mdash; making the entire topology design self-documenting and beginner-friendly.</p>
+          </div>
+        </div>
+        <!-- Cluster View -->
+        <div class="col-md-4">
+          <div class="card h-100 p-3" style="border-left:3px solid #e94560">
+            <h5 style="color:#e94560"><i class="bi bi-hdd-rack me-1"></i> Cluster View</h5>
+            <p class="text-muted mb-0" style="font-size:.85rem;line-height:1.7">Horizontal card layout of all Kubernetes namespaces with expandable pod details &mdash; images, digests, resources, Helm metadata. Double-click to navigate to Visual Designer or Monitoring.</p>
           </div>
         </div>
       </div>

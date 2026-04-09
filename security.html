@@ -330,7 +330,7 @@
             <tr>
               <td class="aspect"><i class="bi bi-journal-text me-2"></i>Audit Trail</td>
               <td class="col-trad"><i class="bi bi-x-circle-fill text-danger me-1"></i> None &mdash; impossible to know who did what</td>
-              <td class="col-cw"><i class="bi bi-check-circle-fill text-success me-1"></i> Audit log toggle on every engine &mdash; every tool call logged with <code>sha256(email)</code>, timestamp, result. <strong>No PII in Prometheus/Grafana</strong> — all SRE metrics use hashed user IDs, never raw emails</td>
+              <td class="col-cw"><i class="bi bi-check-circle-fill text-success me-1"></i> Audit log toggle on every engine &mdash; every tool call logged with <code>sha256(email)</code>, timestamp, result. <strong>No PII in Prometheus/Grafana</strong> — all SRE metrics use hashed user IDs, never raw emails. All logs aggregated in <strong>Loki</strong> with 7-day retention. LogQL search: <code>{namespace='mcp1'} |= '[AUDIT]'</code> for tool call audit. No PII in any logs &mdash; user IDs are <code>sha256</code>-hashed</td>
             </tr>
             <tr>
               <td class="aspect"><i class="bi bi-slash-circle me-2"></i>Tool Blocking</td>
