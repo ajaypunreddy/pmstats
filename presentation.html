@@ -41,6 +41,37 @@
     th{text-align:left;padding:.5rem;border-bottom:2px solid rgba(255,255,255,0.1);color:rgba(255,255,255,0.5)}
     td{padding:.5rem;border-bottom:1px solid rgba(255,255,255,0.05)}
     .highlight{background:linear-gradient(135deg,rgba(13,202,240,0.08),rgba(167,139,250,0.08));border:1px solid rgba(167,139,250,0.2);border-radius:16px;padding:1.5rem;margin:1rem 0}
+
+    /* Slide A: animated call flow */
+    .anim-flow { display:flex; flex-direction:column; gap:6px; }
+    .anim-step {
+      padding:8px 12px; border-radius:8px; font-size:.75rem; line-height:1.5;
+      background:rgba(255,255,255,0.02); border-left:3px solid rgba(255,255,255,0.1);
+      opacity:0; transform:translateX(-20px);
+      animation: slideIn 0.5s ease-out forwards;
+    }
+    section:not(.active) .anim-step { animation:none; opacity:0; transform:translateX(-20px); }
+    @keyframes slideIn { to { opacity:1; transform:translateX(0); } }
+
+    /* Slide B: cloud backend swap */
+    .cloud-stack { display:flex; flex-direction:column; gap:6px; width:300px; }
+    .stack-label { text-align:center; font-weight:700; font-size:1.1rem; margin-bottom:4px; opacity:0; animation:fadeIn 0.4s forwards; }
+    .stack-layer { padding:8px 16px; border-radius:6px; border:1px solid; text-align:center; font-size:.8rem; opacity:0; animation:fadeIn 0.4s forwards; }
+    .azure-stack .stack-label { animation-delay:0s; }
+    .azure-stack .stack-layer { animation-name:fadeInOut; animation-duration:4s; }
+    .aws-stack { opacity:0; animation:fadeIn 0.1s 2.8s forwards; }
+    @keyframes fadeIn { to { opacity:1; } }
+    @keyframes fadeInOut { 0%{opacity:0} 15%{opacity:1} 50%{opacity:1} 65%{opacity:0} 100%{opacity:0} }
+    section:not(.active) .cloud-stack, section:not(.active) .swap-arrow { animation:none !important; opacity:0; }
+    section:not(.active) .stack-label, section:not(.active) .stack-layer { animation:none !important; opacity:0; }
+
+    /* Slide C: MCP engine dependencies */
+    .dep-engine { background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.1); border-radius:12px; padding:16px; min-width:200px; opacity:0; animation:fadeIn 0.5s forwards; }
+    .dep-plugin { padding:6px 12px; border-radius:6px; margin-bottom:4px; font-size:.8rem; opacity:0; animation:slideIn 0.4s forwards; }
+    .dep-plugin.native { background:rgba(25,135,84,0.08); border:1px solid rgba(25,135,84,0.2); }
+    .dep-plugin.imported { background:rgba(167,139,250,0.1); border:1px dashed rgba(167,139,250,0.4); color:#a78bfa; }
+    .dep-arrow { color:#a78bfa; font-size:.85rem; font-weight:600; opacity:0; animation:slideIn 0.5s forwards; }
+    section:not(.active) .dep-engine, section:not(.active) .dep-plugin, section:not(.active) .dep-arrow { animation:none !important; opacity:0; transform:translateX(-20px); }
   </style>
 </head>
 <body>
@@ -1056,7 +1087,166 @@
     </div>
   </section>
 
-  <!-- Slide 32: Call to Action -->
+  <!-- Slide 32: Two Users, One Request, Different Paths -->
+  <section>
+    <div class="content">
+      <h2 style="text-align:center">🎬 Two Users, Same Request, Different Paths</h2>
+      <p class="subtitle" style="text-align:center">"Book me a flight to NYC under $800"</p>
+      
+      <div class="grid2" style="margin-top:2rem">
+        <!-- SARAH (Manager) -->
+        <div>
+          <div style="text-align:center;margin-bottom:1rem">
+            <span class="badge bg-cyan" style="font-size:.9rem">👩‍💼 Sarah · Manager · Engineering</span>
+          </div>
+          <div class="anim-flow">
+            <div class="anim-step" style="animation-delay:0.3s;border-color:#0dcaf0">
+              1️⃣ Agent injects: _user_email=sarah@acme.com, _role=manager, _groups=[engineering]
+            </div>
+            <div class="anim-step" style="animation-delay:0.8s;border-color:#198754">
+              2️⃣ RAG search finds:<br>
+              <span class="green">[P4 GROUP]</span> "Engineering budget: $1000/flight"<br>
+              <span class="green">[P3 ORG]</span> "Approved airlines: United, Delta"<br>
+              <span class="cyan">[P5 PERSONAL]</span> "Sarah prefers aisle seat, United MileagePlus #MP789"
+            </div>
+            <div class="anim-step" style="animation-delay:1.4s;border-color:#a78bfa">
+              3️⃣ Vault resolves: Sarah's personal Amadeus API key (from user-level vault)
+            </div>
+            <div class="anim-step" style="animation-delay:2.0s;border-color:#ffc107">
+              4️⃣ travel-proxy-call → searches United flights → finds $750 aisle seat
+            </div>
+            <div class="anim-step" style="animation-delay:2.6s;border-color:#198754">
+              5️⃣ payments-charge → $750 on Sarah's Visa 4242 → ✅ BOOKED
+            </div>
+            <div class="anim-step" style="animation-delay:3.2s;border-color:#0dcaf0">
+              6️⃣ email-send → itinerary to sarah@acme.com with MileagePlus# attached
+            </div>
+          </div>
+        </div>
+        
+        <!-- TOM (Intern) -->
+        <div>
+          <div style="text-align:center;margin-bottom:1rem">
+            <span class="badge bg-red" style="font-size:.9rem">👨‍🎓 Tom · Viewer (Intern) · Engineering</span>
+          </div>
+          <div class="anim-flow">
+            <div class="anim-step" style="animation-delay:0.5s;border-color:#0dcaf0">
+              1️⃣ Agent injects: _user_email=tom@acme.com, _role=viewer, _groups=[engineering]
+            </div>
+            <div class="anim-step" style="animation-delay:1.0s;border-color:#198754">
+              2️⃣ RAG search finds:<br>
+              <span class="green">[P4 GROUP]</span> "Engineering budget: $1000/flight"<br>
+              <span class="green">[P3 ORG]</span> "Interns require manager approval for travel"<br>
+              <span style="color:rgba(255,255,255,0.3)">[P5 PERSONAL] — none configured</span>
+            </div>
+            <div class="anim-step" style="animation-delay:1.6s;border-color:#a78bfa">
+              3️⃣ Vault resolves: Org-level shared Amadeus key (Tom has no personal key)
+            </div>
+            <div class="anim-step" style="animation-delay:2.2s;border-color:#ffc107">
+              4️⃣ travel-proxy-call → searches flights → finds options
+            </div>
+            <div class="anim-step" style="animation-delay:2.8s;border-color:#dc3545">
+              5️⃣ payments-charge → ❌ BLOCKED<br>
+              <span class="red">read_only mode for viewer role → "Write operations blocked"</span>
+            </div>
+            <div class="anim-step" style="animation-delay:3.4s;border-color:#ffc107">
+              6️⃣ Agent responds: "I found a $680 Delta flight. Your role requires manager approval to book. Sending approval request to your manager..."
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Slide 33: Cloud Backend Swap -->
+  <section>
+    <div class="content center">
+      <h2>🌐 Loom — Swap the Cloud, Keep Everything Else</h2>
+      <p class="subtitle">Same Cerebro app · Same Weave plugins · Different infrastructure</p>
+      
+      <div style="position:relative;height:350px;margin-top:2rem">
+        <!-- Azure stack (fades out) -->
+        <div class="cloud-stack azure-stack" style="position:absolute;left:50%;transform:translateX(-50%)">
+          <div class="stack-label" style="color:#0dcaf0">☁ Azure</div>
+          <div class="stack-layer" style="animation-delay:0s;background:rgba(13,202,240,0.08);border-color:rgba(13,202,240,0.3)">AKS (Kubernetes)</div>
+          <div class="stack-layer" style="animation-delay:0.3s;background:rgba(13,202,240,0.06);border-color:rgba(13,202,240,0.2)">Cosmos DB</div>
+          <div class="stack-layer" style="animation-delay:0.6s;background:rgba(13,202,240,0.04);border-color:rgba(13,202,240,0.15)">Azure AI Search</div>
+          <div class="stack-layer" style="animation-delay:0.9s;background:rgba(13,202,240,0.03);border-color:rgba(13,202,240,0.1)">Azure OpenAI</div>
+          <div class="stack-layer" style="animation-delay:1.2s;background:rgba(13,202,240,0.02);border-color:rgba(13,202,240,0.08)">Key Vault</div>
+        </div>
+        
+        <!-- Transition arrow -->
+        <div class="swap-arrow" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:2rem;opacity:0;animation:fadeIn 0.5s 2.5s forwards">
+          🔄 <code style="font-size:.8rem">cd environments/aws && terraform apply</code>
+        </div>
+        
+        <!-- AWS stack (fades in) -->
+        <div class="cloud-stack aws-stack" style="position:absolute;left:50%;transform:translateX(-50%)">
+          <div class="stack-label" style="color:#ff9900">☁ AWS</div>
+          <div class="stack-layer" style="animation-delay:3.0s;background:rgba(255,153,0,0.08);border-color:rgba(255,153,0,0.3)">EKS (Kubernetes)</div>
+          <div class="stack-layer" style="animation-delay:3.3s;background:rgba(255,153,0,0.06);border-color:rgba(255,153,0,0.2)">DynamoDB</div>
+          <div class="stack-layer" style="animation-delay:3.6s;background:rgba(255,153,0,0.04);border-color:rgba(255,153,0,0.15)">OpenSearch</div>
+          <div class="stack-layer" style="animation-delay:3.9s;background:rgba(255,153,0,0.03);border-color:rgba(255,153,0,0.1)">Amazon Bedrock</div>
+          <div class="stack-layer" style="animation-delay:4.2s;background:rgba(255,153,0,0.02);border-color:rgba(255,153,0,0.08)">Secrets Manager</div>
+        </div>
+        
+        <!-- Unchanged layer on top -->
+        <div style="position:absolute;bottom:0;left:50%;transform:translateX(-50%);text-align:center;opacity:0;animation:fadeIn 0.5s 4.8s forwards">
+          <div style="background:rgba(167,139,250,0.1);border:2px solid #a78bfa;border-radius:12px;padding:12px 24px;display:inline-block">
+            <span style="color:#a78bfa;font-weight:700">✅ Unchanged:</span>
+            <span style="color:rgba(255,255,255,0.6);font-size:.85rem"> cerebro-app · mcp-engine · 33 tools · all plugins · all policies · all user data</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Slide 34: MCP Engine Dependencies -->
+  <section>
+    <div class="content center">
+      <h2>🔗 Reusable MCP Plugins — Engine Dependencies</h2>
+      <p class="subtitle">mcp2 imports Email + Payments from mcp1 without duplicating anything</p>
+      
+      <div style="display:flex;justify-content:center;gap:3rem;margin-top:2rem;align-items:flex-start">
+        <!-- MCP1 -->
+        <div class="dep-engine" style="animation-delay:0.3s">
+          <div style="color:#0dcaf0;font-weight:700;font-size:1rem;margin-bottom:8px">🔌 mcp1</div>
+          <div class="dep-plugin native" style="animation-delay:0.6s">📧 Email (13 tools)</div>
+          <div class="dep-plugin native" style="animation-delay:0.9s">🐙 GitHub (6 tools)</div>
+          <div class="dep-plugin native" style="animation-delay:1.2s">💳 Payments (10 tools)</div>
+          <div class="dep-plugin native" style="animation-delay:1.5s">🌐 Travel (4 tools)</div>
+        </div>
+        
+        <!-- Animated arrows -->
+        <div style="display:flex;flex-direction:column;justify-content:center;gap:2rem;padding-top:2rem">
+          <div class="dep-arrow" style="animation-delay:2.5s">
+            <span style="color:#a78bfa">📧 Email</span> →→→
+          </div>
+          <div class="dep-arrow" style="animation-delay:3.0s">
+            <span style="color:#a78bfa">💳 Payments</span> →→→
+          </div>
+        </div>
+        
+        <!-- MCP2 -->
+        <div class="dep-engine" style="animation-delay:2.0s">
+          <div style="color:#198754;font-weight:700;font-size:1rem;margin-bottom:8px">⚙ mcp2</div>
+          <div class="dep-plugin native" style="animation-delay:2.2s">📋 Jira (12 tools)</div>
+          <div class="dep-plugin native" style="animation-delay:2.4s">📊 Datadog (8 tools)</div>
+          <div class="dep-plugin imported" style="animation-delay:3.5s">📧 Email (from mcp1)</div>
+          <div class="dep-plugin imported" style="animation-delay:4.0s">💳 Payments (from mcp1)</div>
+        </div>
+      </div>
+      
+      <div style="margin-top:2rem;opacity:0;animation:fadeIn 0.5s 4.5s forwards">
+        <div class="highlight" style="text-align:center;font-size:.85rem">
+          <strong style="color:#a78bfa">🔗 Scoped dependency:</strong>
+          <span style="color:rgba(255,255,255,0.6)">mcp2 sees only Email + Payments tools. GitHub and Travel are invisible. RAG search restricted to imported plugin indexes only.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Slide 35: Call to Action -->
   <section>
     <div class="content center">
       <h1 style="background:linear-gradient(135deg,#0dcaf0,#a78bfa,#198754);-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-size:3.5rem;margin-bottom:1rem">Let's Build Together</h1>
@@ -1085,7 +1275,11 @@
     function show(n) {
       slides.forEach(s => s.classList.remove('active'));
       current = Math.max(0, Math.min(n, slides.length - 1));
-      slides[current].classList.add('active');
+      // Force animation restart by removing and re-adding .active after a reflow
+      const slide = slides[current];
+      slide.classList.remove('active');
+      void slide.offsetWidth; // trigger reflow to reset CSS animations
+      slide.classList.add('active');
       document.getElementById('progress').style.width = ((current + 1) / slides.length * 100) + '%';
       document.getElementById('slideNum').textContent = (current + 1) + ' / ' + slides.length;
     }
