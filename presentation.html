@@ -1475,7 +1475,7 @@
     </div>
   </section>
 
-  <!-- Slide 32: Two Users, One Request, Different Paths -->
+  <!-- Slide 32: Travel Scenario, One Request, Different Paths -->
   <section>
     <div class="thread-banner">Following: "Book a ticket from Boston to NY"</div>
     <div class="content">
@@ -1551,105 +1551,7 @@
     </div>
   </section>
 
-  <!-- Slide 33: Cloud Backend Swap -->
-  <section>
-    <div class="content center">
-      <h2>🌐 Loom — Swap the Cloud, Keep Everything Else</h2>
-      <p class="subtitle">Same Cerebro app · Same Weave plugins · Different infrastructure</p>
-      
-      <div style="position:relative;height:350px;margin-top:2rem">
-        <!-- Azure stack (fades out) -->
-        <div class="cloud-stack azure-stack" style="position:absolute;left:50%;transform:translateX(-50%)">
-          <div class="stack-label" style="color:#0dcaf0">☁ Azure</div>
-          <div class="stack-layer" style="animation-delay:0s;background:rgba(13,202,240,0.08);border-color:rgba(13,202,240,0.3)">AKS (Kubernetes)</div>
-          <div class="stack-layer" style="animation-delay:0.3s;background:rgba(13,202,240,0.06);border-color:rgba(13,202,240,0.2)">Cosmos DB</div>
-          <div class="stack-layer" style="animation-delay:0.6s;background:rgba(13,202,240,0.04);border-color:rgba(13,202,240,0.15)">Azure AI Search</div>
-          <div class="stack-layer" style="animation-delay:0.9s;background:rgba(13,202,240,0.03);border-color:rgba(13,202,240,0.1)">Azure OpenAI</div>
-          <div class="stack-layer" style="animation-delay:1.2s;background:rgba(13,202,240,0.02);border-color:rgba(13,202,240,0.08)">Key Vault</div>
-        </div>
-        
-        <!-- Transition arrow -->
-        <div class="swap-arrow" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:2rem;opacity:0;animation:fadeIn 0.5s 2.5s forwards">
-          🔄 <code style="font-size:.8rem">cd environments/aws && terraform apply</code>
-        </div>
-        
-        <!-- AWS stack (fades in) -->
-        <div class="cloud-stack aws-stack" style="position:absolute;left:50%;transform:translateX(-50%)">
-          <div class="stack-label" style="color:#ff9900">☁ AWS</div>
-          <div class="stack-layer" style="animation-delay:3.0s;background:rgba(255,153,0,0.08);border-color:rgba(255,153,0,0.3)">EKS (Kubernetes)</div>
-          <div class="stack-layer" style="animation-delay:3.3s;background:rgba(255,153,0,0.06);border-color:rgba(255,153,0,0.2)">DynamoDB</div>
-          <div class="stack-layer" style="animation-delay:3.6s;background:rgba(255,153,0,0.04);border-color:rgba(255,153,0,0.15)">OpenSearch</div>
-          <div class="stack-layer" style="animation-delay:3.9s;background:rgba(255,153,0,0.03);border-color:rgba(255,153,0,0.1)">Amazon Bedrock</div>
-          <div class="stack-layer" style="animation-delay:4.2s;background:rgba(255,153,0,0.02);border-color:rgba(255,153,0,0.08)">Secrets Manager</div>
-        </div>
-        
-        <!-- Unchanged layer on top -->
-        <div style="position:absolute;bottom:0;left:50%;transform:translateX(-50%);text-align:center;opacity:0;animation:fadeIn 0.5s 4.8s forwards">
-          <div style="background:rgba(167,139,250,0.1);border:2px solid #a78bfa;border-radius:12px;padding:12px 24px;display:inline-block">
-            <span style="color:#a78bfa;font-weight:700">✅ Unchanged:</span>
-            <span style="color:rgba(255,255,255,0.6);font-size:.85rem"> cerebro-app · mcp-engine · all tools · all plugins · all policies · all user data</span>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div style="position:absolute;bottom:4rem;left:50%;transform:translateX(-50%);max-width:700px;width:90%">
-      <div style="background:rgba(25,135,84,0.06);border:1px solid rgba(25,135,84,0.2);border-radius:8px;padding:6px 14px;font-size:.7rem;color:rgba(255,255,255,0.5);text-align:center">
-        🛡️ <strong style="color:#198754">Security:</strong> <span>Security enforcement is in the app layer, not the cloud layer. Swap Azure→AWS and all policies, RBAC, and audit still work identically.</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- Slide 34: MCP Engine Dependencies -->
-  <section>
-    <div class="content center">
-      <h2>🔗 Reusable MCP Plugins — Engine Dependencies</h2>
-      <p class="subtitle">mcp2 imports Email + Payments from mcp1 without duplicating anything</p>
-      
-      <div style="display:flex;justify-content:center;gap:3rem;margin-top:2rem;align-items:flex-start">
-        <!-- MCP1 -->
-        <div class="dep-engine" style="animation-delay:0.3s">
-          <div style="color:#0dcaf0;font-weight:700;font-size:1rem;margin-bottom:8px">🔌 mcp1</div>
-          <div class="dep-plugin native" style="animation-delay:0.6s">📧 Email</div>
-          <div class="dep-plugin native" style="animation-delay:0.9s">🐙 GitHub</div>
-          <div class="dep-plugin native" style="animation-delay:1.2s">💳 Payments</div>
-          <div class="dep-plugin native" style="animation-delay:1.5s">🌐 Travel</div>
-        </div>
-        
-        <!-- Animated arrows -->
-        <div style="display:flex;flex-direction:column;justify-content:center;gap:2rem;padding-top:2rem">
-          <div class="dep-arrow" style="animation-delay:2.5s">
-            <span style="color:#a78bfa">📧 Email</span> →→→
-          </div>
-          <div class="dep-arrow" style="animation-delay:3.0s">
-            <span style="color:#a78bfa">💳 Payments</span> →→→
-          </div>
-        </div>
-        
-        <!-- MCP2 -->
-        <div class="dep-engine" style="animation-delay:2.0s">
-          <div style="color:#198754;font-weight:700;font-size:1rem;margin-bottom:8px">⚙ mcp2</div>
-          <div class="dep-plugin native" style="animation-delay:2.2s">📋 Jira</div>
-          <div class="dep-plugin native" style="animation-delay:2.4s">📊 Datadog</div>
-          <div class="dep-plugin imported" style="animation-delay:3.5s">📧 Email (from mcp1)</div>
-          <div class="dep-plugin imported" style="animation-delay:4.0s">💳 Payments (from mcp1)</div>
-        </div>
-      </div>
-      
-      <div style="margin-top:2rem;opacity:0;animation:fadeIn 0.5s 4.5s forwards">
-        <div class="highlight" style="text-align:center;font-size:.85rem">
-          <strong style="color:#a78bfa">🔗 Scoped dependency:</strong>
-          <span style="color:rgba(255,255,255,0.6)">mcp2 sees only Email + Payments tools. GitHub and Travel are invisible. RAG search restricted to imported plugin indexes only.</span>
-        </div>
-      </div>
-    </div>
-    <div style="position:absolute;bottom:4rem;left:50%;transform:translateX(-50%);max-width:700px;width:90%">
-      <div style="background:rgba(25,135,84,0.06);border:1px solid rgba(25,135,84,0.2);border-radius:8px;padding:6px 14px;font-size:.7rem;color:rgba(255,255,255,0.5);text-align:center">
-        🛡️ <strong style="color:#198754">Security:</strong> <span>Dependency scope header limits tools + indexes at the engine level. Prompt injection cannot access tools outside the allowed list.</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- Slide 35: Healthcare Scenario -->
+  <!-- Slide 33: Healthcare Scenario -->
   <section>
     <div class="content">
       <h2 style="text-align:center">🏥 Healthcare: "Show me patient lab results"</h2>
@@ -1718,7 +1620,7 @@
     </div>
   </section>
 
-  <!-- Slide 36: Banking Scenario -->
+  <!-- Slide 34: Banking Scenario -->
   <section>
     <div class="content">
       <h2 style="text-align:center">🏦 Banking: "Transfer $50,000 to vendor account"</h2>
@@ -1787,7 +1689,7 @@
     </div>
   </section>
 
-  <!-- Slide 37: Legal Scenario -->
+  <!-- Slide 35: Legal Scenario -->
   <section>
     <div class="content">
       <h2 style="text-align:center">⚖️ Legal: "Find precedents for the Johnson case"</h2>
@@ -1856,7 +1758,7 @@
     </div>
   </section>
 
-  <!-- Slide 38: Education Scenario -->
+  <!-- Slide 36: Education Scenario -->
   <section>
     <div class="content">
       <h2 style="text-align:center">📚 Education: "Show me the exam answers for Biology 101"</h2>
@@ -1921,6 +1823,104 @@
     <div style="position:absolute;bottom:3.5rem;left:50%;transform:translateX(-50%);max-width:800px;width:90%">
       <div class="plain-talk" style="margin:0;font-size:.72rem;padding:.5rem .8rem">
         FERPA protects student educational records, and academic integrity requires that answer keys stay with instructors. ContextWeaver enforces both — Alex can't see answers, but the AI still <strong>helps them study</strong> using the materials they <em>are</em> allowed to access.
+      </div>
+    </div>
+  </section>
+
+  <!-- Slide 37: Cloud Backend Swap -->
+  <section>
+    <div class="content center">
+      <h2>🌐 Loom — Swap the Cloud, Keep Everything Else</h2>
+      <p class="subtitle">Same Cerebro app · Same Weave plugins · Different infrastructure</p>
+      
+      <div style="position:relative;height:350px;margin-top:2rem">
+        <!-- Azure stack (fades out) -->
+        <div class="cloud-stack azure-stack" style="position:absolute;left:50%;transform:translateX(-50%)">
+          <div class="stack-label" style="color:#0dcaf0">☁ Azure</div>
+          <div class="stack-layer" style="animation-delay:0s;background:rgba(13,202,240,0.08);border-color:rgba(13,202,240,0.3)">AKS (Kubernetes)</div>
+          <div class="stack-layer" style="animation-delay:0.3s;background:rgba(13,202,240,0.06);border-color:rgba(13,202,240,0.2)">Cosmos DB</div>
+          <div class="stack-layer" style="animation-delay:0.6s;background:rgba(13,202,240,0.04);border-color:rgba(13,202,240,0.15)">Azure AI Search</div>
+          <div class="stack-layer" style="animation-delay:0.9s;background:rgba(13,202,240,0.03);border-color:rgba(13,202,240,0.1)">Azure OpenAI</div>
+          <div class="stack-layer" style="animation-delay:1.2s;background:rgba(13,202,240,0.02);border-color:rgba(13,202,240,0.08)">Key Vault</div>
+        </div>
+        
+        <!-- Transition arrow -->
+        <div class="swap-arrow" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:2rem;opacity:0;animation:fadeIn 0.5s 2.5s forwards">
+          🔄 <code style="font-size:.8rem">cd environments/aws && terraform apply</code>
+        </div>
+        
+        <!-- AWS stack (fades in) -->
+        <div class="cloud-stack aws-stack" style="position:absolute;left:50%;transform:translateX(-50%)">
+          <div class="stack-label" style="color:#ff9900">☁ AWS</div>
+          <div class="stack-layer" style="animation-delay:3.0s;background:rgba(255,153,0,0.08);border-color:rgba(255,153,0,0.3)">EKS (Kubernetes)</div>
+          <div class="stack-layer" style="animation-delay:3.3s;background:rgba(255,153,0,0.06);border-color:rgba(255,153,0,0.2)">DynamoDB</div>
+          <div class="stack-layer" style="animation-delay:3.6s;background:rgba(255,153,0,0.04);border-color:rgba(255,153,0,0.15)">OpenSearch</div>
+          <div class="stack-layer" style="animation-delay:3.9s;background:rgba(255,153,0,0.03);border-color:rgba(255,153,0,0.1)">Amazon Bedrock</div>
+          <div class="stack-layer" style="animation-delay:4.2s;background:rgba(255,153,0,0.02);border-color:rgba(255,153,0,0.08)">Secrets Manager</div>
+        </div>
+        
+        <!-- Unchanged layer on top -->
+        <div style="position:absolute;bottom:0;left:50%;transform:translateX(-50%);text-align:center;opacity:0;animation:fadeIn 0.5s 4.8s forwards">
+          <div style="background:rgba(167,139,250,0.1);border:2px solid #a78bfa;border-radius:12px;padding:12px 24px;display:inline-block">
+            <span style="color:#a78bfa;font-weight:700">✅ Unchanged:</span>
+            <span style="color:rgba(255,255,255,0.6);font-size:.85rem"> cerebro-app · mcp-engine · all tools · all plugins · all policies · all user data</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="position:absolute;bottom:4rem;left:50%;transform:translateX(-50%);max-width:700px;width:90%">
+      <div style="background:rgba(25,135,84,0.06);border:1px solid rgba(25,135,84,0.2);border-radius:8px;padding:6px 14px;font-size:.7rem;color:rgba(255,255,255,0.5);text-align:center">
+        🛡️ <strong style="color:#198754">Security:</strong> <span>Security enforcement is in the app layer, not the cloud layer. Swap Azure→AWS and all policies, RBAC, and audit still work identically.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Slide 38: MCP Engine Dependencies -->
+  <section>
+    <div class="content center">
+      <h2>🔗 Reusable MCP Plugins — Engine Dependencies</h2>
+      <p class="subtitle">mcp2 imports Email + Payments from mcp1 without duplicating anything</p>
+      
+      <div style="display:flex;justify-content:center;gap:3rem;margin-top:2rem;align-items:flex-start">
+        <!-- MCP1 -->
+        <div class="dep-engine" style="animation-delay:0.3s">
+          <div style="color:#0dcaf0;font-weight:700;font-size:1rem;margin-bottom:8px">🔌 mcp1</div>
+          <div class="dep-plugin native" style="animation-delay:0.6s">📧 Email</div>
+          <div class="dep-plugin native" style="animation-delay:0.9s">🐙 GitHub</div>
+          <div class="dep-plugin native" style="animation-delay:1.2s">💳 Payments</div>
+          <div class="dep-plugin native" style="animation-delay:1.5s">🌐 Travel</div>
+        </div>
+        
+        <!-- Animated arrows -->
+        <div style="display:flex;flex-direction:column;justify-content:center;gap:2rem;padding-top:2rem">
+          <div class="dep-arrow" style="animation-delay:2.5s">
+            <span style="color:#a78bfa">📧 Email</span> →→→
+          </div>
+          <div class="dep-arrow" style="animation-delay:3.0s">
+            <span style="color:#a78bfa">💳 Payments</span> →→→
+          </div>
+        </div>
+        
+        <!-- MCP2 -->
+        <div class="dep-engine" style="animation-delay:2.0s">
+          <div style="color:#198754;font-weight:700;font-size:1rem;margin-bottom:8px">⚙ mcp2</div>
+          <div class="dep-plugin native" style="animation-delay:2.2s">📋 Jira</div>
+          <div class="dep-plugin native" style="animation-delay:2.4s">📊 Datadog</div>
+          <div class="dep-plugin imported" style="animation-delay:3.5s">📧 Email (from mcp1)</div>
+          <div class="dep-plugin imported" style="animation-delay:4.0s">💳 Payments (from mcp1)</div>
+        </div>
+      </div>
+      
+      <div style="margin-top:2rem;opacity:0;animation:fadeIn 0.5s 4.5s forwards">
+        <div class="highlight" style="text-align:center;font-size:.85rem">
+          <strong style="color:#a78bfa">🔗 Scoped dependency:</strong>
+          <span style="color:rgba(255,255,255,0.6)">mcp2 sees only Email + Payments tools. GitHub and Travel are invisible. RAG search restricted to imported plugin indexes only.</span>
+        </div>
+      </div>
+    </div>
+    <div style="position:absolute;bottom:4rem;left:50%;transform:translateX(-50%);max-width:700px;width:90%">
+      <div style="background:rgba(25,135,84,0.06);border:1px solid rgba(25,135,84,0.2);border-radius:8px;padding:6px 14px;font-size:.7rem;color:rgba(255,255,255,0.5);text-align:center">
+        🛡️ <strong style="color:#198754">Security:</strong> <span>Dependency scope header limits tools + indexes at the engine level. Prompt injection cannot access tools outside the allowed list.</span>
       </div>
     </div>
   </section>
