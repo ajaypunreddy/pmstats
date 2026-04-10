@@ -152,7 +152,7 @@
         <span class="flow-arrow">→</span>
         <span class="flow-box bg-green">External API</span>
       </div>
-      <div class="grid3" style="margin-top:2rem">
+      <div class="grid3" style="margin-top:1.5rem">
         <div class="card bg-cyan">
           <h4>🔐 Credential Vault</h4>
           <p>Per-user / group / org key cascading</p>
@@ -165,6 +165,15 @@
           <h4>🛡️ Policy Engine</h4>
           <p>Code-enforced toggles, not prompt-based</p>
         </div>
+      </div>
+      <div class="highlight" style="margin-top:1.25rem;padding:.75rem 1rem;font-size:.85rem">
+        <h4 style="margin-bottom:.5rem">🏢 Multi-Tenant Isolation</h4>
+        <div class="flow" style="gap:.5rem">
+          <span class="flow-box bg-cyan" style="font-size:.75rem;padding:.3rem .6rem">Tenant A<br>Namespace · Engines · Indexes · Vault</span>
+          <span class="flow-box bg-purple" style="font-size:.75rem;padding:.3rem .6rem">Tenant B<br>Namespace · Engines · Indexes · Vault</span>
+          <span class="flow-box bg-green" style="font-size:.75rem;padding:.3rem .6rem">Tenant N<br>Namespace · Engines · Indexes · Vault</span>
+        </div>
+        <p style="margin:.5rem 0 0;font-size:.75rem;color:rgba(255,255,255,0.5)">Each tenant gets independent namespaces with their own MCP engines, RAG indexes, and vault keys</p>
       </div>
     </div>
   </section>
@@ -230,29 +239,95 @@
   <!-- Slide 8: Built-in Plugins -->
   <section>
     <div class="content">
-      <h2><span class="green">🧩</span> Built-in Plugins — 33 Tools</h2>
-      <div class="grid2">
+      <h2><span class="green">🧩</span> 15 Built-in · 40+ Industry Verticals · 300+ Tools</h2>
+      <p class="subtitle" style="margin-bottom:1rem">4 available now · 11 coming soon · 40+ industry vertical plugins on the roadmap</p>
+      <div class="grid2" style="margin-bottom:1rem">
         <div class="card bg-cyan">
-          <h4>📧 Email Plugin — 13 tools</h4>
-          <p>send, reply, forward, list, search, read, draft, attach, folders, labels, move, archive, delete</p>
+          <h4>📧 Email — 13 tools</h4>
+          <p>Gmail, Outlook, 10+ providers · send, search, draft, labels, folders</p>
         </div>
         <div class="card bg-purple">
-          <h4>🐙 GitHub Plugin — 6 tools</h4>
-          <p>create-issue, list-repos, create-pr, review-pr, search-code, get-file</p>
+          <h4>🐙 GitHub — 6 tools</h4>
+          <p>Repos, issues, PRs, actions, code search, commits</p>
         </div>
         <div class="card bg-green">
-          <h4>💳 Payments Plugin — 10 tools</h4>
-          <p>create-charge, refund, list-txns, get-balance, create-customer, invoices, subscriptions, webhooks, payouts, disputes</p>
+          <h4>💳 Payments (Stripe) — 10 tools</h4>
+          <p>Charges, refunds, cards, invoices, subscriptions, webhooks</p>
         </div>
         <div class="card" style="border-color:rgba(255,193,7,0.3);background:rgba(255,193,7,0.05)">
-          <h4>✈️ Travel Plugin — 4 tools</h4>
-          <p>search-flights, book-flight, check-status, cancel-booking</p>
+          <h4>🌐 Travel — 4 tools</h4>
+          <p>Proxy to upstream MCP servers · flights, hotels, itinerary</p>
         </div>
+      </div>
+      <h3 style="font-size:1.1rem;color:rgba(255,255,255,0.5);margin-bottom:.75rem">Coming Soon — 11 Plugins · 91 Tools</h3>
+      <div style="display:flex;flex-wrap:wrap;gap:.5rem;justify-content:center">
+        <span class="flow-box" style="font-size:.75rem;padding:.35rem .75rem">📅 Calendar · 8</span>
+        <span class="flow-box" style="font-size:.75rem;padding:.35rem .75rem">📋 Jira / Project · 12</span>
+        <span class="flow-box" style="font-size:.75rem;padding:.35rem .75rem">💬 Slack / Teams · 9</span>
+        <span class="flow-box" style="font-size:.75rem;padding:.35rem .75rem">📄 Document · 10</span>
+        <span class="flow-box" style="font-size:.75rem;padding:.35rem .75rem">🗄 Database · 8</span>
+        <span class="flow-box" style="font-size:.75rem;padding:.35rem .75rem">☁ Cloud Ops · 11</span>
+        <span class="flow-box" style="font-size:.75rem;padding:.35rem .75rem">📊 Analytics · 7</span>
+        <span class="flow-box" style="font-size:.75rem;padding:.35rem .75rem">🔔 Notifications · 6</span>
+        <span class="flow-box" style="font-size:.75rem;padding:.35rem .75rem">👤 Identity · 8</span>
+        <span class="flow-box" style="font-size:.75rem;padding:.35rem .75rem">📦 Storage · 7</span>
+        <span class="flow-box" style="font-size:.75rem;padding:.35rem .75rem">🔐 Secrets · 5</span>
       </div>
     </div>
   </section>
 
-  <!-- Slide 9: Hierarchical RAG -->
+  <!-- Slide 9: Industry Vertical Roadmap -->
+  <section>
+    <div class="content">
+      <h2><span class="purple">🌐</span> Industry Vertical Roadmap</h2>
+      <p class="subtitle" style="margin-bottom:1rem">One platform, every industry — 40+ plugins · 300+ tools across 8 verticals</p>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:.6rem">
+        <div class="card bg-cyan" style="padding:.75rem">
+          <h4 style="font-size:.9rem;margin-bottom:.25rem">🏥 Healthcare &amp; Biotech</h4>
+          <p style="font-size:.72rem;margin-bottom:.15rem;color:rgba(255,255,255,0.6)">Epic EHR · HL7 FHIR · Clinical Trials · Drug Interaction</p>
+          <span class="cyan" style="font-weight:800;font-size:1rem">4 plugins · 38 tools</span>
+        </div>
+        <div class="card bg-purple" style="padding:.75rem">
+          <h4 style="font-size:.9rem;margin-bottom:.25rem">💰 Financial Services</h4>
+          <p style="font-size:.72rem;margin-bottom:.15rem;color:rgba(255,255,255,0.6)">Bloomberg · Plaid · QuickBooks · Compliance/KYC</p>
+          <span class="purple" style="font-weight:800;font-size:1rem">4 plugins · 36 tools</span>
+        </div>
+        <div class="card bg-green" style="padding:.75rem">
+          <h4 style="font-size:.9rem;margin-bottom:.25rem">🚀 Aerospace &amp; Defense</h4>
+          <p style="font-size:.72rem;margin-bottom:.15rem;color:rgba(255,255,255,0.6)">Jira Aerospace · Supply Chain · Fleet Mgmt</p>
+          <span class="green" style="font-weight:800;font-size:1rem">3 plugins · 26 tools</span>
+        </div>
+        <div class="card" style="padding:.75rem;border-color:rgba(255,193,7,0.3);background:rgba(255,193,7,0.05)">
+          <h4 style="font-size:.9rem;margin-bottom:.25rem">⚖ Legal</h4>
+          <p style="font-size:.72rem;margin-bottom:.15rem;color:rgba(255,255,255,0.6)">Westlaw/LexisNexis · DocuSign · Billing/Timesheet</p>
+          <span class="yellow" style="font-weight:800;font-size:1rem">3 plugins · 19 tools</span>
+        </div>
+        <div class="card" style="padding:.75rem;border-color:rgba(220,53,69,0.3);background:rgba(220,53,69,0.05)">
+          <h4 style="font-size:.9rem;margin-bottom:.25rem">🏭 Manufacturing</h4>
+          <p style="font-size:.72rem;margin-bottom:.15rem;color:rgba(255,255,255,0.6)">SAP Integration · IoT/SCADA</p>
+          <span class="red" style="font-weight:800;font-size:1rem">2 plugins · 18 tools</span>
+        </div>
+        <div class="card bg-cyan" style="padding:.75rem">
+          <h4 style="font-size:.9rem;margin-bottom:.25rem">🏫 Education</h4>
+          <p style="font-size:.72rem;margin-bottom:.15rem;color:rgba(255,255,255,0.6)">Canvas/Blackboard · Student Information</p>
+          <span class="cyan" style="font-weight:800;font-size:1rem">2 plugins · 14 tools</span>
+        </div>
+        <div class="card bg-purple" style="padding:.75rem">
+          <h4 style="font-size:.9rem;margin-bottom:.25rem">🛒 Retail &amp; E-Commerce</h4>
+          <p style="font-size:.72rem;margin-bottom:.15rem;color:rgba(255,255,255,0.6)">Shopify · Salesforce CRM</p>
+          <span class="purple" style="font-weight:800;font-size:1rem">2 plugins · 19 tools</span>
+        </div>
+        <div class="card bg-green" style="padding:.75rem">
+          <h4 style="font-size:.9rem;margin-bottom:.25rem">✨ Build Your Own</h4>
+          <p style="font-size:.72rem;margin-bottom:.15rem;color:rgba(255,255,255,0.6)">No-code wizard · OpenAPI import · Custom verticals</p>
+          <span class="green" style="font-weight:800;font-size:1rem">∞ possibilities</span>
+        </div>
+      </div>
+      <p class="subtitle" style="margin-top:1rem;font-size:.85rem;color:rgba(255,255,255,0.4)">Each plugin ships as a ZIP — install via Visual Designer in 2 clicks · Build many verticals on a single foundation</p>
+    </div>
+  </section>
+
+  <!-- Slide 10: Hierarchical RAG -->
   <section>
     <div class="content center">
       <h2><span class="purple">📚</span> Hierarchical RAG — 5 Priority Levels</h2>
@@ -842,32 +917,37 @@
   <section>
     <div class="content">
       <h2><span class="purple">🏢</span> Multi-Tenant Architecture</h2>
+      <p class="subtitle" style="margin-bottom:1rem">Multiple instances for complete separation — each tenant gets their own namespace, their own MCP engines, their own indexes, their own vault keys. Or share a single platform with logical isolation.</p>
       <div class="grid2">
         <div class="card bg-cyan">
-          <h4>1:1 Dedicated</h4>
+          <h4>1:1 Dedicated — Complete Separation</h4>
           <ul>
-            <li>Isolated AKS cluster per tenant</li>
-            <li>Dedicated Cosmos DB</li>
-            <li>Own Key Vault instance</li>
-            <li>Full data sovereignty</li>
+            <li>Isolated AKS namespace per tenant</li>
+            <li>Dedicated Cosmos DB &amp; Key Vault</li>
+            <li>Own MCP engines, RAG indexes, vault keys</li>
+            <li>Full data sovereignty — nothing shared</li>
+            <li>Independent scaling &amp; compliance boundary</li>
           </ul>
         </div>
         <div class="card bg-purple">
-          <h4>1:N Shared</h4>
+          <h4>1:N Shared — Logical Isolation</h4>
           <ul>
-            <li>Shared AKS, namespaced</li>
+            <li>Shared AKS cluster, K8s namespace separation</li>
             <li>Partition key isolation in Cosmos</li>
-            <li>Shared Key Vault, scoped policies</li>
-            <li>Cost-efficient for SMB</li>
+            <li>Scoped Key Vault policies per tenant</li>
+            <li>Tenant-scoped MCP engines &amp; RAG indexes</li>
+            <li>Cost-efficient for SMB — same platform</li>
           </ul>
         </div>
       </div>
       <table style="margin-top:1.5rem">
         <tr><th>Aspect</th><th class="cyan">Dedicated</th><th class="purple">Shared</th></tr>
-        <tr><td>Isolation</td><td>Physical</td><td>Logical</td></tr>
+        <tr><td>Isolation</td><td>Physical (own namespace)</td><td>Logical (partition keys)</td></tr>
+        <tr><td>MCP Engines</td><td>Tenant-exclusive</td><td>Tenant-scoped</td></tr>
+        <tr><td>RAG Indexes</td><td>Separate storage</td><td>Index-name isolation</td></tr>
+        <tr><td>Vault Keys</td><td>Own Key Vault</td><td>Scoped policies</td></tr>
+        <tr><td>Compliance</td><td>SOC2 / HIPAA / FedRAMP</td><td>SOC2</td></tr>
         <tr><td>Cost</td><td>Higher</td><td>Lower</td></tr>
-        <tr><td>Compliance</td><td>SOC2 / HIPAA</td><td>SOC2</td></tr>
-        <tr><td>Scale</td><td>Independent</td><td>Pooled</td></tr>
       </table>
     </div>
   </section>
