@@ -120,9 +120,9 @@
       <p style="color:rgba(255,255,255,0.45);font-size:1rem;margin-top:.5rem;max-width:650px;margin-left:auto;margin-right:auto;line-height:1.7">When you ask an AI assistant to "check my email" or "book a flight" — who makes sure it uses <em>your</em> account, follows <em>your company's</em> rules, and can't access <em>someone else's</em> data?</p>
       <p style="color:#0dcaf0;font-size:1.1rem;margin-top:1rem;font-weight:600">That's what ContextWeaver does.</p>
       <div style="display:flex;gap:1rem;justify-content:center;margin-top:2rem">
-        <span class="badge bg-cyan" style="font-size:.85rem;padding:.4rem 1rem">🧠 Cerebro — The Brain</span>
-        <span class="badge bg-purple" style="font-size:.85rem;padding:.4rem 1rem">🌐 Loom — The Designer</span>
-        <span class="badge bg-green" style="font-size:.85rem;padding:.4rem 1rem">🧶 Weave — The Infrastructure</span>
+        <a href="architecture-diagram.html" target="_blank" class="badge bg-cyan" style="font-size:.85rem;padding:.4rem 1rem;text-decoration:none;cursor:pointer">🧠 Cerebro — The Brain</a>
+        <a href="infrastructure-diagram.html" target="_blank" class="badge bg-purple" style="font-size:.85rem;padding:.4rem 1rem;text-decoration:none;cursor:pointer">🌐 Loom — The Designer</a>
+        <a href="weave-diagram.html" target="_blank" class="badge bg-green" style="font-size:.85rem;padding:.4rem 1rem;text-decoration:none;cursor:pointer">🧶 Weave — The Infrastructure</a>
       </div>
     </div>
     <div style="position:absolute;bottom:4rem;left:50%;transform:translateX(-50%);max-width:700px;width:90%">
@@ -159,15 +159,15 @@
       <h2>The ContextWeaver Solution</h2>
       <p style="color:rgba(255,255,255,0.5);margin-bottom:1.2rem;font-size:.95rem">Three layers working together — like a <strong style="color:#e6edf3">brain</strong>, a <strong style="color:#e6edf3">blueprint</strong>, and a <strong style="color:#e6edf3">foundation</strong></p>
       <div class="grid3">
-        <div class="card bg-cyan">
+        <div class="card bg-cyan" onclick="window.open('architecture-diagram.html','_blank')" style="cursor:pointer">
           <h4>🧠 Cerebro — The Brain</h4>
           <p>Knows <em>who</em> is asking and <em>what they're allowed to do</em>. Logs in users with corporate SSO, keeps each person's passwords in a private vault, and gives the AI only the knowledge that person should see.</p>
         </div>
-        <div class="card bg-purple">
+        <div class="card bg-purple" onclick="window.open('infrastructure-diagram.html','_blank')" style="cursor:pointer">
           <h4>🌐 Loom — The Blueprint</h4>
           <p>A visual drag-and-drop designer where admins wire up AI capabilities — like connecting email, payments, and travel services — without writing code. Think of it as a circuit board for AI tools.</p>
         </div>
-        <div class="card bg-green">
+        <div class="card bg-green" onclick="window.open('weave-diagram.html','_blank')" style="cursor:pointer">
           <h4>🧶 Weave — The Foundation</h4>
           <p>The infrastructure that runs it all: deploys to any cloud (Azure, AWS, Google), monitors health, and can be set up with a single command. Like the plumbing and electrical in a building — you don't see it, but nothing works without it.</p>
         </div>
