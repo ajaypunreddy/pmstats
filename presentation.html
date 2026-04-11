@@ -1467,6 +1467,63 @@
     </div>
   </section>
 
+  <!-- Slide 29b: Workflow Orchestration -->
+  <section>
+    <div class="content">
+      <h2 style="text-align:center"><span class="yellow">⚡</span> Workflow Orchestration — Multi-Step Automation with Security at Every Step</h2>
+      <p style="text-align:center;color:rgba(255,255,255,0.4);margin-bottom:1rem;font-size:.88rem">Not just chat — automated multi-step processes with approval gates, branching, and parallel execution</p>
+
+      <div class="grid2">
+        <!-- Left: Step types -->
+        <div>
+          <h3 style="color:#ffc107;font-size:1rem;margin-bottom:.7rem">Building Blocks</h3>
+          <div class="card" style="margin-bottom:.4rem;padding:.5rem .8rem;border-color:rgba(13,202,240,0.3)">
+            <span class="cyan" style="font-weight:700">🔧 Tool Call</span> — <span style="color:rgba(255,255,255,0.5);font-size:.85rem">Execute any MCP tool (email, payments, search)</span>
+          </div>
+          <div class="card" style="margin-bottom:.4rem;padding:.5rem .8rem;border-color:rgba(255,193,7,0.3)">
+            <span class="yellow" style="font-weight:700">✋ Approval Gate</span> — <span style="color:rgba(255,255,255,0.5);font-size:.85rem">Pause for human decision, auto-escalate on timeout</span>
+          </div>
+          <div class="card" style="margin-bottom:.4rem;padding:.5rem .8rem;border-color:rgba(167,139,250,0.3)">
+            <span class="purple" style="font-weight:700">🔀 Condition</span> — <span style="color:rgba(255,255,255,0.5);font-size:.85rem">If/else branching: amount > $500? → different path</span>
+          </div>
+          <div class="card" style="margin-bottom:.4rem;padding:.5rem .8rem;border-color:rgba(220,53,69,0.3)">
+            <span class="red" style="font-weight:700">⚡ Parallel</span> — <span style="color:rgba(255,255,255,0.5);font-size:.85rem">Fan-out to multiple branches simultaneously</span>
+          </div>
+          <div class="card" style="margin-bottom:.4rem;padding:.5rem .8rem;border-color:rgba(25,135,84,0.3)">
+            <span class="green" style="font-weight:700">📧 Notify</span> — <span style="color:rgba(255,255,255,0.5);font-size:.85rem">Email/Slack/SMS using your own channels</span>
+          </div>
+        </div>
+
+        <!-- Right: Example flow -->
+        <div>
+          <h3 style="color:#0dcaf0;font-size:1rem;margin-bottom:.7rem">Example: Expense Approval</h3>
+          <div class="highlight" style="padding:.8rem;margin:0;font-size:.82rem;line-height:1.8">
+            <span class="badge bg-purple" style="font-size:.7rem">1</span> User submits $800 expense<br>
+            <span class="badge bg-purple" style="font-size:.7rem">2</span> <span class="purple">🔀 Condition:</span> amount > $500? → <strong>Yes</strong><br>
+            <span class="badge" style="background:rgba(255,193,7,0.2);font-size:.7rem;color:#ffc107">3</span> <span class="yellow">✋ Manager approval requested</span> (24h timeout → escalate to director)<br>
+            <span class="badge bg-success" style="font-size:.7rem">4</span> Manager approves ✅<br>
+            <span class="badge bg-info" style="font-size:.7rem">5</span> <span class="cyan">🔧 payments-charge</span> → $800 charged to user's Visa<br>
+            <span class="badge bg-success" style="font-size:.7rem">6</span> <span class="green">📧 Confirmation email</span> sent to user + receipt to finance<br>
+            <div style="margin-top:.5rem;padding:.4rem;background:rgba(220,53,69,0.06);border-radius:6px;font-size:.75rem;color:rgba(220,53,69,0.7)">
+              🔒 At every step: identity checked, credentials from vault, policy enforced, action audited
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="display:flex;gap:.8rem;justify-content:center;margin-top:.8rem;flex-wrap:wrap">
+        <span class="flow-box" style="font-size:.78rem;padding:.4rem .8rem;background:rgba(255,193,7,0.06);border:1px solid rgba(255,193,7,0.2);color:rgba(255,193,7,0.7)">💰 Expense Approval</span>
+        <span class="flow-box" style="font-size:.78rem;padding:.4rem .8rem;background:rgba(13,202,240,0.06);border:1px solid rgba(13,202,240,0.2);color:rgba(13,202,240,0.7)">✈️ Travel Booking</span>
+        <span class="flow-box" style="font-size:.78rem;padding:.4rem .8rem;background:rgba(220,53,69,0.06);border:1px solid rgba(220,53,69,0.2);color:rgba(220,53,69,0.7)">🚨 Incident Response</span>
+        <span class="flow-box" style="font-size:.78rem;padding:.4rem .8rem;background:rgba(25,135,84,0.06);border:1px solid rgba(25,135,84,0.2);color:rgba(25,135,84,0.7)">👋 Employee Onboarding</span>
+      </div>
+
+      <div class="plain-talk" style="margin-top:.7rem;font-size:.75rem">
+        Think of workflows like an <strong>assembly line where every station checks your badge</strong>. The expense goes from station to station — validation, threshold check, manager approval, payment processing, notification. At each station, a security guard verifies who you are, what you're allowed to do, and logs everything. If the manager station takes too long, the expense automatically moves to the director's desk. No step is skipped, no check is optional.
+      </div>
+    </div>
+  </section>
+
   <!-- Slide 30: Competitive Landscape -->
   <section>
     <div class="content">
