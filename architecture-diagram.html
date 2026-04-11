@@ -36,7 +36,7 @@
 <h1>Agentic AI + MCP Architecture</h1>
 <p class="subtitle">Click any block to see implementation details · Animated arrows show data flow</p>
 
-<svg viewBox="0 0 1100 720" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 1110 930" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <marker id="arrowCyan" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
       <polygon points="0 0, 8 3, 0 6" fill="#0dcaf0"/>
@@ -218,60 +218,193 @@
     <text x="690" y="535" text-anchor="middle" fill="rgba(255,255,255,0.3)" font-size="9">Checks: role ≥ min_role? write allowed? credentials present? rate limit OK? → ALLOW or BLOCK</text>
   </g>
 
-  <!-- ═══ ROW 4: Plugins ═══ -->
+  <!-- ═══ ROW 4: Plugins (Expanded) ═══ -->
 
   <!-- Arrow: Engine → Plugins -->
-  <line x1="690" y1="550" x2="690" y2="585" stroke="#198754" stroke-width="2" class="arrow" marker-end="url(#arrowGreen)"/>
-  <circle cx="680" cy="568" r="9" class="step-circle" style="fill:#198754"/><text x="680" y="571" text-anchor="middle" class="step-num">7</text>
+  <line x1="690" y1="550" x2="690" y2="580" stroke="#198754" stroke-width="2" class="arrow" marker-end="url(#arrowGreen)"/>
+  <circle cx="680" cy="565" r="9" class="step-circle" style="fill:#198754"/><text x="680" y="568" text-anchor="middle" class="step-num">7</text>
 
-  <!-- Plugin row -->
+  <!-- Section label -->
+  <text x="545" y="598" fill="rgba(25,135,84,0.5)" font-size="8" font-weight="600">AVAILABLE</text>
+  <text x="545" y="658" fill="rgba(167,139,250,0.5)" font-size="8" font-weight="600">COMING SOON</text>
+  <text x="545" y="718" fill="rgba(220,53,69,0.5)" font-size="8" font-weight="600">INDUSTRY</text>
+
+  <!-- Available plugins (solid green border) -->
   <g class="block" onclick="showDetail('plugins')">
-    <rect x="200" y="590" width="140" height="55" rx="8" fill="rgba(25,135,84,0.08)" stroke="#198754" stroke-width="1.5"/>
-    <text x="270" y="613" text-anchor="middle" fill="#198754" font-weight="700" font-size="11">📧 Email Plugin</text>
-    <text x="270" y="630" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="8.5">send · read · search</text>
-  </g>
-  <g class="block" onclick="showDetail('plugins')">
-    <rect x="360" y="590" width="140" height="55" rx="8" fill="rgba(25,135,84,0.08)" stroke="#198754" stroke-width="1.5"/>
-    <text x="430" y="613" text-anchor="middle" fill="#198754" font-weight="700" font-size="11">💳 Payments Plugin</text>
-    <text x="430" y="630" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="8.5">charge · refund · list</text>
-  </g>
-  <g class="block" onclick="showDetail('plugins')">
-    <rect x="520" y="590" width="140" height="55" rx="8" fill="rgba(25,135,84,0.08)" stroke="#198754" stroke-width="1.5"/>
-    <text x="590" y="613" text-anchor="middle" fill="#198754" font-weight="700" font-size="11">🐙 GitHub Plugin</text>
-    <text x="590" y="630" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="8.5">repos · issues · PRs</text>
+    <rect x="110" y="585" width="105" height="42" rx="7" fill="rgba(25,135,84,0.08)" stroke="#198754" stroke-width="1.5"/>
+    <text x="162" y="604" text-anchor="middle" fill="#198754" font-weight="600" font-size="10">📧 Email</text>
+    <text x="162" y="618" text-anchor="middle" fill="rgba(255,255,255,0.35)" font-size="7.5">send · read · search</text>
   </g>
   <g class="block" onclick="showDetail('plugins')">
-    <rect x="680" y="590" width="140" height="55" rx="8" fill="rgba(25,135,84,0.08)" stroke="#198754" stroke-width="1.5"/>
-    <text x="750" y="613" text-anchor="middle" fill="#198754" font-weight="700" font-size="11">✈️ Travel Plugin</text>
-    <text x="750" y="630" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="8.5">search · book · cancel</text>
+    <rect x="225" y="585" width="105" height="42" rx="7" fill="rgba(25,135,84,0.08)" stroke="#198754" stroke-width="1.5"/>
+    <text x="277" y="604" text-anchor="middle" fill="#198754" font-weight="600" font-size="10">💳 Payments</text>
+    <text x="277" y="618" text-anchor="middle" fill="rgba(255,255,255,0.35)" font-size="7.5">charge · refund · list</text>
+  </g>
+  <g class="block" onclick="showDetail('plugins')">
+    <rect x="340" y="585" width="105" height="42" rx="7" fill="rgba(25,135,84,0.08)" stroke="#198754" stroke-width="1.5"/>
+    <text x="392" y="604" text-anchor="middle" fill="#198754" font-weight="600" font-size="10">🐙 GitHub</text>
+    <text x="392" y="618" text-anchor="middle" fill="rgba(255,255,255,0.35)" font-size="7.5">repos · issues · PRs</text>
+  </g>
+  <g class="block" onclick="showDetail('plugins')">
+    <rect x="455" y="585" width="105" height="42" rx="7" fill="rgba(25,135,84,0.08)" stroke="#198754" stroke-width="1.5"/>
+    <text x="507" y="604" text-anchor="middle" fill="#198754" font-weight="600" font-size="10">✈️ Travel</text>
+    <text x="507" y="618" text-anchor="middle" fill="rgba(255,255,255,0.35)" font-size="7.5">flights · hotels · book</text>
   </g>
 
-  <!-- ═══ ROW 5: External APIs ═══ -->
+  <!-- Coming soon plugins (dashed purple border) -->
+  <g class="block" onclick="showDetail('plugins')">
+    <rect x="110" y="640" width="82" height="38" rx="6" fill="rgba(167,139,250,0.05)" stroke="rgba(167,139,250,0.3)" stroke-width="1" stroke-dasharray="4,2"/>
+    <text x="151" y="663" text-anchor="middle" fill="rgba(167,139,250,0.7)" font-size="9">📅 Calendar</text>
+  </g>
+  <g class="block" onclick="showDetail('plugins')">
+    <rect x="200" y="640" width="82" height="38" rx="6" fill="rgba(167,139,250,0.05)" stroke="rgba(167,139,250,0.3)" stroke-width="1" stroke-dasharray="4,2"/>
+    <text x="241" y="663" text-anchor="middle" fill="rgba(167,139,250,0.7)" font-size="9">📋 Jira</text>
+  </g>
+  <g class="block" onclick="showDetail('plugins')">
+    <rect x="290" y="640" width="82" height="38" rx="6" fill="rgba(167,139,250,0.05)" stroke="rgba(167,139,250,0.3)" stroke-width="1" stroke-dasharray="4,2"/>
+    <text x="331" y="663" text-anchor="middle" fill="rgba(167,139,250,0.7)" font-size="9">💬 Slack</text>
+  </g>
+  <g class="block" onclick="showDetail('plugins')">
+    <rect x="380" y="640" width="82" height="38" rx="6" fill="rgba(167,139,250,0.05)" stroke="rgba(167,139,250,0.3)" stroke-width="1" stroke-dasharray="4,2"/>
+    <text x="421" y="663" text-anchor="middle" fill="rgba(167,139,250,0.7)" font-size="9">🗄️ Database</text>
+  </g>
+  <g class="block" onclick="showDetail('plugins')">
+    <rect x="470" y="640" width="82" height="38" rx="6" fill="rgba(167,139,250,0.05)" stroke="rgba(167,139,250,0.3)" stroke-width="1" stroke-dasharray="4,2"/>
+    <text x="511" y="663" text-anchor="middle" fill="rgba(167,139,250,0.7)" font-size="9">📄 Docs</text>
+  </g>
+  <g class="block" onclick="showDetail('plugins')">
+    <rect x="560" y="640" width="82" height="38" rx="6" fill="rgba(167,139,250,0.05)" stroke="rgba(167,139,250,0.3)" stroke-width="1" stroke-dasharray="4,2"/>
+    <text x="601" y="663" text-anchor="middle" fill="rgba(167,139,250,0.7)" font-size="9">☁️ Cloud Ops</text>
+  </g>
+  <g class="block" onclick="showDetail('plugins')">
+    <rect x="650" y="640" width="82" height="38" rx="6" fill="rgba(167,139,250,0.05)" stroke="rgba(167,139,250,0.3)" stroke-width="1" stroke-dasharray="4,2"/>
+    <text x="691" y="663" text-anchor="middle" fill="rgba(167,139,250,0.7)" font-size="9">📊 Analytics</text>
+  </g>
+  <g class="block" onclick="showDetail('plugins')">
+    <rect x="740" y="640" width="82" height="38" rx="6" fill="rgba(167,139,250,0.05)" stroke="rgba(167,139,250,0.3)" stroke-width="1" stroke-dasharray="4,2"/>
+    <text x="781" y="663" text-anchor="middle" fill="rgba(167,139,250,0.7)" font-size="9">🔔 Notify</text>
+  </g>
+  <g class="block" onclick="showDetail('plugins')">
+    <rect x="830" y="640" width="82" height="38" rx="6" fill="rgba(167,139,250,0.05)" stroke="rgba(167,139,250,0.3)" stroke-width="1" stroke-dasharray="4,2"/>
+    <text x="871" y="663" text-anchor="middle" fill="rgba(167,139,250,0.7)" font-size="9">👤 Identity</text>
+  </g>
+  <g class="block" onclick="showDetail('plugins')">
+    <rect x="920" y="640" width="82" height="38" rx="6" fill="rgba(167,139,250,0.05)" stroke="rgba(167,139,250,0.3)" stroke-width="1" stroke-dasharray="4,2"/>
+    <text x="961" y="663" text-anchor="middle" fill="rgba(167,139,250,0.7)" font-size="9">… + more</text>
+  </g>
 
-  <!-- Arrows: Plugins → APIs -->
-  <line x1="270" y1="645" x2="270" y2="680" stroke="rgba(255,255,255,0.2)" stroke-width="1.5" class="data-arrow" marker-end="url(#arrowGreen)"/>
-  <line x1="430" y1="645" x2="430" y2="680" stroke="rgba(255,255,255,0.2)" stroke-width="1.5" class="data-arrow" marker-end="url(#arrowGreen)"/>
-  <line x1="590" y1="645" x2="590" y2="680" stroke="rgba(255,255,255,0.2)" stroke-width="1.5" class="data-arrow" marker-end="url(#arrowGreen)"/>
-  <line x1="750" y1="645" x2="750" y2="680" stroke="rgba(255,255,255,0.2)" stroke-width="1.5" class="data-arrow" marker-end="url(#arrowGreen)"/>
+  <!-- Industry vertical plugins (dashed red/warm border) -->
+  <g class="block" onclick="showDetail('verticals')">
+    <rect x="110" y="692" width="95" height="38" rx="6" fill="rgba(220,53,69,0.04)" stroke="rgba(220,53,69,0.25)" stroke-width="1" stroke-dasharray="4,2"/>
+    <text x="157" y="715" text-anchor="middle" fill="rgba(220,53,69,0.7)" font-size="9">🏥 Healthcare</text>
+  </g>
+  <g class="block" onclick="showDetail('verticals')">
+    <rect x="215" y="692" width="95" height="38" rx="6" fill="rgba(220,53,69,0.04)" stroke="rgba(220,53,69,0.25)" stroke-width="1" stroke-dasharray="4,2"/>
+    <text x="262" y="715" text-anchor="middle" fill="rgba(220,53,69,0.7)" font-size="9">💰 Finance</text>
+  </g>
+  <g class="block" onclick="showDetail('verticals')">
+    <rect x="320" y="692" width="95" height="38" rx="6" fill="rgba(220,53,69,0.04)" stroke="rgba(220,53,69,0.25)" stroke-width="1" stroke-dasharray="4,2"/>
+    <text x="367" y="715" text-anchor="middle" fill="rgba(220,53,69,0.7)" font-size="9">⚖️ Legal</text>
+  </g>
+  <g class="block" onclick="showDetail('verticals')">
+    <rect x="425" y="692" width="95" height="38" rx="6" fill="rgba(220,53,69,0.04)" stroke="rgba(220,53,69,0.25)" stroke-width="1" stroke-dasharray="4,2"/>
+    <text x="472" y="715" text-anchor="middle" fill="rgba(220,53,69,0.7)" font-size="9">🚀 Aerospace</text>
+  </g>
+  <g class="block" onclick="showDetail('verticals')">
+    <rect x="530" y="692" width="95" height="38" rx="6" fill="rgba(220,53,69,0.04)" stroke="rgba(220,53,69,0.25)" stroke-width="1" stroke-dasharray="4,2"/>
+    <text x="577" y="715" text-anchor="middle" fill="rgba(220,53,69,0.7)" font-size="9">🏫 Education</text>
+  </g>
+  <g class="block" onclick="showDetail('verticals')">
+    <rect x="635" y="692" width="95" height="38" rx="6" fill="rgba(220,53,69,0.04)" stroke="rgba(220,53,69,0.25)" stroke-width="1" stroke-dasharray="4,2"/>
+    <text x="682" y="715" text-anchor="middle" fill="rgba(220,53,69,0.7)" font-size="9">🛒 Retail</text>
+  </g>
+  <g class="block" onclick="showDetail('verticals')">
+    <rect x="740" y="692" width="95" height="38" rx="6" fill="rgba(220,53,69,0.04)" stroke="rgba(220,53,69,0.25)" stroke-width="1" stroke-dasharray="4,2"/>
+    <text x="787" y="715" text-anchor="middle" fill="rgba(220,53,69,0.7)" font-size="9">🏭 Mfg</text>
+  </g>
+  <g class="block" onclick="showDetail('verticals')">
+    <rect x="845" y="692" width="95" height="38" rx="6" fill="rgba(25,135,84,0.05)" stroke="rgba(25,135,84,0.3)" stroke-width="1.5"/>
+    <text x="892" y="715" text-anchor="middle" fill="#198754" font-size="9">✨ Build Your Own</text>
+  </g>
 
-  <g class="block" onclick="showDetail('apis')">
-    <rect x="210" y="680" width="120" height="30" rx="6" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
-    <text x="270" y="700" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="9">Gmail / SMTP</text>
-  </g>
-  <g class="block" onclick="showDetail('apis')">
-    <rect x="370" y="680" width="120" height="30" rx="6" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
-    <text x="430" y="700" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="9">Stripe API</text>
-  </g>
-  <g class="block" onclick="showDetail('apis')">
-    <rect x="530" y="680" width="120" height="30" rx="6" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
-    <text x="590" y="700" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="9">GitHub API</text>
-  </g>
-  <g class="block" onclick="showDetail('apis')">
-    <rect x="690" y="680" width="120" height="30" rx="6" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
-    <text x="750" y="700" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="9">Amadeus GDS</text>
+  <!-- ═══ ROW 5: Cloud-Agnostic Infrastructure (Loom) ═══ -->
+
+  <text x="550" y="758" text-anchor="middle" fill="rgba(255,255,255,0.2)" font-size="10" font-weight="700">☁️ LOOM — Cloud-Agnostic Infrastructure Layer (Terraform modules swap the cloud, not the app)</text>
+
+  <!-- Azure (current) -->
+  <g class="block" onclick="showDetail('cloud')">
+    <rect x="30" y="770" width="240" height="145" rx="10" fill="rgba(13,202,240,0.06)" stroke="#0dcaf0" stroke-width="2"/>
+    <text x="150" y="793" text-anchor="middle" fill="#0dcaf0" font-weight="700" font-size="12">☁️ Azure (Current)</text>
+    <rect x="45" y="800" width="100" height="20" rx="4" fill="rgba(13,202,240,0.1)" stroke="rgba(13,202,240,0.2)" stroke-width="1"/>
+    <text x="95" y="814" text-anchor="middle" fill="rgba(255,255,255,0.55)" font-size="8">AKS (Kubernetes)</text>
+    <rect x="155" y="800" width="100" height="20" rx="4" fill="rgba(13,202,240,0.1)" stroke="rgba(13,202,240,0.2)" stroke-width="1"/>
+    <text x="205" y="814" text-anchor="middle" fill="rgba(255,255,255,0.55)" font-size="8">Cosmos DB</text>
+    <rect x="45" y="825" width="100" height="20" rx="4" fill="rgba(13,202,240,0.1)" stroke="rgba(13,202,240,0.2)" stroke-width="1"/>
+    <text x="95" y="839" text-anchor="middle" fill="rgba(255,255,255,0.55)" font-size="8">AI Search</text>
+    <rect x="155" y="825" width="100" height="20" rx="4" fill="rgba(13,202,240,0.1)" stroke="rgba(13,202,240,0.2)" stroke-width="1"/>
+    <text x="205" y="839" text-anchor="middle" fill="rgba(255,255,255,0.55)" font-size="8">Azure OpenAI</text>
+    <rect x="45" y="850" width="100" height="20" rx="4" fill="rgba(13,202,240,0.1)" stroke="rgba(13,202,240,0.2)" stroke-width="1"/>
+    <text x="95" y="864" text-anchor="middle" fill="rgba(255,255,255,0.55)" font-size="8">Key Vault</text>
+    <rect x="155" y="850" width="100" height="20" rx="4" fill="rgba(13,202,240,0.1)" stroke="rgba(13,202,240,0.2)" stroke-width="1"/>
+    <text x="205" y="864" text-anchor="middle" fill="rgba(255,255,255,0.55)" font-size="8">ACR (Registry)</text>
+    <text x="150" y="904" text-anchor="middle" fill="rgba(13,202,240,0.5)" font-size="8">terraform apply → ~20 min</text>
   </g>
 
-  <!-- ═══ LEFT SIDE: Cosmos DB & Observability ═══ -->
+  <!-- Swap arrows -->
+  <text x="320" y="845" text-anchor="middle" fill="rgba(255,255,255,0.25)" font-size="16">⇄</text>
+
+  <!-- AWS (planned) -->
+  <g class="block" onclick="showDetail('cloud')">
+    <rect x="350" y="770" width="240" height="145" rx="10" fill="rgba(255,153,0,0.04)" stroke="rgba(255,153,0,0.35)" stroke-width="1.5" stroke-dasharray="5,3"/>
+    <text x="470" y="793" text-anchor="middle" fill="#ff9900" font-weight="700" font-size="12">☁️ AWS (Planned)</text>
+    <rect x="365" y="800" width="100" height="20" rx="4" fill="rgba(255,153,0,0.06)" stroke="rgba(255,153,0,0.15)" stroke-width="1"/>
+    <text x="415" y="814" text-anchor="middle" fill="rgba(255,255,255,0.45)" font-size="8">EKS (Kubernetes)</text>
+    <rect x="475" y="800" width="100" height="20" rx="4" fill="rgba(255,153,0,0.06)" stroke="rgba(255,153,0,0.15)" stroke-width="1"/>
+    <text x="525" y="814" text-anchor="middle" fill="rgba(255,255,255,0.45)" font-size="8">DynamoDB</text>
+    <rect x="365" y="825" width="100" height="20" rx="4" fill="rgba(255,153,0,0.06)" stroke="rgba(255,153,0,0.15)" stroke-width="1"/>
+    <text x="415" y="839" text-anchor="middle" fill="rgba(255,255,255,0.45)" font-size="8">OpenSearch</text>
+    <rect x="475" y="825" width="100" height="20" rx="4" fill="rgba(255,153,0,0.06)" stroke="rgba(255,153,0,0.15)" stroke-width="1"/>
+    <text x="525" y="839" text-anchor="middle" fill="rgba(255,255,255,0.45)" font-size="8">Bedrock LLM</text>
+    <rect x="365" y="850" width="100" height="20" rx="4" fill="rgba(255,153,0,0.06)" stroke="rgba(255,153,0,0.15)" stroke-width="1"/>
+    <text x="415" y="864" text-anchor="middle" fill="rgba(255,255,255,0.45)" font-size="8">Secrets Manager</text>
+    <rect x="475" y="850" width="100" height="20" rx="4" fill="rgba(255,153,0,0.06)" stroke="rgba(255,153,0,0.15)" stroke-width="1"/>
+    <text x="525" y="864" text-anchor="middle" fill="rgba(255,255,255,0.45)" font-size="8">ECR (Registry)</text>
+    <text x="470" y="904" text-anchor="middle" fill="rgba(255,153,0,0.4)" font-size="8">Same Terraform modules</text>
+  </g>
+
+  <text x="640" y="845" text-anchor="middle" fill="rgba(255,255,255,0.25)" font-size="16">⇄</text>
+
+  <!-- GCP (planned) -->
+  <g class="block" onclick="showDetail('cloud')">
+    <rect x="670" y="770" width="240" height="145" rx="10" fill="rgba(66,133,244,0.04)" stroke="rgba(66,133,244,0.35)" stroke-width="1.5" stroke-dasharray="5,3"/>
+    <text x="790" y="793" text-anchor="middle" fill="#4285F4" font-weight="700" font-size="12">☁️ GCP (Planned)</text>
+    <rect x="685" y="800" width="100" height="20" rx="4" fill="rgba(66,133,244,0.06)" stroke="rgba(66,133,244,0.15)" stroke-width="1"/>
+    <text x="735" y="814" text-anchor="middle" fill="rgba(255,255,255,0.45)" font-size="8">GKE (Kubernetes)</text>
+    <rect x="795" y="800" width="100" height="20" rx="4" fill="rgba(66,133,244,0.06)" stroke="rgba(66,133,244,0.15)" stroke-width="1"/>
+    <text x="845" y="814" text-anchor="middle" fill="rgba(255,255,255,0.45)" font-size="8">Firestore</text>
+    <rect x="685" y="825" width="100" height="20" rx="4" fill="rgba(66,133,244,0.06)" stroke="rgba(66,133,244,0.15)" stroke-width="1"/>
+    <text x="735" y="839" text-anchor="middle" fill="rgba(255,255,255,0.45)" font-size="8">Vertex AI Search</text>
+    <rect x="795" y="825" width="100" height="20" rx="4" fill="rgba(66,133,244,0.06)" stroke="rgba(66,133,244,0.15)" stroke-width="1"/>
+    <text x="845" y="839" text-anchor="middle" fill="rgba(255,255,255,0.45)" font-size="8">Vertex AI LLM</text>
+    <rect x="685" y="850" width="100" height="20" rx="4" fill="rgba(66,133,244,0.06)" stroke="rgba(66,133,244,0.15)" stroke-width="1"/>
+    <text x="735" y="864" text-anchor="middle" fill="rgba(255,255,255,0.45)" font-size="8">Secret Manager</text>
+    <rect x="795" y="850" width="100" height="20" rx="4" fill="rgba(66,133,244,0.06)" stroke="rgba(66,133,244,0.15)" stroke-width="1"/>
+    <text x="845" y="864" text-anchor="middle" fill="rgba(255,255,255,0.45)" font-size="8">Artifact Registry</text>
+    <text x="790" y="904" text-anchor="middle" fill="rgba(66,133,244,0.4)" font-size="8">Same Terraform modules</text>
+  </g>
+
+  <!-- Local/On-Prem option -->
+  <g class="block" onclick="showDetail('cloud')">
+    <rect x="930" y="785" width="80" height="115" rx="8" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+    <text x="970" y="810" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-weight="600" font-size="9">🏠 Local</text>
+    <text x="970" y="830" text-anchor="middle" fill="rgba(255,255,255,0.3)" font-size="7">Docker</text>
+    <text x="970" y="845" text-anchor="middle" fill="rgba(255,255,255,0.3)" font-size="7">SQLite</text>
+    <text x="970" y="860" text-anchor="middle" fill="rgba(255,255,255,0.3)" font-size="7">Ollama</text>
+    <text x="970" y="875" text-anchor="middle" fill="rgba(255,255,255,0.3)" font-size="7">File Vault</text>
+    <text x="970" y="893" text-anchor="middle" fill="rgba(255,255,255,0.25)" font-size="7">Air-gapped</text>
+  </g>
+
+  <!-- ═══ LEFT SIDE: Cosmos DB & Observability (moved down) ═══ -->
 
   <g class="block" onclick="showDetail('cosmos')">
     <rect x="20" y="420" width="180" height="60" rx="10" fill="rgba(255,193,7,0.06)" stroke="rgba(255,193,7,0.3)" stroke-width="1.5"/>
@@ -289,24 +422,27 @@
   <line x1="200" y1="450" x2="435" y2="450" stroke="rgba(255,193,7,0.2)" stroke-width="1" stroke-dasharray="3,3"/>
   <line x1="200" y1="530" x2="435" y2="500" stroke="rgba(25,135,84,0.2)" stroke-width="1" stroke-dasharray="3,3"/>
 
+  <!-- Dashed lines: Cosmos/Observability → Cloud layer -->
+  <line x1="110" y1="560" x2="110" y2="770" stroke="rgba(255,193,7,0.15)" stroke-width="1" stroke-dasharray="3,3"/>
+  <line x1="110" y1="770" x2="150" y2="770" stroke="rgba(255,193,7,0.15)" stroke-width="1" stroke-dasharray="3,3"/>
+
   <!-- ═══ RIGHT SIDE: Return flow ═══ -->
 
-  <!-- Return arrow: Engine → Agent → User -->
-  <path d="M 940 485 C 1020 485, 1060 300, 1060 70 C 1060 30, 100 30, 85 30" stroke="rgba(13,202,240,0.25)" stroke-width="1.5" fill="none" stroke-dasharray="5,4" class="data-arrow" marker-end="url(#arrowCyan)"/>
-  <text x="1070" y="280" fill="rgba(13,202,240,0.5)" font-size="9" transform="rotate(90,1070,280)">Response streams back via SSE</text>
+  <path d="M 940 485 C 1060 485, 1090 300, 1090 70 C 1090 20, 100 20, 82 20" stroke="rgba(13,202,240,0.25)" stroke-width="1.5" fill="none" stroke-dasharray="5,4" class="data-arrow" marker-end="url(#arrowCyan)"/>
+  <text x="1095" y="280" fill="rgba(13,202,240,0.5)" font-size="9" transform="rotate(90,1095,280)">Response streams back via SSE / REST / Voice</text>
 
-  <!-- Step numbers along return path -->
-  <circle cx="1050" cy="200" r="9" class="step-circle" style="fill:rgba(13,202,240,0.6)"/><text x="1050" y="203" text-anchor="middle" class="step-num">8</text>
+  <circle cx="1080" cy="200" r="9" class="step-circle" style="fill:rgba(13,202,240,0.6)"/><text x="1080" y="203" text-anchor="middle" class="step-num">8</text>
 
 </svg>
 
 <!-- Legend -->
 <div class="legend">
   <div class="legend-item"><div class="legend-dot" style="background:#0dcaf0"></div> Multi-Channel + Cerebro App</div>
-  <div class="legend-item"><div class="legend-dot" style="background:#a78bfa"></div> Agent Loop (Orchestration)</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#a78bfa"></div> Agent Loop + Coming Soon Plugins</div>
   <div class="legend-item"><div class="legend-dot" style="background:#ffc107"></div> LLM Backend (Pluggable)</div>
-  <div class="legend-item"><div class="legend-dot" style="background:#dc3545"></div> Security (Identity Injection)</div>
-  <div class="legend-item"><div class="legend-dot" style="background:#198754"></div> MCP Engine + Plugins (Execution)</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#dc3545"></div> Security + Industry Verticals</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#198754"></div> MCP Engine + Available Plugins</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#ff9900"></div> Cloud-Agnostic (Azure / AWS / GCP / Local)</div>
 </div>
 
 <!-- Overlay -->
@@ -454,6 +590,31 @@
   <p><strong>Prometheus:</strong> Metrics — tool calls, latency, error rates, RAG queries</p>
   <p><strong>Grafana:</strong> Dashboards — platform overview, MCP engine, security audit, user activity</p>
   <p><strong>Loki:</strong> Logs — all pod logs with level detection and colored volume charts</p>
+</div>
+
+<div class="detail-panel" id="detail-verticals">
+  <span class="close" onclick="hideDetail()">✕</span>
+  <h3>🏭 Industry Vertical Plugins</h3>
+  <p>Specialized plugin bundles for regulated industries. Each ships as a ZIP and installs in 2 clicks via the Visual Designer.</p>
+  <p><strong>🏥 Healthcare:</strong> EHR integration, HL7 FHIR, clinical trials, drug interactions — HIPAA-enforced at code level</p>
+  <p><strong>💰 Finance:</strong> Bloomberg, Plaid, QuickBooks, compliance/KYC — SOX audit trail built in</p>
+  <p><strong>⚖️ Legal:</strong> Westlaw, DocuSign, e-filing, billing — ethical walls + attorney-client privilege enforced</p>
+  <p><strong>🚀 Aerospace:</strong> Supply chain, fleet management — clearance-level data isolation</p>
+  <p><strong>🏫 Education:</strong> Canvas/Blackboard, student info — FERPA compliance</p>
+  <p><strong>🛒 Retail:</strong> Shopify, CRM, inventory — per-merchant data isolation</p>
+  <p><strong>✨ Build Your Own:</strong> No-code wizard imports any OpenAPI spec and wraps it with ContextWeaver's 5 security layers automatically.</p>
+</div>
+
+<div class="detail-panel" id="detail-cloud">
+  <span class="close" onclick="hideDetail()">✕</span>
+  <h3>☁️ Loom — Cloud-Agnostic Infrastructure</h3>
+  <p><strong>How it works:</strong> 9 Terraform modules abstract each cloud service into a common interface. The app code never references cloud-specific APIs.</p>
+  <p><strong>Azure (Current):</strong> AKS, Cosmos DB, AI Search, Azure OpenAI, Key Vault, ACR — fully wired, running in production.</p>
+  <p><strong>AWS (Planned):</strong> EKS, DynamoDB, OpenSearch, Bedrock, Secrets Manager, ECR — same Terraform modules, different providers.</p>
+  <p><strong>GCP (Planned):</strong> GKE, Firestore, Vertex AI Search, Vertex AI, Secret Manager, Artifact Registry.</p>
+  <p><strong>Local/On-Prem:</strong> Docker Compose, SQLite, Ollama, file-based vault — for air-gapped deployments and development.</p>
+  <p><strong>Key command:</strong> <code>cd environments/aws && terraform apply</code> — swaps the entire cloud backend. The app, security, plugins, and user data remain untouched.</p>
+  <p><strong>Security stays constant:</strong> Identity injection, credential vault, policy enforcement, and audit logging work identically regardless of which cloud runs underneath.</p>
 </div>
 
 <script>
