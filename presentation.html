@@ -1605,11 +1605,11 @@
           <h3 style="color:#a78bfa;font-size:1rem;margin-bottom:.7rem">How It Works</h3>
           <div class="highlight" style="padding:.8rem;margin:0;font-size:.82rem;line-height:1.8">
             <span class="badge bg-info" style="font-size:.7rem">1</span> User: <strong style="color:#ffc107">"Build me a Slack plugin that sends messages"</strong><br>
-            <span class="badge bg-purple" style="font-size:.7rem">2</span> LLM reads plugin schema + existing examples (Layer 1 + 2)<br>
-            <span class="badge bg-purple" style="font-size:.7rem">3</span> Generates manifest.json + plugin.py with proper security<br>
-            <span class="badge bg-success" style="font-size:.7rem">4</span> Validates syntax + checks credential patterns<br>
-            <span class="badge bg-success" style="font-size:.7rem">5</span> If errors → feeds back to LLM → auto-fix (up to 3 retries)<br>
-            <span class="badge bg-info" style="font-size:.7rem">6</span> Packages as ZIP → uploads to MCP engine → tools available<br>
+            <span class="badge bg-purple" style="font-size:.7rem">2</span> AI generates <strong>scenario preview</strong> — shows tools, credentials, security, and a Two Users comparison<br>
+            <span class="badge" style="font-size:.7rem;background:rgba(255,193,7,0.2);color:#ffc107">3</span> User reviews: <em>"Sarah can send, Tom gets blocked"</em> → clicks <strong>✅ Build</strong><br>
+            <span class="badge bg-purple" style="font-size:.7rem">4</span> LLM generates manifest.json + plugin.py following platform patterns<br>
+            <span class="badge bg-success" style="font-size:.7rem">5</span> Validates syntax + credential patterns + auto-fixes errors (up to 3 retries)<br>
+            <span class="badge bg-info" style="font-size:.7rem">6</span> Packages ZIP → uploads to MCP engine → tools available in chat<br>
             <div style="margin-top:.5rem;padding:.4rem;background:rgba(25,135,84,0.08);border-radius:6px;font-size:.78rem;color:#198754;font-weight:600">
               🎉 "Plugin 'slack' deployed with 2 tools! Try: Send a message to #general"
             </div>
