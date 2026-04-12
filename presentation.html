@@ -1594,6 +1594,51 @@
     </div>
   </section>
 
+  <!-- Slide 29d: Plugin Builder -->
+  <section>
+    <div class="content">
+      <h2 style="text-align:center"><span class="purple">🔨</span> Self-Extending AI — The Platform Builds Its Own Tools</h2>
+      <p style="text-align:center;color:rgba(255,255,255,0.4);margin-bottom:1rem;font-size:.88rem">Describe what you need in plain English → the platform generates, validates, tests, and deploys a working plugin</p>
+
+      <div class="grid2">
+        <div>
+          <h3 style="color:#a78bfa;font-size:1rem;margin-bottom:.7rem">How It Works</h3>
+          <div class="highlight" style="padding:.8rem;margin:0;font-size:.82rem;line-height:1.8">
+            <span class="badge bg-info" style="font-size:.7rem">1</span> User: <strong style="color:#ffc107">"Build me a Slack plugin that sends messages"</strong><br>
+            <span class="badge bg-purple" style="font-size:.7rem">2</span> LLM reads plugin schema + existing examples (Layer 1 + 2)<br>
+            <span class="badge bg-purple" style="font-size:.7rem">3</span> Generates manifest.json + plugin.py with proper security<br>
+            <span class="badge bg-success" style="font-size:.7rem">4</span> Validates syntax + checks credential patterns<br>
+            <span class="badge bg-success" style="font-size:.7rem">5</span> If errors → feeds back to LLM → auto-fix (up to 3 retries)<br>
+            <span class="badge bg-info" style="font-size:.7rem">6</span> Packages as ZIP → uploads to MCP engine → tools available<br>
+            <div style="margin-top:.5rem;padding:.4rem;background:rgba(25,135,84,0.08);border-radius:6px;font-size:.78rem;color:#198754;font-weight:600">
+              🎉 "Plugin 'slack' deployed with 2 tools! Try: Send a message to #general"
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h3 style="color:#0dcaf0;font-size:1rem;margin-bottom:.7rem">Three Knowledge Layers</h3>
+          <div class="card" style="margin-bottom:.4rem;padding:.5rem .8rem;border-color:rgba(13,202,240,0.3)">
+            <span class="cyan" style="font-weight:600;font-size:.85rem">Layer 1 — Schema (Day 1)</span><br>
+            <span style="color:rgba(255,255,255,0.5);font-size:.8rem">Plugin format, code templates, security rules — hardcoded in system prompt. Works on fresh deploy.</span>
+          </div>
+          <div class="card" style="margin-bottom:.4rem;padding:.5rem .8rem;border-color:rgba(167,139,250,0.3)">
+            <span class="purple" style="font-weight:600;font-size:.85rem">Layer 2 — Built-in Examples (Day 1)</span><br>
+            <span style="color:rgba(255,255,255,0.5);font-size:.8rem">Email, GitHub, Payments, Travel — real working plugin source code ships in the image.</span>
+          </div>
+          <div class="card" style="padding:.5rem .8rem;border-color:rgba(25,135,84,0.3)">
+            <span class="green" style="font-weight:600;font-size:.85rem">Layer 3 — RAG Flywheel (Grows)</span><br>
+            <span style="color:rgba(255,255,255,0.5);font-size:.8rem">Every plugin built gets indexed. The 10th plugin is informed by the first 9. Gets smarter over time.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="plain-talk" style="margin-top:.7rem;font-size:.75rem">
+        Think of it like a <strong>factory that builds its own machines</strong>. The factory starts with a few machines (built-in plugins). When you need a new machine, instead of ordering from outside, you tell the factory what you need and it builds one — using the blueprints of every machine it's ever made. Each new machine makes the factory smarter at building the next one. And every machine it builds has the same <strong>safety features</strong> (security layers) as the originals.
+      </div>
+    </div>
+  </section>
+
   <!-- Slide 30: Competitive Landscape -->
   <section>
     <div class="content">
@@ -1668,6 +1713,13 @@
           <td><span class="yellow">⚠</span></td>
           <td><span class="red">❌</span></td>
           <td><span class="yellow">⚠</span></td>
+        </tr>
+        <tr>
+          <td>Self-extending (AI builds plugins)</td>
+          <td><span class="green">✅</span></td>
+          <td><span class="red">❌</span></td>
+          <td><span class="red">❌</span></td>
+          <td><span class="red">❌</span></td>
         </tr>
       </table>
     </div>
