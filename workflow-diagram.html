@@ -117,8 +117,8 @@
 
   <!-- Security banner at bottom -->
   <rect x="120" y="125" width="840" height="45" rx="8" fill="rgba(220,53,69,0.04)" stroke="rgba(220,53,69,0.15)" stroke-width="1"/>
-  <text x="540" y="145" text-anchor="middle" fill="#dc3545" font-weight="700" font-size="10">🔒 Security at Every Step</text>
-  <text x="540" y="162" text-anchor="middle" fill="rgba(255,255,255,0.35)" font-size="8.5">Identity injected → Credentials resolved from vault cascade → Policy checked → Role enforced → Action audited — at EVERY step, not just the first</text>
+  <text x="540" y="145" text-anchor="middle" fill="#dc3545" font-weight="700" font-size="10">🔒 Security at Every Step — Wired to Real MCP Engines</text>
+  <text x="540" y="162" text-anchor="middle" fill="rgba(255,255,255,0.35)" font-size="8.5">Each tool_call step routes to the correct MCP engine via agent.call_tool() → Identity injected → Credentials resolved → Policy enforced → Action audited</text>
 </svg>
 
 <div class="plain-talk">
@@ -338,14 +338,15 @@ Every workflow template is <strong>one click to install</strong> and <strong>ful
   <p>Every trigger carries the user's identity — even webhooks authenticate via SSO token.</p>
 </div>
 <div class="detail-panel" id="detail-execute"><span class="close" onclick="hideDetail()">✕</span>
-  <h3>🔧 Execute Steps</h3>
-  <p>The workflow engine processes steps sequentially (or in parallel when configured). Each step:</p>
-  <p>1. <strong>Injects identity</strong> — _user_email, _user_role, _user_groups</p>
-  <p>2. <strong>Resolves credentials</strong> — vault cascade (user → group → org)</p>
-  <p>3. <strong>Checks policy</strong> — role ≥ min_role? write allowed? rate limit OK?</p>
-  <p>4. <strong>Executes</strong> — calls the MCP tool with all context</p>
-  <p>5. <strong>Stores result</strong> — output saved as variables for next steps</p>
-  <p><strong>Retry:</strong> Configurable per step (exponential backoff). If all retries fail, workflow moves to error path.</p>
+  <h3>🔧 Execute Steps — Wired to MCP Engines</h3>
+  <p>Tool call steps are <strong>not simulated</strong> — they execute against real MCP engines via <code>agent.call_tool()</code>:</p>
+  <p>1. <strong>Tool lookup</strong> — finds which MCP engine has the requested tool (searches all registered servers)</p>
+  <p>2. <strong>Identity injection</strong> — _user_email, _user_role, _user_groups from the workflow trigger</p>
+  <p>3. <strong>Credential resolution</strong> — vault cascade (user → group → org) per the triggering user</p>
+  <p>4. <strong>Policy check</strong> — role ≥ min_role? write allowed? rate limit OK?</p>
+  <p>5. <strong>MCP execution</strong> — calls the plugin function against the external API</p>
+  <p>6. <strong>Result stored</strong> — output saved as workflow variables for subsequent steps</p>
+  <p><strong>Retry:</strong> Configurable per step with exponential backoff. If all retries fail, workflow follows error path.</p>
 </div>
 <div class="detail-panel" id="detail-approve"><span class="close" onclick="hideDetail()">✕</span>
   <h3>✋ Approval Gates</h3>
