@@ -342,7 +342,7 @@
             <tr>
               <td class="aspect"><i class="bi bi-phone-lock me-2"></i>MFA</td>
               <td class="col-trad"><i class="bi bi-x-circle-fill text-danger me-1"></i> No MFA integration &mdash; API keys have no second factor</td>
-              <td class="col-cw"><i class="bi bi-check-circle-fill text-success me-1"></i> Two-tier MFA: Customer login via Entra Conditional Access + Provider admin MFA. Runtime uses Managed Identity (unhackable machine certs)</td>
+              <td class="col-cw"><i class="bi bi-check-circle-fill text-success me-1"></i> Two-tier MFA: Customer login via Entra Conditional Access + Provider admin MFA. Magic Link (passwordless email) for external end users. Runtime uses Managed Identity (unhackable machine certs)</td>
             </tr>
           </tbody>
         </table>
@@ -489,7 +489,8 @@
             </div>
             <div class="flow-annotation">
               <i class="bi bi-info-circle-fill text-info me-1"></i>
-              User login via Entra OIDC supports MFA via Conditional Access &mdash; customer admin controls this
+              User login via Entra OIDC supports MFA via Conditional Access &mdash; customer admin controls this.
+              Magic Link (passwordless email) is available as an alternative for external end users who don&rsquo;t have Entra accounts.
             </div>
           </div>
         </div>
