@@ -167,6 +167,11 @@
     <text x="1150" y="232" text-anchor="middle" fill="#a78bfa" font-weight="600" font-size="10">📧 Messaging</text>
     <text x="1150" y="250" text-anchor="middle" fill="rgba(255,255,255,0.35)" font-size="7.5">ACS / SES / SendGrid</text>
   </g>
+  <g class="block" onclick="showDetail('modules')">
+    <rect x="1215" y="210" width="110" height="52" rx="8" fill="url(#gPurple)" stroke="rgba(220,53,69,0.4)" stroke-width="1.5"/>
+    <text x="1270" y="232" text-anchor="middle" fill="#dc3545" font-weight="600" font-size="10">🔒 Private EP</text>
+    <text x="1270" y="250" text-anchor="middle" fill="rgba(255,255,255,0.35)" font-size="7.5">PE + DNS / VPC EP</text>
+  </g>
 
   <!-- ═══════════════════════════════════════════════════════════ -->
   <!-- ROW 3: Helm Charts (the deployment layer)                  -->
@@ -374,7 +379,7 @@
 <div class="detail-panel" id="detail-apply">
   <span class="close" onclick="hideDetail()">✕</span>
   <h3>🚀 Apply Phase</h3>
-  <p><code>terraform apply</code> — Creates all infrastructure: Kubernetes cluster, databases, search service, vault, messaging, networking, DNS.</p>
+  <p><code>terraform apply</code> — Creates all infrastructure: Kubernetes cluster, databases, search service, vault, messaging, networking, DNS, private endpoints.</p>
   <p>Then <code>helm install</code> deploys the application workloads into the cluster.</p>
   <p><strong>Full stack from zero:</strong> One <code>terraform apply</code> + <code>helm install</code> = entire platform running.</p>
 </div>
@@ -413,6 +418,7 @@
   <p><strong>📧 Messaging:</strong> Azure Communication Services / Amazon SES / SendGrid</p>
   <p><strong>🌐 Networking:</strong> VNet / VPC / Ingress controllers</p>
   <p><strong>🌍 DNS:</strong> Azure DNS / Route 53 / Cloud DNS</p>
+  <p><strong>🔒 Private Endpoints:</strong> Azure PE + Private DNS / AWS VPC Endpoints / GCP Private Service Connect — zero public access to data services</p>
   <p>The app code never references cloud-specific APIs — only the Terraform modules change per cloud.</p>
 </div>
 
@@ -458,7 +464,7 @@
   <span class="close" onclick="hideDetail()">✕</span>
   <h3>☁️ Azure — Current Production</h3>
   <p>Fully wired and running. <code>cd terraform/environments/azure && terraform apply</code></p>
-  <p>AKS (D4ds_v5 nodes), Cosmos DB, Azure AI Search, Azure OpenAI (GPT-5), Key Vault, ACR, ACS Email</p>
+  <p>AKS (D4ds_v5 nodes), Cosmos DB, Azure AI Search, Azure OpenAI (GPT-5), Key Vault, ACR, ACS Email, Private Endpoints</p>
   <p><strong>Security:</strong> Managed Identity for all service-to-service auth — zero API keys stored in pods.</p>
 </div>
 
