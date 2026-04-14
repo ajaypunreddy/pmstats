@@ -134,37 +134,38 @@
         <!-- Customer Identity -->
         <div class="col-lg-12">
           <div class="tenant-box block-purple fade-up" style="position:relative">
-            <span class="tenant-label" style="background:rgba(167,139,250,0.25);color:var(--accent-purple)">Customer Identity (Your Entra ID)</span>
+            <span class="tenant-label" style="background:rgba(167,139,250,0.25);color:var(--accent-purple)">Identity &amp; Authentication</span>
             <div class="row mt-3 g-3">
               <div class="col-md-4">
                 <div class="inner-block">
-                  <h6 style="color:var(--accent-purple)"><i class="bi bi-shield-lock me-2"></i>Entra ID</h6>
+                  <h6 style="color:var(--accent-purple)"><i class="bi bi-shield-lock me-2"></i>Entra ID (Admin SSO)</h6>
                   <div class="detail">
-                    Personal Tenant<br>
-                    <code>21343dd5-****</code><br>
-                    Users: <code>ajaymgr@&hellip;</code> etc.<br>
+                    Provider tenant for platform engineers<br>
+                    Users: <code>ajay@, sre@, devops@</code><br>
+                    Role: <span class="badge bg-success" style="font-size:.55rem">manager</span><br>
                     <span class="badge bg-success" style="font-size:.6rem;margin-top:.3rem">MFA via Conditional Access</span>
-                    <span class="badge bg-info" style="font-size:.6rem;margin-top:.3rem">Magic Link for external users</span>
                   </div>
                 </div>
               </div>
               <div class="col-md-4">
                 <div class="inner-block">
-                  <h6 style="color:var(--accent-purple)"><i class="bi bi-app-indicator me-2"></i>App Registration</h6>
+                  <h6 style="color:#ec4899"><i class="bi bi-envelope-at me-2"></i>Magic Link (End Users)</h6>
                   <div class="detail">
-                    <strong>contextweaver-app</strong><br>
-                    Client: <code>0ed7c81d-****</code><br>
-                    Multi-tenant OIDC
+                    Passwordless email authentication<br>
+                    Any email: Gmail, corporate, .edu<br>
+                    Role: <span class="badge bg-info" style="font-size:.55rem">viewer / developer</span><br>
+                    <span class="badge" style="font-size:.6rem;margin-top:.3rem;background:rgba(236,72,153,0.15);color:#ec4899">Self-register + admin approval</span>
                   </div>
                 </div>
               </div>
               <div class="col-md-4">
                 <div class="inner-block">
-                  <h6 style="color:var(--accent-purple)"><i class="bi bi-link-45deg me-2"></i>Redirect URI</h6>
+                  <h6 style="color:var(--accent-purple)"><i class="bi bi-people me-2"></i>Self-Service Groups</h6>
                   <div class="detail">
-                    <code>https://app.brainzbytes.com/oidc/callback</code><br>
-                    Authorization code flow<br>
-                    JWT with roles + groups
+                    Users create teams, invite members<br>
+                    Shared connectors, credentials, policies<br>
+                    Isolated per group (vault + RAG)<br>
+                    <span class="badge" style="font-size:.6rem;margin-top:.3rem;background:rgba(25,135,84,0.15);color:#198754">Cosmos-backed group model</span>
                   </div>
                 </div>
               </div>
@@ -176,7 +177,7 @@
       <!-- Arrow -->
       <div class="arrow-bridge fade-up fade-up-d1">
         <div style="font-size:2rem">&#x1F512;</div>
-        <div style="font-size:.85rem"><i class="bi bi-arrow-down me-1"></i>OIDC JWT Token &mdash; the ONLY thing crossing the boundary</div>
+        <div style="font-size:.85rem"><i class="bi bi-arrow-down me-1"></i>JWT Session (OIDC or Magic Link) &mdash; unified <code>session["user"]</code></div>
       </div>
 
       <!-- ═══════════════ BRAINZBYTES PLATFORM INFRASTRUCTURE ═══════════════ -->

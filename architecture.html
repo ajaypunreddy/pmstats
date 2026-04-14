@@ -119,6 +119,7 @@
             </ul>
           </div>
           <a href="security.html" class="nav-link"><i class="bi bi-shield-lock me-1"></i>Security</a>
+          <a href="dual-auth-diagram.html" class="nav-link"><i class="bi bi-key me-1"></i>Identity</a>
           <a href="business.html" class="nav-link"><i class="bi bi-briefcase me-1"></i>Business</a>
           <a href="presentation.html" class="nav-link"><i class="bi bi-play-circle me-1"></i>Presentation</a>
         </div>
@@ -173,18 +174,20 @@
             <span class="tenant-label" style="background:rgba(167,139,250,0.25);color:var(--accent-purple)">Customer Identity</span>
             <div class="mt-3">
               <h5 class="fw-bold" style="color:var(--accent-purple)"><i class="bi bi-person-badge me-2"></i>Identity Provider</h5>
-              <p class="text-muted mb-3" style="font-size:.9rem">Users authenticate here. This tenant owns <strong>nothing</strong> except identity.</p>
+              <p class="text-muted mb-3" style="font-size:.9rem">Two auth paths: <strong>SSO</strong> for admins, <strong>Magic Link</strong> for end users.</p>
               <div class="mb-2">
                 <span class="feat-pill"><i class="bi bi-shield-lock me-1"></i>Entra ID</span>
                 <span class="feat-pill"><i class="bi bi-shield-lock me-1"></i>AWS Cognito</span>
                 <span class="feat-pill"><i class="bi bi-shield-lock me-1"></i>Okta</span>
                 <span class="feat-pill"><i class="bi bi-shield-lock me-1"></i>Keycloak</span>
+                <span class="feat-pill" style="background:rgba(236,72,153,0.15);border-color:rgba(236,72,153,0.3)"><i class="bi bi-envelope-at me-1"></i>Magic Link</span>
               </div>
               <ul class="list-unstyled mb-0" style="font-size:.85rem">
-                <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-2"></i>App Registration / OAuth Client</li>
-                <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-2"></i>OIDC authorization code flow</li>
-                <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-2"></i>JWT tokens with roles + groups</li>
-                <li><i class="bi bi-check-circle-fill text-success me-2"></i>MFA via Conditional Access (customer-controlled)</li>
+                <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-2"></i>OIDC SSO for platform admins (Entra / Okta / Cognito)</li>
+                <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-2"></i>Passwordless Magic Link for end users (any email)</li>
+                <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-2"></i>Both produce identical session &mdash; same RBAC, vault, RAG</li>
+                <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-2"></i>Self-service registration with admin approval</li>
+                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Self-service group management (create team, invite members)</li>
               </ul>
             </div>
           </div>
@@ -195,7 +198,7 @@
           <div class="arrow-bridge">
             <div style="font-size:2rem">&#x1F512;</div>
             <div class="arrow-line">
-              <i class="bi bi-arrow-left-right me-1"></i>OIDC JWT Token
+              <i class="bi bi-arrow-left-right me-1"></i>JWT Token (OIDC or Magic Link)
             </div>
             <div class="mt-2" style="font-size:.75rem;color:var(--text-muted)">The <strong>ONLY</strong> thing that crosses tenants</div>
           </div>
@@ -255,7 +258,7 @@
               <li class="mb-2"><i class="bi bi-robot text-info me-2"></i><strong>AI Hub</strong> &mdash; LLM orchestration, RAG pipeline</li>
               <li class="mb-2"><i class="bi bi-palette text-info me-2"></i><strong>Designer</strong> &mdash; Plugin builder, connector config</li>
               <li class="mb-2"><i class="bi bi-diagram-3 text-info me-2"></i><strong>Agent</strong> &mdash; Agentic reasoning loop</li>
-              <li><i class="bi bi-shield-lock text-info me-2"></i><strong>OIDC</strong> &mdash; Token validation, session management</li>
+              <li><i class="bi bi-shield-lock text-info me-2"></i><strong>Auth</strong> &mdash; OIDC SSO + Magic Link, token validation, session management</li>
             </ul>
             <div class="d-flex align-items-center gap-2" style="font-size:.8rem">
               <span class="badge bg-success">2/2</span>
@@ -362,7 +365,7 @@
           <div class="swap-card" style="border-top-color:var(--amber)">
             <h6 style="color:var(--amber)"><i class="bi bi-person-lock me-2"></i>Auth / SSO</h6>
             <div class="options">
-              <i class="bi bi-check2 text-success me-1"></i>Entra ID<br>
+              <i class="bi bi-check2 text-success me-1"></i>Entra ID / Magic Link<br>
               <i class="bi bi-check2 text-success me-1"></i>AWS Cognito<br>
               <i class="bi bi-check2 text-success me-1"></i>Google Identity<br>
               <i class="bi bi-check2 text-success me-1"></i>Okta / Keycloak
@@ -538,7 +541,7 @@
           <div class="block block-purple text-center" style="height:100%">
             <div style="font-size:1.5rem;margin-bottom:.25rem">&#x1F511;</div>
             <h6 class="fw-bold" style="font-size:.8rem">3. Connect IdP</h6>
-            <p class="text-muted mb-0" style="font-size:.75rem">Connect identity provider (Entra / Okta / Cognito)</p>
+            <p class="text-muted mb-0" style="font-size:.75rem">Connect identity provider (Entra / Okta / Magic Link)</p>
           </div>
         </div>
         <div class="col-lg-2 col-md-4 col-6 fade-up fade-up-d4">
@@ -627,7 +630,7 @@
         <div class="col-md-6 col-lg-4 fade-up fade-up-d6">
           <div class="block block-red" style="height:100%">
             <h6 class="fw-bold mb-2"><i class="bi bi-phone-lock text-danger me-2"></i>Two-Tier MFA</h6>
-            <p class="text-muted mb-0" style="font-size:.85rem">Customer login via Entra Conditional Access MFA. Provider admin access requires MFA. Runtime uses Managed Identity (X.509 certs) &mdash; stronger than password+MFA.</p>
+            <p class="text-muted mb-0" style="font-size:.85rem">Admin login via Entra/Okta MFA. End users via passwordless Magic Link (email = 2FA). Runtime uses Managed Identity (X.509 certs) &mdash; stronger than password+MFA.</p>
           </div>
         </div>
         <div class="col-md-6 col-lg-4 fade-up fade-up-d6">
@@ -729,7 +732,7 @@
             <div class="cloud-card">
               <div class="cloud-icon">&#9729;&#xFE0F;</div>
               <h5 class="fw-bold mb-2" style="color:var(--accent)">Azure Architecture</h5>
-              <p class="text-muted mb-2" style="font-size:.85rem">AKS &bull; Entra ID &bull; Cosmos DB &bull; Azure OpenAI</p>
+              <p class="text-muted mb-2" style="font-size:.85rem">AKS &bull; Entra ID + Magic Link &bull; Cosmos DB &bull; Azure OpenAI</p>
               <span class="badge bg-success">Live &mdash; Production</span>
             </div>
           </a>
