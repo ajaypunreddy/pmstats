@@ -168,27 +168,36 @@
       </div>
 
       <div class="row g-4 justify-content-center">
-        <!-- Customer Identity -->
+        <!-- Identity & Authentication -->
         <div class="col-lg-5">
           <div class="tenant-box block-purple fade-up fade-up-d1" style="min-height:280px">
-            <span class="tenant-label" style="background:rgba(167,139,250,0.25);color:var(--accent-purple)">Customer Identity</span>
+            <span class="tenant-label" style="background:rgba(167,139,250,0.25);color:var(--accent-purple)">Identity &amp; Authentication</span>
             <div class="mt-3">
-              <h5 class="fw-bold" style="color:var(--accent-purple)"><i class="bi bi-person-badge me-2"></i>Identity Provider</h5>
-              <p class="text-muted mb-3" style="font-size:.9rem">Two auth paths: <strong>SSO</strong> for admins, <strong>Magic Link</strong> for end users.</p>
-              <div class="mb-2">
-                <span class="feat-pill"><i class="bi bi-shield-lock me-1"></i>Entra ID</span>
-                <span class="feat-pill"><i class="bi bi-shield-lock me-1"></i>AWS Cognito</span>
-                <span class="feat-pill"><i class="bi bi-shield-lock me-1"></i>Okta</span>
-                <span class="feat-pill"><i class="bi bi-shield-lock me-1"></i>Keycloak</span>
-                <span class="feat-pill" style="background:rgba(236,72,153,0.15);border-color:rgba(236,72,153,0.3)"><i class="bi bi-envelope-at me-1"></i>Magic Link</span>
+              <!-- Admin Auth -->
+              <div class="mb-3 p-2 rounded" style="background:rgba(167,139,250,0.06);border:1px solid rgba(167,139,250,0.12)">
+                <h6 class="mb-1" style="color:var(--accent-purple);font-size:.85rem"><i class="bi bi-shield-lock me-1"></i> Platform Admins (SSO)</h6>
+                <div class="mb-1" style="font-size:.78rem">
+                  <span class="feat-pill"><i class="bi bi-shield-lock me-1"></i>Entra ID</span>
+                  <span class="feat-pill"><i class="bi bi-shield-lock me-1"></i>AWS Cognito</span>
+                  <span class="feat-pill"><i class="bi bi-shield-lock me-1"></i>Okta</span>
+                  <span class="feat-pill"><i class="bi bi-shield-lock me-1"></i>Keycloak</span>
+                </div>
+                <div class="text-muted" style="font-size:.75rem">Deploy, manage, monitor &bull; Full admin dashboard &bull; MFA enforced</div>
               </div>
-              <ul class="list-unstyled mb-0" style="font-size:.85rem">
-                <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-2"></i>OIDC SSO for platform admins (Entra / Okta / Cognito)</li>
-                <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-2"></i>Passwordless Magic Link for end users (any email)</li>
-                <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-2"></i>Both produce identical session &mdash; same RBAC, vault, RAG</li>
-                <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-2"></i>Self-service registration with admin approval</li>
-                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Self-service group management (create team, invite members)</li>
-              </ul>
+              <!-- End User Auth -->
+              <div class="mb-3 p-2 rounded" style="background:rgba(236,72,153,0.06);border:1px solid rgba(236,72,153,0.12)">
+                <h6 class="mb-1" style="color:#ec4899;font-size:.85rem"><i class="bi bi-envelope-at me-1"></i> End Users (Magic Link)</h6>
+                <div class="mb-1" style="font-size:.78rem">
+                  <span class="feat-pill" style="background:rgba(236,72,153,0.15);border-color:rgba(236,72,153,0.3)"><i class="bi bi-envelope-at me-1"></i>Any email &mdash; Gmail, corporate, .edu</span>
+                </div>
+                <div class="text-muted" style="font-size:.75rem">Passwordless login &bull; Self-register + admin approval &bull; AI chat interface</div>
+              </div>
+              <!-- Shared -->
+              <div class="p-2 rounded" style="background:rgba(25,135,84,0.06);border:1px solid rgba(25,135,84,0.12)">
+                <h6 class="mb-1" style="color:#198754;font-size:.85rem"><i class="bi bi-people me-1"></i> Self-Service Groups</h6>
+                <div class="text-muted" style="font-size:.75rem">Create teams &bull; Invite by email &bull; Shared credentials &amp; policies &bull; Isolated per group</div>
+              </div>
+              <div class="mt-2 text-center" style="font-size:.7rem;color:rgba(255,255,255,0.3)">Both paths &rarr; identical <code>session["user"]</code> &rarr; same RBAC, vault, RAG</div>
             </div>
           </div>
         </div>
