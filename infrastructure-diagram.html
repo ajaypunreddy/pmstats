@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="dark">
 <head>
-<script src="/gate.js"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>ContextWeaver — One Command to Deploy, Upgrade, or Tear Down on Any Cloud</title>
@@ -162,6 +161,11 @@
     <text x="1042" y="232" text-anchor="middle" fill="#a78bfa" font-weight="600" font-size="10">🌍 DNS</text>
     <text x="1042" y="250" text-anchor="middle" fill="rgba(255,255,255,0.35)" font-size="7.5">Azure DNS / R53</text>
   </g>
+  <g class="block" onclick="showDetail('modules')">
+    <rect x="1095" y="210" width="110" height="52" rx="8" fill="url(#gPurple)" stroke="rgba(167,139,250,0.4)" stroke-width="1.5"/>
+    <text x="1150" y="232" text-anchor="middle" fill="#a78bfa" font-weight="600" font-size="10">📧 Messaging</text>
+    <text x="1150" y="250" text-anchor="middle" fill="rgba(255,255,255,0.35)" font-size="7.5">ACS / SES / SendGrid</text>
+  </g>
 
   <!-- ═══════════════════════════════════════════════════════════ -->
   <!-- ROW 3: Helm Charts (the deployment layer)                  -->
@@ -290,7 +294,7 @@
     <text x="165" y="748" text-anchor="middle" fill="#0dcaf0" font-weight="700" font-size="12">☁️ Azure</text>
     <text x="165" y="762" text-anchor="middle" fill="rgba(13,202,240,0.6)" font-size="9" font-weight="600">CURRENT — Production</text>
     <text x="165" y="782" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="8">AKS · Cosmos DB · AI Search</text>
-    <text x="165" y="796" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="8">Azure OpenAI · Key Vault · ACR</text>
+    <text x="165" y="796" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="8">Azure OpenAI · Key Vault · ACR · ACS</text>
     <text x="165" y="814" text-anchor="middle" fill="rgba(255,255,255,0.3)" font-size="7">Managed Identity — zero keys in pods</text>
     <circle cx="80" cy="748" r="5" fill="#198754" class="pulse-dot"/>
   </g>
@@ -369,7 +373,7 @@
 <div class="detail-panel" id="detail-apply">
   <span class="close" onclick="hideDetail()">✕</span>
   <h3>🚀 Apply Phase</h3>
-  <p><code>terraform apply</code> — Creates all infrastructure: Kubernetes cluster, databases, search service, vault, networking, DNS.</p>
+  <p><code>terraform apply</code> — Creates all infrastructure: Kubernetes cluster, databases, search service, vault, messaging, networking, DNS.</p>
   <p>Then <code>helm install</code> deploys the application workloads into the cluster.</p>
   <p><strong>Full stack from zero:</strong> One <code>terraform apply</code> + <code>helm install</code> = entire platform running.</p>
 </div>
@@ -405,6 +409,7 @@
   <p><strong>🤖 LLM:</strong> Azure OpenAI / AWS Bedrock / Vertex AI</p>
   <p><strong>🔐 Vault:</strong> Azure Key Vault / AWS Secrets Manager / GCP Secret Manager</p>
   <p><strong>📦 Registry:</strong> ACR / ECR / Artifact Registry</p>
+  <p><strong>📧 Messaging:</strong> Azure Communication Services / Amazon SES / SendGrid</p>
   <p><strong>🌐 Networking:</strong> VNet / VPC / Ingress controllers</p>
   <p><strong>🌍 DNS:</strong> Azure DNS / Route 53 / Cloud DNS</p>
   <p>The app code never references cloud-specific APIs — only the Terraform modules change per cloud.</p>
@@ -452,7 +457,7 @@
   <span class="close" onclick="hideDetail()">✕</span>
   <h3>☁️ Azure — Current Production</h3>
   <p>Fully wired and running. <code>cd terraform/environments/azure && terraform apply</code></p>
-  <p>AKS (D4ds_v5 nodes), Cosmos DB, Azure AI Search, Azure OpenAI (GPT-4o), Key Vault, ACR, Application Gateway</p>
+  <p>AKS (D4ds_v5 nodes), Cosmos DB, Azure AI Search, Azure OpenAI (GPT-5), Key Vault, ACR, ACS Email</p>
   <p><strong>Security:</strong> Managed Identity for all service-to-service auth — zero API keys stored in pods.</p>
 </div>
 
@@ -460,7 +465,7 @@
   <span class="close" onclick="hideDetail()">✕</span>
   <h3>☁️ AWS — Planned</h3>
   <p>Same Terraform modules, AWS provider. <code>cd terraform/environments/aws && terraform apply</code></p>
-  <p>EKS, DynamoDB, OpenSearch, Bedrock (Claude/Titan), Secrets Manager, ECR</p>
+  <p>EKS, DynamoDB, OpenSearch, Bedrock (Claude/Titan), Secrets Manager, ECR, SES Email</p>
   <p><strong>Security:</strong> IAM Roles for Service Accounts (IRSA) — same zero-key pattern as Azure.</p>
 </div>
 
@@ -468,7 +473,7 @@
   <span class="close" onclick="hideDetail()">✕</span>
   <h3>☁️ GCP — Planned</h3>
   <p>Same Terraform modules, GCP provider. <code>cd terraform/environments/gcp && terraform apply</code></p>
-  <p>GKE, Firestore, Vertex AI Search, Vertex AI (Gemini), Secret Manager, Artifact Registry</p>
+  <p>GKE, Firestore, Vertex AI Search, Vertex AI (Gemini), Secret Manager, Artifact Registry, SendGrid</p>
   <p><strong>Security:</strong> Workload Identity Federation — same zero-key pattern.</p>
 </div>
 

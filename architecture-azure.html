@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="dark">
 <head>
-<script src="/gate.js"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BrainzBytes &mdash; Azure Deployment Architecture</title>
@@ -310,8 +309,8 @@
             <div class="svc-card">
               <h6 style="color:var(--accent-purple)"><i class="bi bi-cpu me-2"></i>Azure OpenAI</h6>
               <div class="svc-detail">
-                <code>a4ohackathon2025</code><br>
-                gpt-4o-mini + ada-002<br>
+                <code>devpilotx-openai</code><br>
+                gpt-5-chat + text-embedding-3-large<br>
                 Cognitive Services User role
               </div>
             </div>
@@ -331,8 +330,18 @@
               <h6 style="color:var(--accent-cyan)"><i class="bi bi-database me-2"></i>Cosmos DB</h6>
               <div class="svc-detail">
                 <code>db-contextweaver</code><br>
-                <strong>cerebro</strong> database &bull; 8 containers<br>
+                <strong>cerebro</strong> database &bull; 9 containers<br>
                 Cosmos Data Contributor role
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="svc-card">
+              <h6 style="color:#e6522c"><i class="bi bi-envelope-at me-2"></i>Azure Communication Services</h6>
+              <div class="svc-detail">
+                <code>contextweaver-comm</code><br>
+                Email notifications (access codes, alerts)<br>
+                Azure-managed domain, 100/day free
               </div>
             </div>
           </div>
