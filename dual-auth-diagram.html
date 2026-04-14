@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ContextWeaver — Dual Auth Deployment Model</title>
+  <style>
+    body { background: #0a0e14; margin: 0; padding: 20px; font-family: 'Inter', system-ui, sans-serif; color: #e6edf3; }
+    h1 { text-align: center; font-size: 1.4rem; color: #a78bfa; margin-bottom: 4px; }
+    .subtitle { text-align: center; color: #8b949e; font-size: 0.85rem; margin-bottom: 24px; }
+    svg { display: block; margin: 0 auto; max-width: 100%; }
+    .legend { display: flex; gap: 20px; justify-content: center; margin-top: 16px; flex-wrap: wrap; }
+    .legend-item { display: flex; align-items: center; gap: 6px; font-size: 0.72rem; color: #8b949e; }
+    .legend-dot { width: 10px; height: 10px; border-radius: 3px; }
+    .note { max-width: 900px; margin: 24px auto 0; background: rgba(167,139,250,0.06); border: 1px solid rgba(167,139,250,0.15); border-radius: 12px; padding: 16px 20px; font-size: 0.82rem; color: #8b949e; line-height: 1.7; }
+    .note strong { color: #e6edf3; }
+    .note code { background: rgba(255,255,255,0.06); padding: 2px 6px; border-radius: 4px; font-size: 0.8em; color: #0dcaf0; }
+  </style>
+</head>
+<body>
+
+<h1>🔐 Dual Auth Deployment Model</h1>
+<p class="subtitle">Service Provider (Entra) + End Users (Magic Link) — Same Platform, Two Identity Planes</p>
+
+<svg viewBox="0 0 960 720" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="gPurple" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="rgba(167,139,250,0.15)"/>
+      <stop offset="100%" stop-color="rgba(167,139,250,0.03)"/>
+    </linearGradient>
+    <linearGradient id="gCyan" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="rgba(13,202,240,0.15)"/>
+      <stop offset="100%" stop-color="rgba(13,202,240,0.03)"/>
+    </linearGradient>
+    <linearGradient id="gGreen" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="rgba(25,135,84,0.15)"/>
+      <stop offset="100%" stop-color="rgba(25,135,84,0.03)"/>
+    </linearGradient>
+    <linearGradient id="gAmber" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="rgba(251,146,60,0.12)"/>
+      <stop offset="100%" stop-color="rgba(251,146,60,0.03)"/>
+    </linearGradient>
+    <linearGradient id="gPink" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="rgba(236,72,153,0.12)"/>
+      <stop offset="100%" stop-color="rgba(236,72,153,0.03)"/>
+    </linearGradient>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+    </marker>
+    <marker id="arrowPurple" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="none" stroke="#a78bfa" stroke-width="1"/>
+    </marker>
+    <marker id="arrowCyan" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="none" stroke="#0dcaf0" stroke-width="1"/>
+    </marker>
+    <marker id="arrowPink" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="none" stroke="#ec4899" stroke-width="1"/>
+    </marker>
+  </defs>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!-- LEFT SIDE: Service Provider (Entra)            -->
+  <!-- ═══════════════════════════════════════════════ -->
+
+  <!-- Service Provider box -->
+  <rect x="30" y="30" width="400" height="200" rx="16" fill="url(#gPurple)" stroke="rgba(167,139,250,0.3)" stroke-width="1.5" stroke-dasharray="6,3"/>
+  <text x="230" y="58" text-anchor="middle" fill="#a78bfa" font-weight="700" font-size="13">🏢 SERVICE PROVIDER (BrainzBytes)</text>
+  <text x="230" y="76" text-anchor="middle" fill="rgba(255,255,255,0.35)" font-size="9">Internal team — deploys, maintains, monitors</text>
+
+  <!-- Entra ID box -->
+  <rect x="60" y="95" width="150" height="55" rx="10" fill="rgba(167,139,250,0.08)" stroke="rgba(167,139,250,0.25)" stroke-width="1"/>
+  <text x="135" y="117" text-anchor="middle" fill="#a78bfa" font-weight="600" font-size="10">🔐 Microsoft Entra ID</text>
+  <text x="135" y="133" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="8">SSO · MFA · Conditional Access</text>
+  <text x="135" y="145" text-anchor="middle" fill="rgba(255,255,255,0.25)" font-size="7">Tenant: brainzbytes.onmicrosoft.com</text>
+
+  <!-- Provider Users -->
+  <rect x="240" y="95" width="170" height="55" rx="10" fill="rgba(167,139,250,0.06)" stroke="rgba(167,139,250,0.15)" stroke-width="1"/>
+  <text x="325" y="113" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="9">👨‍💻 Platform Engineers</text>
+  <text x="325" y="128" text-anchor="middle" fill="rgba(255,255,255,0.35)" font-size="7.5">ajay@ · devops@ · sre@</text>
+  <text x="325" y="142" text-anchor="middle" fill="#a78bfa" font-size="7.5" font-weight="600">Role: manager</text>
+
+  <!-- What they do -->
+  <text x="100" y="175" fill="rgba(255,255,255,0.3)" font-size="7.5">• Deploy infrastructure (Terraform)</text>
+  <text x="100" y="188" fill="rgba(255,255,255,0.3)" font-size="7.5">• Manage plugins, connectors, MCP engines</text>
+  <text x="100" y="201" fill="rgba(255,255,255,0.3)" font-size="7.5">• Approve user registrations</text>
+  <text x="100" y="214" fill="rgba(255,255,255,0.3)" font-size="7.5">• Monitor (Grafana, Prometheus, logs)</text>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!-- RIGHT SIDE: End Users (Magic Link)             -->
+  <!-- ═══════════════════════════════════════════════ -->
+
+  <rect x="530" y="30" width="400" height="200" rx="16" fill="url(#gPink)" stroke="rgba(236,72,153,0.3)" stroke-width="1.5" stroke-dasharray="6,3"/>
+  <text x="730" y="58" text-anchor="middle" fill="#ec4899" font-weight="700" font-size="13">👥 END USERS (Customers)</text>
+  <text x="730" y="76" text-anchor="middle" fill="rgba(255,255,255,0.35)" font-size="9">External users — use the AI assistant, chat, tools</text>
+
+  <!-- Magic Link box -->
+  <rect x="560" y="95" width="150" height="55" rx="10" fill="rgba(236,72,153,0.08)" stroke="rgba(236,72,153,0.25)" stroke-width="1"/>
+  <text x="635" y="117" text-anchor="middle" fill="#ec4899" font-weight="600" font-size="10">✉️ Magic Link Auth</text>
+  <text x="635" y="133" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="8">Passwordless · Email verified</text>
+  <text x="635" y="145" text-anchor="middle" fill="rgba(255,255,255,0.25)" font-size="7">Any email: Gmail, corporate, etc.</text>
+
+  <!-- Customer Users -->
+  <rect x="740" y="95" width="170" height="55" rx="10" fill="rgba(236,72,153,0.06)" stroke="rgba(236,72,153,0.15)" stroke-width="1"/>
+  <text x="825" y="110" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="9">🧑‍💼 Business Users</text>
+  <text x="825" y="125" text-anchor="middle" fill="rgba(255,255,255,0.35)" font-size="7.5">sarah@acme.com · bob@startup.io</text>
+  <text x="825" y="138" text-anchor="middle" fill="#ec4899" font-size="7.5" font-weight="600">Role: developer / viewer</text>
+
+  <!-- What they do -->
+  <text x="600" y="175" fill="rgba(255,255,255,0.3)" font-size="7.5">• Chat with AI assistant</text>
+  <text x="600" y="188" fill="rgba(255,255,255,0.3)" font-size="7.5">• Use MCP tools (search, book, pay, etc.)</text>
+  <text x="600" y="201" fill="rgba(255,255,255,0.3)" font-size="7.5">• Manage personal credentials in vault</text>
+  <text x="600" y="214" fill="rgba(255,255,255,0.3)" font-size="7.5">• View their own indexes &amp; documents</text>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!-- CENTER: Login Page (dual auth)                 -->
+  <!-- ═══════════════════════════════════════════════ -->
+
+  <rect x="340" y="270" width="280" height="80" rx="14" fill="url(#gCyan)" stroke="rgba(13,202,240,0.3)" stroke-width="1.5"/>
+  <text x="480" y="296" text-anchor="middle" fill="#0dcaf0" font-weight="700" font-size="12">🌐 app.brainzbytes.com/login</text>
+  <text x="480" y="316" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="9">Dual Login Page</text>
+  <rect x="360" y="326" width="110" height="18" rx="4" fill="rgba(167,139,250,0.15)" stroke="rgba(167,139,250,0.3)" stroke-width="0.8"/>
+  <text x="415" y="339" text-anchor="middle" fill="#a78bfa" font-size="7.5" font-weight="600">🔐 Sign in with Microsoft</text>
+  <rect x="490" y="326" width="110" height="18" rx="4" fill="rgba(236,72,153,0.15)" stroke="rgba(236,72,153,0.3)" stroke-width="0.8"/>
+  <text x="545" y="339" text-anchor="middle" fill="#ec4899" font-size="7.5" font-weight="600">✉️ Sign in with Email</text>
+
+  <!-- Arrows: Provider → Login -->
+  <line x1="230" y1="230" x2="400" y2="272" stroke="#a78bfa" stroke-width="1.5" stroke-dasharray="4,2" marker-end="url(#arrowPurple)"/>
+  <!-- Arrows: Users → Login -->
+  <line x1="730" y1="230" x2="560" y2="272" stroke="#ec4899" stroke-width="1.5" stroke-dasharray="4,2" marker-end="url(#arrowPink)"/>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!-- CENTER: ContextWeaver Platform                 -->
+  <!-- ═══════════════════════════════════════════════ -->
+
+  <rect x="130" y="390" width="700" height="130" rx="16" fill="url(#gGreen)" stroke="rgba(25,135,84,0.3)" stroke-width="1.5"/>
+  <text x="480" y="416" text-anchor="middle" fill="#198754" font-weight="700" font-size="13">🧠 CONTEXTWEAVER PLATFORM</text>
+
+  <!-- Auth Router -->
+  <rect x="170" y="430" width="130" height="45" rx="8" fill="rgba(13,202,240,0.08)" stroke="rgba(13,202,240,0.2)" stroke-width="1"/>
+  <text x="235" y="450" text-anchor="middle" fill="#0dcaf0" font-weight="600" font-size="9">🔀 Auth Router</text>
+  <text x="235" y="464" text-anchor="middle" fill="rgba(255,255,255,0.3)" font-size="7">Entra OR Magic Link</text>
+
+  <!-- Session Manager -->
+  <rect x="320" y="430" width="130" height="45" rx="8" fill="rgba(167,139,250,0.08)" stroke="rgba(167,139,250,0.2)" stroke-width="1"/>
+  <text x="385" y="450" text-anchor="middle" fill="#a78bfa" font-weight="600" font-size="9">👤 Session Manager</text>
+  <text x="385" y="464" text-anchor="middle" fill="rgba(255,255,255,0.3)" font-size="7">Same session["user"] format</text>
+
+  <!-- RBAC Engine -->
+  <rect x="470" y="430" width="130" height="45" rx="8" fill="rgba(255,193,7,0.08)" stroke="rgba(255,193,7,0.2)" stroke-width="1"/>
+  <text x="535" y="450" text-anchor="middle" fill="#ffc107" font-weight="600" font-size="9">🛡️ RBAC Engine</text>
+  <text x="535" y="464" text-anchor="middle" fill="rgba(255,255,255,0.3)" font-size="7">viewer / developer / manager</text>
+
+  <!-- Vault Cascade -->
+  <rect x="620" y="430" width="130" height="45" rx="8" fill="rgba(25,135,84,0.08)" stroke="rgba(25,135,84,0.2)" stroke-width="1"/>
+  <text x="685" y="450" text-anchor="middle" fill="#198754" font-weight="600" font-size="9">🔒 Vault Cascade</text>
+  <text x="685" y="464" text-anchor="middle" fill="rgba(255,255,255,0.3)" font-size="7">Per-user credentials</text>
+
+  <!-- Internal flow arrows -->
+  <line x1="300" y1="452" x2="318" y2="452" stroke="rgba(255,255,255,0.2)" stroke-width="1" marker-end="url(#arrow)"/>
+  <line x1="450" y1="452" x2="468" y2="452" stroke="rgba(255,255,255,0.2)" stroke-width="1" marker-end="url(#arrow)"/>
+  <line x1="600" y1="452" x2="618" y2="452" stroke="rgba(255,255,255,0.2)" stroke-width="1" marker-end="url(#arrow)"/>
+
+  <!-- Key insight: same session format -->
+  <text x="480" y="500" text-anchor="middle" fill="rgba(25,135,84,0.6)" font-size="8" font-weight="600">Both auth paths produce identical session["user"] → same RBAC, same vault, same everything</text>
+
+  <!-- Login → Platform -->
+  <line x1="480" y1="350" x2="480" y2="388" stroke="#0dcaf0" stroke-width="1.5" marker-end="url(#arrowCyan)"/>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!-- BOTTOM: Views based on role                    -->
+  <!-- ═══════════════════════════════════════════════ -->
+
+  <text x="480" y="555" text-anchor="middle" fill="rgba(255,255,255,0.3)" font-size="10" font-weight="600" letter-spacing="2">WHAT EACH IDENTITY SEES</text>
+
+  <!-- Admin View -->
+  <rect x="60" y="575" width="250" height="120" rx="12" fill="url(#gPurple)" stroke="rgba(167,139,250,0.25)" stroke-width="1"/>
+  <text x="185" y="598" text-anchor="middle" fill="#a78bfa" font-weight="700" font-size="11">⚙️ Admin View (Entra Users)</text>
+  <text x="185" y="615" text-anchor="middle" fill="rgba(255,255,255,0.35)" font-size="8">Role: manager</text>
+  <text x="80" y="638" fill="rgba(255,255,255,0.4)" font-size="7.5">• Dashboard · AI Hub · Cluster View</text>
+  <text x="80" y="652" fill="rgba(255,255,255,0.4)" font-size="7.5">• Visual Designer · Plugin Builder</text>
+  <text x="80" y="666" fill="rgba(255,255,255,0.4)" font-size="7.5">• Monitoring (Grafana/Prometheus)</text>
+  <text x="80" y="680" fill="rgba(255,255,255,0.4)" font-size="7.5">• Site Admin (approve users, analytics)</text>
+
+  <!-- User View -->
+  <rect x="370" y="575" width="250" height="120" rx="12" fill="url(#gPink)" stroke="rgba(236,72,153,0.25)" stroke-width="1"/>
+  <text x="495" y="598" text-anchor="middle" fill="#ec4899" font-weight="700" font-size="11">💬 User View (Magic Link Users)</text>
+  <text x="495" y="615" text-anchor="middle" fill="rgba(255,255,255,0.35)" font-size="8">Role: developer / viewer</text>
+  <text x="390" y="638" fill="rgba(255,255,255,0.4)" font-size="7.5">• Chat with AI assistant</text>
+  <text x="390" y="652" fill="rgba(255,255,255,0.4)" font-size="7.5">• Use MCP tools across connectors</text>
+  <text x="390" y="666" fill="rgba(255,255,255,0.4)" font-size="7.5">• Manage personal credentials</text>
+  <text x="390" y="680" fill="rgba(255,255,255,0.4)" font-size="7.5">• View own documents &amp; indexes</text>
+
+  <!-- Shared Capabilities -->
+  <rect x="680" y="575" width="220" height="120" rx="12" fill="url(#gGreen)" stroke="rgba(25,135,84,0.25)" stroke-width="1"/>
+  <text x="790" y="598" text-anchor="middle" fill="#198754" font-weight="700" font-size="11">🔒 Shared Security Layer</text>
+  <text x="790" y="615" text-anchor="middle" fill="rgba(255,255,255,0.35)" font-size="8">Identical for both identity types</text>
+  <text x="700" y="638" fill="rgba(255,255,255,0.4)" font-size="7.5">• Vault cascade (org→group→user)</text>
+  <text x="700" y="652" fill="rgba(255,255,255,0.4)" font-size="7.5">• Hierarchical RAG isolation</text>
+  <text x="700" y="666" fill="rgba(255,255,255,0.4)" font-size="7.5">• Per-user private indexes</text>
+  <text x="700" y="680" fill="rgba(255,255,255,0.4)" font-size="7.5">• Identity-aware MCP tool calls</text>
+
+  <!-- Platform → Views arrows -->
+  <line x1="300" y1="520" x2="185" y2="573" stroke="#a78bfa" stroke-width="1" stroke-dasharray="3,2" marker-end="url(#arrowPurple)"/>
+  <line x1="480" y1="520" x2="495" y2="573" stroke="#ec4899" stroke-width="1" stroke-dasharray="3,2" marker-end="url(#arrowPink)"/>
+  <line x1="650" y1="520" x2="750" y2="573" stroke="rgba(25,135,84,0.5)" stroke-width="1" stroke-dasharray="3,2"/>
+</svg>
+
+<div class="legend">
+  <div class="legend-item"><div class="legend-dot" style="background:#a78bfa"></div> Service Provider (Entra ID)</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#ec4899"></div> End Users (Magic Link)</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#0dcaf0"></div> Shared Login Page</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#198754"></div> Platform (same for both)</div>
+</div>
+
+<div class="note">
+  <strong>🔑 Key Insight:</strong> Both authentication paths (Entra SSO and Magic Link) produce the <strong>exact same <code>session["user"]</code> object</strong>. The platform doesn't care <em>how</em> you logged in — it only cares about your <strong>email</strong>, <strong>roles</strong>, and <strong>groups</strong>. This means:
+  <br><br>
+  • An Entra user with role <code>manager</code> sees the Admin View (dashboards, designer, monitoring)<br>
+  • A Magic Link user with role <code>developer</code> sees the User View (chat, tools, credentials)<br>
+  • Both go through the <strong>same RBAC engine</strong>, <strong>same vault cascade</strong>, <strong>same RAG isolation</strong><br>
+  • A customer could even start as Magic Link and <strong>upgrade to Entra SSO</strong> later when they need enterprise features (MFA, conditional access, group sync)
+  <br><br>
+  <strong>Deployment model:</strong> BrainzBytes engineers use Entra (full admin access). Customer users self-register via Magic Link (scoped access). One platform, two identity planes, zero code changes between them.
+</div>
+
+</body>
+</html>
