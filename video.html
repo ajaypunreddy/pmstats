@@ -573,6 +573,11 @@
             to { opacity: 1; transform: scale(1) translateY(0); }
         }
 
+        @keyframes fadeSlideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
         .frame-titlebar {
             display: flex;
             align-items: center;
@@ -1550,7 +1555,116 @@
             </table>
         </div>
 
-        <!-- Scene 20: Call to Action -->
+        <!-- Scene 20: Pricing -->
+        <div class="scene" data-duration="14000">
+            <h2 class="headline" style="font-size: 2rem;">Pricing Plans</h2>
+            <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;max-width:1000px;width:95%;margin:1.5rem auto;">
+                <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:1.2rem;text-align:center;opacity:0;animation:fadeSlideUp 0.5s 0.3s forwards;">
+                    <div style="font-size:.65rem;font-weight:700;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:1px">Community</div>
+                    <div style="font-size:2rem;font-weight:900;margin:.5rem 0;color:#e6edf3">Free</div>
+                    <div style="font-size:.75rem;color:rgba(255,255,255,0.4);margin-bottom:1rem">1 user · Docker</div>
+                    <div style="text-align:left;font-size:.72rem;color:rgba(255,255,255,0.5);line-height:1.9">
+                        ✅ 5 connectors<br>✅ 1 knowledge base<br>✅ Basic RAG<br>✅ Community plugins
+                    </div>
+                </div>
+                <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(13,202,240,0.2);border-radius:12px;padding:1.2rem;text-align:center;opacity:0;animation:fadeSlideUp 0.5s 0.6s forwards;">
+                    <div style="font-size:.65rem;font-weight:700;color:#0dcaf0;text-transform:uppercase;letter-spacing:1px">Team</div>
+                    <div style="font-size:2rem;font-weight:900;margin:.5rem 0;color:#e6edf3">$29<span style="font-size:.7rem;color:rgba(255,255,255,0.4)">/user/mo</span></div>
+                    <div style="font-size:.75rem;color:rgba(255,255,255,0.4);margin-bottom:1rem">5–50 users</div>
+                    <div style="text-align:left;font-size:.72rem;color:rgba(255,255,255,0.5);line-height:1.9">
+                        ✅ Unlimited connectors<br>✅ Group management<br>✅ 2-level HRAG<br>✅ Magic link auth
+                    </div>
+                </div>
+                <div style="background:rgba(167,139,250,0.06);border:2px solid rgba(167,139,250,0.4);border-radius:12px;padding:1.2rem;text-align:center;position:relative;opacity:0;animation:fadeSlideUp 0.5s 0.9s forwards;">
+                    <div style="position:absolute;top:-8px;left:50%;transform:translateX(-50%);background:#a78bfa;color:#0d1117;padding:1px 10px;border-radius:10px;font-size:.55rem;font-weight:700">POPULAR</div>
+                    <div style="font-size:.65rem;font-weight:700;color:#a78bfa;text-transform:uppercase;letter-spacing:1px;margin-top:4px">Business</div>
+                    <div style="font-size:2rem;font-weight:900;margin:.5rem 0;color:#e6edf3">$79<span style="font-size:.7rem;color:rgba(255,255,255,0.4)">/user/mo</span></div>
+                    <div style="font-size:.75rem;color:rgba(255,255,255,0.4);margin-bottom:1rem">50–500 users</div>
+                    <div style="text-align:left;font-size:.72rem;color:rgba(255,255,255,0.5);line-height:1.9">
+                        ✅ SSO + RBAC + Vault<br>✅ Full HRAG<br>✅ Visual Designer<br>✅ Plugin Builder
+                    </div>
+                </div>
+                <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(25,135,84,0.2);border-radius:12px;padding:1.2rem;text-align:center;opacity:0;animation:fadeSlideUp 0.5s 1.2s forwards;">
+                    <div style="font-size:.65rem;font-weight:700;color:#198754;text-transform:uppercase;letter-spacing:1px">Enterprise</div>
+                    <div style="font-size:2rem;font-weight:900;margin:.5rem 0;color:#e6edf3">Custom</div>
+                    <div style="font-size:.75rem;color:rgba(255,255,255,0.4);margin-bottom:1rem">500+ users</div>
+                    <div style="text-align:left;font-size:.72rem;color:rgba(255,255,255,0.5);line-height:1.9">
+                        ✅ Dedicated infra<br>✅ Air-gapped deploy<br>✅ Custom verticals<br>✅ 24/7 + TAM
+                    </div>
+                </div>
+            </div>
+            <p class="subheadline fade-in-delay-3" style="margin-top:1rem;font-size:1rem;color:rgba(230,237,243,0.5)">All plans include Cerebro runtime • Loom designer • Weave knowledge engine</p>
+        </div>
+
+        <!-- Scene 21: Platform vs Partner Ecosystem -->
+        <div class="scene" data-duration="13000">
+            <h2 class="headline" style="font-size: 1.8rem;">Platform + Partner Ecosystem</h2>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;max-width:900px;width:95%;margin:1.5rem auto;">
+                <div style="background:rgba(167,139,250,0.05);border:1px solid rgba(167,139,250,0.2);border-radius:12px;padding:1.5rem;opacity:0;animation:fadeSlideUp 0.5s 0.3s forwards;">
+                    <h3 style="font-size:1.1rem;color:#a78bfa;margin-bottom:1rem;font-weight:700">🏢 BrainzBytes Builds</h3>
+                    <div style="font-size:.82rem;color:rgba(255,255,255,0.6);line-height:2.1">
+                        🧠 Cerebro Runtime (agent engine + RBAC)<br>
+                        🌐 Loom Designer (visual workflows)<br>
+                        🧶 Weave Knowledge (HRAG + policies)<br>
+                        🔌 Core Connectors (Gmail, Jira, GitHub…)<br>
+                        🛡️ Security (SSO, vault, audit)<br>
+                        📦 Deploy Tooling (Helm, Terraform)
+                    </div>
+                </div>
+                <div style="background:rgba(13,202,240,0.05);border:1px solid rgba(13,202,240,0.2);border-radius:12px;padding:1.5rem;opacity:0;animation:fadeSlideUp 0.5s 0.6s forwards;">
+                    <h3 style="font-size:1.1rem;color:#0dcaf0;margin-bottom:1rem;font-weight:700">🤝 Partners Build</h3>
+                    <div style="font-size:.82rem;color:rgba(255,255,255,0.6);line-height:2.1">
+                        🏥 Industry Connectors (EHR, Bloomberg…)<br>
+                        📋 Vertical Plugins (compliance, domain logic)<br>
+                        📚 Knowledge Packs (policy templates)<br>
+                        🎨 Custom Workflows (Loom automations)<br>
+                        🏗️ White-Label Solutions
+                    </div>
+                    <div style="margin-top:.8rem;padding:.5rem;background:rgba(13,202,240,0.08);border-radius:6px;font-size:.72rem;color:rgba(255,255,255,0.5)">
+                        💡 Plugin Builder — build MCP connectors in hours
+                    </div>
+                </div>
+            </div>
+            <div style="margin-top:1rem;opacity:0;animation:fadeSlideUp 0.5s 1s forwards;">
+                <div style="display:flex;gap:1.5rem;justify-content:center;font-size:.8rem;color:rgba(255,255,255,0.5)">
+                    <span>💳 <strong style="color:#e6edf3">SaaS</strong> per-user</span>
+                    <span>🏢 <strong style="color:#e6edf3">License</strong> annual</span>
+                    <span>🔌 <strong style="color:#e6edf3">Marketplace</strong> 20% rev-share</span>
+                    <span>🎓 <strong style="color:#e6edf3">Services</strong> integration</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scene 22: Competitive Landscape -->
+        <div class="scene" data-duration="14000">
+            <h2 class="headline" style="font-size: 1.8rem;">Competitive Landscape</h2>
+            <div style="overflow-x:auto;max-width:950px;width:95%;margin:1rem auto;">
+                <table style="width:100%;border-collapse:collapse;font-size:.75rem;">
+                    <thead>
+                        <tr style="border-bottom:2px solid rgba(255,255,255,0.15)">
+                            <th style="padding:.5rem .7rem;text-align:left;color:rgba(255,255,255,0.4)">Capability</th>
+                            <th style="padding:.5rem .7rem;text-align:center;color:#a78bfa;font-weight:700">ContextWeaver</th>
+                            <th style="padding:.5rem .7rem;text-align:center;color:rgba(255,255,255,0.4)">LangChain</th>
+                            <th style="padding:.5rem .7rem;text-align:center;color:rgba(255,255,255,0.4)">Copilot Studio</th>
+                            <th style="padding:.5rem .7rem;text-align:center;color:rgba(255,255,255,0.4)">OpenAI</th>
+                        </tr>
+                    </thead>
+                    <tbody style="opacity:0;animation:fadeSlideUp 0.5s 0.5s forwards;">
+                        <tr style="border-bottom:1px solid rgba(255,255,255,0.05)"><td style="padding:.45rem .7rem;color:#e6edf3">Multi-user Identity</td><td style="text-align:center;color:#198754;font-weight:700">✅ Built-in</td><td style="text-align:center">❌</td><td style="text-align:center">⚠️ AD only</td><td style="text-align:center">❌</td></tr>
+                        <tr style="border-bottom:1px solid rgba(255,255,255,0.05);background:rgba(255,255,255,0.02)"><td style="padding:.45rem .7rem;color:#e6edf3">Per-User Vault</td><td style="text-align:center;color:#198754;font-weight:700">✅ Cascade</td><td style="text-align:center">❌</td><td style="text-align:center">⚠️</td><td style="text-align:center">❌</td></tr>
+                        <tr style="border-bottom:1px solid rgba(255,255,255,0.05)"><td style="padding:.45rem .7rem;color:#e6edf3">Hierarchical RAG</td><td style="text-align:center;color:#198754;font-weight:700">✅ 3-level</td><td style="text-align:center">❌ Flat</td><td style="text-align:center">❌ Flat</td><td style="text-align:center">⚠️</td></tr>
+                        <tr style="border-bottom:1px solid rgba(255,255,255,0.05);background:rgba(255,255,255,0.02)"><td style="padding:.45rem .7rem;color:#e6edf3">Policy Engine</td><td style="text-align:center;color:#198754;font-weight:700">✅ Code</td><td style="text-align:center">❌ Prompt</td><td style="text-align:center">⚠️</td><td style="text-align:center">❌ Prompt</td></tr>
+                        <tr style="border-bottom:1px solid rgba(255,255,255,0.05)"><td style="padding:.45rem .7rem;color:#e6edf3">MCP Protocol</td><td style="text-align:center;color:#198754;font-weight:700">✅ Native</td><td style="text-align:center">⚠️</td><td style="text-align:center">❌</td><td style="text-align:center">⚠️</td></tr>
+                        <tr style="border-bottom:1px solid rgba(255,255,255,0.05);background:rgba(255,255,255,0.02)"><td style="padding:.45rem .7rem;color:#e6edf3">Visual Designer</td><td style="text-align:center;color:#198754;font-weight:700">✅ Loom</td><td style="text-align:center">❌</td><td style="text-align:center">✅</td><td style="text-align:center">❌</td></tr>
+                        <tr style="border-bottom:1px solid rgba(255,255,255,0.05)"><td style="padding:.45rem .7rem;color:#e6edf3">Multi-Cloud</td><td style="text-align:center;color:#198754;font-weight:700">✅ 3 clouds</td><td style="text-align:center">⚠️ DIY</td><td style="text-align:center">❌ Azure</td><td style="text-align:center">❌</td></tr>
+                        <tr><td style="padding:.45rem .7rem;color:#e6edf3">Full Audit Trail</td><td style="text-align:center;color:#198754;font-weight:700">✅</td><td style="text-align:center">❌</td><td style="text-align:center">⚠️</td><td style="text-align:center">⚠️</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="subheadline fade-in-delay-3" style="margin-top:1rem;font-size:.95rem;color:#198754;font-weight:600">Only platform with identity + HRAG + multi-cloud in one product</p>
+        </div>
+
+        <!-- Scene 23: Call to Action -->
         <div class="scene" data-duration="15000">
             <div class="logo-container">
                 <svg class="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
