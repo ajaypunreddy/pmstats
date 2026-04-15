@@ -1180,47 +1180,294 @@
             <p class="headline fade-in-delay-3" style="margin-top: 1.5rem; font-size: 1.6rem;">Zero trust. Full audit. Every layer.</p>
         </div>
 
-        <!-- Scene 11: Local Install -->
-        <div class="scene" data-duration="10000">
-            <h2 class="headline">Local Install — Individual</h2>
-            <div style="font-size: 5rem; margin: 2rem 0;">💻 🐳</div>
-            <div style="background: rgba(0, 0, 0, 0.3); padding: 2rem; border-radius: 12px; margin: 2rem 0; font-family: monospace; font-size: 1.5rem; color: #0dcaf0;">
-                $ docker-compose up
+        <!-- Scene 11: Local Install — Architecture -->
+        <div class="scene" data-duration="13000">
+            <h2 class="headline" style="font-size: 1.8rem;">Deploy Model: Individual</h2>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;max-width:950px;width:95%;margin:1rem auto;align-items:start;">
+                <!-- Left: architecture diagram -->
+                <div class="product-frame delay1" style="margin:0;width:100%;">
+                    <div class="frame-titlebar">
+                        <div class="frame-dot r"></div><div class="frame-dot y"></div><div class="frame-dot g"></div>
+                        <div class="frame-title">docker-compose up</div>
+                    </div>
+                    <div class="frame-body" style="padding:0;">
+                        <svg viewBox="0 0 420 280" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;">
+                            <rect width="420" height="280" fill="#0d1117"/>
+                            <!-- User -->
+                            <rect x="160" y="10" width="100" height="30" rx="6" fill="rgba(188,140,255,0.1)" stroke="#bc8cff" stroke-width="1.5"/>
+                            <text x="183" y="30" fill="#bc8cff" font-size="10" font-weight="600" font-family="Segoe UI">👤 You</text>
+                            <line x1="210" y1="40" x2="210" y2="58" stroke="rgba(255,255,255,0.15)" stroke-width="1" stroke-dasharray="3,2"/>
+                            <!-- Docker boundary -->
+                            <rect x="30" y="58" width="360" height="210" rx="10" fill="rgba(13,202,240,0.03)" stroke="rgba(13,202,240,0.2)" stroke-width="1.5" stroke-dasharray="6,3"/>
+                            <text x="45" y="75" fill="rgba(13,202,240,0.5)" font-size="8" font-family="Segoe UI">🐳 Docker Compose — Your Laptop</text>
+                            <!-- Cerebro -->
+                            <rect x="140" y="85" width="140" height="40" rx="8" fill="rgba(188,140,255,0.1)" stroke="#bc8cff" stroke-width="1.5"/>
+                            <text x="163" y="109" fill="#bc8cff" font-size="10" font-weight="700" font-family="Segoe UI">🧠 Cerebro</text>
+                            <!-- Arrows down -->
+                            <line x1="175" y1="125" x2="100" y2="148" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+                            <line x1="210" y1="125" x2="210" y2="148" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+                            <line x1="245" y1="125" x2="320" y2="148" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+                            <!-- MCP Engine -->
+                            <rect x="45" y="148" width="110" height="34" rx="6" fill="rgba(13,202,240,0.08)" stroke="rgba(13,202,240,0.4)" stroke-width="1"/>
+                            <text x="60" y="169" fill="#0dcaf0" font-size="9" font-weight="600" font-family="Segoe UI">🔌 MCP Engine</text>
+                            <!-- RAG / Knowledge -->
+                            <rect x="165" y="148" width="90" height="34" rx="6" fill="rgba(25,135,84,0.08)" stroke="rgba(25,135,84,0.4)" stroke-width="1"/>
+                            <text x="177" y="169" fill="#198754" font-size="9" font-weight="600" font-family="Segoe UI">📚 RAG</text>
+                            <!-- SQLite / Local Store -->
+                            <rect x="265" y="148" width="110" height="34" rx="6" fill="rgba(255,193,7,0.08)" stroke="rgba(255,193,7,0.4)" stroke-width="1"/>
+                            <text x="278" y="169" fill="#ffc107" font-size="9" font-weight="600" font-family="Segoe UI">🗃️ Local Store</text>
+                            <!-- Security layers -->
+                            <rect x="45" y="200" width="330" height="55" rx="8" fill="rgba(25,135,84,0.04)" stroke="rgba(25,135,84,0.15)" stroke-width="1"/>
+                            <text x="55" y="216" fill="rgba(25,135,84,0.7)" font-size="7" font-weight="700" font-family="Segoe UI">SECURITY — SAME STACK, SINGLE USER</text>
+                            <text x="55" y="230" fill="rgba(255,255,255,0.4)" font-size="7" font-family="Segoe UI">🔐 Local auth   🔑 Local vault   📚 Personal knowledge base   📋 Audit log</text>
+                            <text x="55" y="244" fill="rgba(255,255,255,0.35)" font-size="7" font-family="Segoe UI">⚙️ Policy engine active — same rules, even for one user. Your data never leaves your machine.</text>
+                        </svg>
+                    </div>
+                </div>
+                <!-- Right: features -->
+                <div style="opacity:0;animation:fadeSlideUp 0.5s 0.8s forwards;">
+                    <div style="font-size:2.2rem;margin-bottom:1rem">💻</div>
+                    <h3 style="font-size:1.3rem;font-weight:700;margin-bottom:.8rem;color:#e6edf3">Single User / Developer</h3>
+                    <div style="font-size:.85rem;color:rgba(255,255,255,0.5);line-height:2;">
+                        <code style="background:rgba(13,202,240,0.1);color:#0dcaf0;padding:2px 8px;border-radius:4px;font-size:.8rem">docker-compose up</code><br>
+                        ✅ Full Cerebro + MCP + RAG<br>
+                        ✅ Policy engine enforced locally<br>
+                        ✅ Personal vault (encrypted)<br>
+                        ✅ Audit trail to local log<br>
+                        ✅ Data stays on your machine<br>
+                        ✅ Free forever
+                    </div>
+                    <div style="margin-top:1rem;padding:.6rem;background:rgba(188,140,255,0.06);border:1px solid rgba(188,140,255,0.15);border-radius:8px;font-size:.75rem;color:rgba(255,255,255,0.5)">
+                        💡 Same security stack as enterprise — just scoped to one user
+                    </div>
+                </div>
             </div>
-            <p class="headline fade-in-delay-1" style="font-size: 2rem;">Up and running in 5 minutes</p>
-            <ul class="feature-list fade-in-delay-2">
-                <li style="animation-delay: 1s;">Perfect for: Developers, researchers, personal productivity</li>
-                <li style="animation-delay: 1.2s;">Free tier. No cloud required. Your data stays local.</li>
-            </ul>
         </div>
 
-        <!-- Scene 12: Small Business -->
-        <div class="scene" data-duration="10000">
-            <h2 class="headline">Small Business — Team Deployment</h2>
-            <div style="font-size: 5rem; margin: 2rem 0;">🏢 ☸️</div>
-            <p class="subheadline fade-in-delay-1">Deploy to any Kubernetes cluster</p>
-            <p class="subheadline fade-in-delay-1" style="font-size: 1.3rem; color: #0dcaf0;">5-50 users. Team-level policies.</p>
-            <ul class="feature-list fade-in-delay-2">
-                <li style="animation-delay: 1s;">Group management</li>
-                <li style="animation-delay: 1.2s;">Shared connectors</li>
-                <li style="animation-delay: 1.4s;">Team knowledge bases</li>
-                <li style="animation-delay: 1.6s;">Magic link auth — no AD/SSO required</li>
-            </ul>
+        <!-- Scene 12: Small Business — Architecture -->
+        <div class="scene" data-duration="13000">
+            <h2 class="headline" style="font-size: 1.8rem;">Deploy Model: Small Business</h2>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;max-width:950px;width:95%;margin:1rem auto;align-items:start;">
+                <div class="product-frame delay1" style="margin:0;width:100%;">
+                    <div class="frame-titlebar">
+                        <div class="frame-dot r"></div><div class="frame-dot y"></div><div class="frame-dot g"></div>
+                        <div class="frame-title">helm install contextweaver</div>
+                    </div>
+                    <div class="frame-body" style="padding:0;">
+                        <svg viewBox="0 0 420 280" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;">
+                            <rect width="420" height="280" fill="#0d1117"/>
+                            <!-- Users -->
+                            <rect x="40" y="10" width="75" height="26" rx="5" fill="rgba(188,140,255,0.1)" stroke="#bc8cff" stroke-width="1"/>
+                            <text x="52" y="27" fill="#bc8cff" font-size="8" font-family="Segoe UI">👤 Alice (Mgr)</text>
+                            <rect x="125" y="10" width="75" height="26" rx="5" fill="rgba(13,202,240,0.1)" stroke="#0dcaf0" stroke-width="1"/>
+                            <text x="138" y="27" fill="#0dcaf0" font-size="8" font-family="Segoe UI">👤 Bob (Dev)</text>
+                            <rect x="210" y="10" width="80" height="26" rx="5" fill="rgba(25,135,84,0.1)" stroke="#198754" stroke-width="1"/>
+                            <text x="221" y="27" fill="#198754" font-size="8" font-family="Segoe UI">👤 Carol (Sales)</text>
+                            <rect x="300" y="10" width="80" height="26" rx="5" fill="rgba(255,193,7,0.1)" stroke="#ffc107" stroke-width="1"/>
+                            <text x="316" y="27" fill="#ffc107" font-size="8" font-family="Segoe UI">👤 +47 more</text>
+                            <!-- Lines down -->
+                            <line x1="210" y1="36" x2="210" y2="52" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+                            <!-- K8s boundary -->
+                            <rect x="20" y="52" width="380" height="218" rx="10" fill="rgba(13,202,240,0.03)" stroke="rgba(13,202,240,0.2)" stroke-width="1.5" stroke-dasharray="6,3"/>
+                            <text x="35" y="67" fill="rgba(13,202,240,0.5)" font-size="8" font-family="Segoe UI">☸️ Kubernetes Cluster — Cloud or On-Prem</text>
+                            <!-- Cerebro -->
+                            <rect x="145" y="75" width="130" height="34" rx="7" fill="rgba(188,140,255,0.1)" stroke="#bc8cff" stroke-width="1.5"/>
+                            <text x="168" y="96" fill="#bc8cff" font-size="10" font-weight="700" font-family="Segoe UI">🧠 Cerebro</text>
+                            <!-- Auth layer -->
+                            <rect x="30" y="75" width="100" height="34" rx="7" fill="rgba(220,53,69,0.08)" stroke="rgba(220,53,69,0.3)" stroke-width="1"/>
+                            <text x="42" y="96" fill="#dc3545" font-size="8" font-weight="600" font-family="Segoe UI">🔐 Magic Link</text>
+                            <!-- Arrows -->
+                            <line x1="175" y1="109" x2="100" y2="128" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+                            <line x1="210" y1="109" x2="210" y2="128" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+                            <line x1="245" y1="109" x2="320" y2="128" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+                            <!-- Services -->
+                            <rect x="35" y="128" width="100" height="30" rx="5" fill="rgba(13,202,240,0.08)" stroke="rgba(13,202,240,0.3)" stroke-width="1"/>
+                            <text x="50" y="147" fill="#0dcaf0" font-size="8" font-weight="600" font-family="Segoe UI">🔌 MCP Engine</text>
+                            <rect x="145" y="128" width="130" height="30" rx="5" fill="rgba(25,135,84,0.08)" stroke="rgba(25,135,84,0.3)" stroke-width="1"/>
+                            <text x="158" y="147" fill="#198754" font-size="8" font-weight="600" font-family="Segoe UI">📚 HRAG (2 levels)</text>
+                            <rect x="285" y="128" width="100" height="30" rx="5" fill="rgba(255,193,7,0.08)" stroke="rgba(255,193,7,0.3)" stroke-width="1"/>
+                            <text x="302" y="147" fill="#ffc107" font-size="8" font-weight="600" font-family="Segoe UI">🔑 Vault</text>
+                            <!-- HRAG detail -->
+                            <rect x="35" y="170" width="350" height="44" rx="6" fill="rgba(25,135,84,0.04)" stroke="rgba(25,135,84,0.12)" stroke-width="1"/>
+                            <text x="45" y="184" fill="rgba(25,135,84,0.7)" font-size="7" font-weight="700" font-family="Segoe UI">HIERARCHICAL RAG — 2 LEVELS</text>
+                            <rect x="45" y="190" width="120" height="16" rx="3" fill="rgba(25,135,84,0.1)" stroke="rgba(25,135,84,0.25)" stroke-width="1"/>
+                            <text x="52" y="201" fill="rgba(255,255,255,0.5)" font-size="6.5" font-family="Segoe UI">🏢 Team Knowledge</text>
+                            <rect x="175" y="190" width="120" height="16" rx="3" fill="rgba(188,140,255,0.1)" stroke="rgba(188,140,255,0.25)" stroke-width="1"/>
+                            <text x="182" y="201" fill="rgba(255,255,255,0.5)" font-size="6.5" font-family="Segoe UI">👤 Personal Knowledge</text>
+                            <!-- Security -->
+                            <rect x="35" y="222" width="350" height="38" rx="6" fill="rgba(188,140,255,0.04)" stroke="rgba(188,140,255,0.12)" stroke-width="1"/>
+                            <text x="45" y="236" fill="rgba(188,140,255,0.7)" font-size="7" font-weight="700" font-family="Segoe UI">SECURITY — TEAM SCOPE</text>
+                            <text x="45" y="250" fill="rgba(255,255,255,0.4)" font-size="7" font-family="Segoe UI">🔐 Magic link auth   👥 Groups   🔑 Per-user vault   ⚙️ Team policies   📋 Full audit</text>
+                        </svg>
+                    </div>
+                </div>
+                <div style="opacity:0;animation:fadeSlideUp 0.5s 0.8s forwards;">
+                    <div style="font-size:2.2rem;margin-bottom:1rem">🏢</div>
+                    <h3 style="font-size:1.3rem;font-weight:700;margin-bottom:.8rem;color:#e6edf3">Small Business (5–50 users)</h3>
+                    <div style="font-size:.85rem;color:rgba(255,255,255,0.5);line-height:2;">
+                        <code style="background:rgba(13,202,240,0.1);color:#0dcaf0;padding:2px 8px;border-radius:4px;font-size:.8rem">helm install contextweaver</code><br>
+                        ✅ Group management (like teams)<br>
+                        ✅ 2-level HRAG (team + personal)<br>
+                        ✅ Per-user credentials in vault<br>
+                        ✅ Magic link auth (no AD needed)<br>
+                        ✅ RBAC (Manager / Developer / Viewer)<br>
+                        ✅ Shared + personal connectors
+                    </div>
+                    <div style="margin-top:1rem;padding:.6rem;background:rgba(13,202,240,0.06);border:1px solid rgba(13,202,240,0.15);border-radius:8px;font-size:.75rem;color:rgba(255,255,255,0.5)">
+                        💡 Alice sees team + her docs. Bob sees team + his docs. Neither sees the other's personal data.
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <!-- Scene 13: Enterprise -->
-        <div class="scene" data-duration="12000">
-            <h2 class="headline">Enterprise — Global Scale</h2>
-            <div style="font-size: 5rem; margin: 2rem 0;">🌍 ☁️</div>
-            <p class="headline fade-in-delay-1" style="font-size: 2rem;">Multi-cloud. Multi-region. Multi-tenant.</p>
-            <ul class="feature-list fade-in-delay-2">
-                <li style="animation-delay: 0.5s;">✅ Entra ID / SAML SSO</li>
-                <li style="animation-delay: 0.7s;">✅ Private endpoints (no public internet)</li>
-                <li style="animation-delay: 0.9s;">✅ Hierarchical RAG with org policies</li>
-                <li style="animation-delay: 1.1s;">✅ Managed Identity (zero secrets)</li>
-                <li style="animation-delay: 1.3s;">✅ Helm charts + Terraform modules</li>
-            </ul>
-            <p class="headline fade-in-delay-3" style="margin-top: 2rem; font-size: 1.5rem; color: #198754;">100,000+ users. Enterprise SLAs.</p>
+        <!-- Scene 13: Enterprise — Architecture -->
+        <div class="scene" data-duration="14000">
+            <h2 class="headline" style="font-size: 1.8rem;">Deploy Model: Enterprise / Multi-Tenant</h2>
+            <div class="product-frame delay1" style="max-width:950px;">
+                <div class="frame-titlebar">
+                    <div class="frame-dot r"></div><div class="frame-dot y"></div><div class="frame-dot g"></div>
+                    <div class="frame-title">terraform apply — Multi-Cloud Enterprise</div>
+                </div>
+                <div class="frame-body" style="padding:0;">
+                    <svg viewBox="0 0 900 320" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;">
+                        <rect width="900" height="320" fill="#0d1117"/>
+                        <!-- Tenant A -->
+                        <rect x="15" y="10" width="280" height="300" rx="10" fill="rgba(188,140,255,0.03)" stroke="rgba(188,140,255,0.2)" stroke-width="1.5"/>
+                        <text x="30" y="28" fill="#bc8cff" font-size="9" font-weight="700" font-family="Segoe UI">🏛️ Tenant A — Acme Corp (500 users)</text>
+                        <!-- Users row -->
+                        <rect x="25" y="36" width="55" height="20" rx="4" fill="rgba(188,140,255,0.08)" stroke="rgba(188,140,255,0.2)" stroke-width="1"/>
+                        <text x="32" y="49" fill="rgba(255,255,255,0.5)" font-size="6.5" font-family="Segoe UI">CEO</text>
+                        <rect x="85" y="36" width="55" height="20" rx="4" fill="rgba(13,202,240,0.08)" stroke="rgba(13,202,240,0.2)" stroke-width="1"/>
+                        <text x="92" y="49" fill="rgba(255,255,255,0.5)" font-size="6.5" font-family="Segoe UI">Eng Team</text>
+                        <rect x="145" y="36" width="55" height="20" rx="4" fill="rgba(25,135,84,0.08)" stroke="rgba(25,135,84,0.2)" stroke-width="1"/>
+                        <text x="152" y="49" fill="rgba(255,255,255,0.5)" font-size="6.5" font-family="Segoe UI">Sales Grp</text>
+                        <rect x="205" y="36" width="55" height="20" rx="4" fill="rgba(255,193,7,0.08)" stroke="rgba(255,193,7,0.2)" stroke-width="1"/>
+                        <text x="212" y="49" fill="rgba(255,255,255,0.5)" font-size="6.5" font-family="Segoe UI">HR Dept</text>
+                        <!-- Entra SSO -->
+                        <rect x="25" y="62" width="260" height="22" rx="5" fill="rgba(220,53,69,0.05)" stroke="rgba(220,53,69,0.2)" stroke-width="1"/>
+                        <text x="35" y="76" fill="#dc3545" font-size="7" font-weight="600" font-family="Segoe UI">🔐 Entra ID / SAML SSO + MFA</text>
+                        <!-- Cerebro -->
+                        <rect x="70" y="90" width="170" height="28" rx="6" fill="rgba(188,140,255,0.1)" stroke="#bc8cff" stroke-width="1.5"/>
+                        <text x="113" y="108" fill="#bc8cff" font-size="9" font-weight="700" font-family="Segoe UI">🧠 Cerebro</text>
+                        <!-- HRAG 3 levels -->
+                        <rect x="25" y="124" width="260" height="65" rx="6" fill="rgba(25,135,84,0.04)" stroke="rgba(25,135,84,0.12)" stroke-width="1"/>
+                        <text x="35" y="137" fill="rgba(25,135,84,0.7)" font-size="7" font-weight="700" font-family="Segoe UI">HIERARCHICAL RAG — 3 LEVELS</text>
+                        <rect x="35" y="142" width="240" height="12" rx="3" fill="rgba(25,135,84,0.1)"/>
+                        <text x="40" y="151" fill="rgba(255,255,255,0.5)" font-size="6" font-family="Segoe UI">🏢 Org: Company policies, compliance, spending limits</text>
+                        <rect x="55" y="156" width="220" height="12" rx="3" fill="rgba(13,202,240,0.08)"/>
+                        <text x="60" y="165" fill="rgba(255,255,255,0.45)" font-size="6" font-family="Segoe UI">👥 Group: Engineering docs, Sales playbooks, HR policies</text>
+                        <rect x="75" y="170" width="200" height="12" rx="3" fill="rgba(188,140,255,0.08)"/>
+                        <text x="80" y="179" fill="rgba(255,255,255,0.4)" font-size="6" font-family="Segoe UI">👤 Personal: User notes, preferences, bookmarks</text>
+                        <!-- Vault + Policy + Audit -->
+                        <rect x="25" y="195" width="80" height="24" rx="5" fill="rgba(255,193,7,0.06)" stroke="rgba(255,193,7,0.2)" stroke-width="1"/>
+                        <text x="33" y="210" fill="#ffc107" font-size="7" font-weight="600" font-family="Segoe UI">🔑 Vault</text>
+                        <rect x="112" y="195" width="80" height="24" rx="5" fill="rgba(13,202,240,0.06)" stroke="rgba(13,202,240,0.2)" stroke-width="1"/>
+                        <text x="120" y="210" fill="#0dcaf0" font-size="7" font-weight="600" font-family="Segoe UI">⚙️ Policies</text>
+                        <rect x="199" y="195" width="80" height="24" rx="5" fill="rgba(220,53,69,0.06)" stroke="rgba(220,53,69,0.2)" stroke-width="1"/>
+                        <text x="212" y="210" fill="#dc3545" font-size="7" font-weight="600" font-family="Segoe UI">📋 Audit</text>
+                        <!-- MCP + Connectors -->
+                        <rect x="25" y="225" width="260" height="24" rx="5" fill="rgba(13,202,240,0.04)" stroke="rgba(13,202,240,0.1)" stroke-width="1"/>
+                        <text x="35" y="240" fill="rgba(255,255,255,0.4)" font-size="7" font-family="Segoe UI">🔌 MCP: Gmail · Jira · Confluence · Salesforce · GitHub · Slack · +custom</text>
+                        <!-- Private endpoints -->
+                        <rect x="25" y="256" width="260" height="20" rx="4" fill="rgba(25,135,84,0.04)" stroke="rgba(25,135,84,0.1)" stroke-width="1"/>
+                        <text x="35" y="269" fill="rgba(25,135,84,0.6)" font-size="6.5" font-family="Segoe UI">🔒 Private Endpoints — Zero public internet   |   Managed Identity — Zero secrets</text>
+
+                        <!-- Tenant B -->
+                        <rect x="310" y="10" width="280" height="300" rx="10" fill="rgba(13,202,240,0.03)" stroke="rgba(13,202,240,0.2)" stroke-width="1.5"/>
+                        <text x="325" y="28" fill="#0dcaf0" font-size="9" font-weight="700" font-family="Segoe UI">🏥 Tenant B — MedCo Health (200 users)</text>
+                        <rect x="320" y="36" width="55" height="20" rx="4" fill="rgba(220,53,69,0.08)" stroke="rgba(220,53,69,0.2)" stroke-width="1"/>
+                        <text x="327" y="49" fill="rgba(255,255,255,0.5)" font-size="6.5" font-family="Segoe UI">Doctors</text>
+                        <rect x="380" y="36" width="55" height="20" rx="4" fill="rgba(13,202,240,0.08)" stroke="rgba(13,202,240,0.2)" stroke-width="1"/>
+                        <text x="387" y="49" fill="rgba(255,255,255,0.5)" font-size="6.5" font-family="Segoe UI">Nurses</text>
+                        <rect x="440" y="36" width="55" height="20" rx="4" fill="rgba(25,135,84,0.08)" stroke="rgba(25,135,84,0.2)" stroke-width="1"/>
+                        <text x="447" y="49" fill="rgba(255,255,255,0.5)" font-size="6.5" font-family="Segoe UI">Admin</text>
+                        <rect x="500" y="36" width="55" height="20" rx="4" fill="rgba(255,193,7,0.08)" stroke="rgba(255,193,7,0.2)" stroke-width="1"/>
+                        <text x="507" y="49" fill="rgba(255,255,255,0.5)" font-size="6.5" font-family="Segoe UI">Billing</text>
+                        <rect x="320" y="62" width="260" height="22" rx="5" fill="rgba(220,53,69,0.05)" stroke="rgba(220,53,69,0.2)" stroke-width="1"/>
+                        <text x="330" y="76" fill="#dc3545" font-size="7" font-weight="600" font-family="Segoe UI">🔐 Entra ID / SAML SSO + MFA</text>
+                        <rect x="365" y="90" width="170" height="28" rx="6" fill="rgba(13,202,240,0.1)" stroke="#0dcaf0" stroke-width="1.5"/>
+                        <text x="408" y="108" fill="#0dcaf0" font-size="9" font-weight="700" font-family="Segoe UI">🧠 Cerebro</text>
+                        <rect x="320" y="124" width="260" height="65" rx="6" fill="rgba(25,135,84,0.04)" stroke="rgba(25,135,84,0.12)" stroke-width="1"/>
+                        <text x="330" y="137" fill="rgba(25,135,84,0.7)" font-size="7" font-weight="700" font-family="Segoe UI">HIERARCHICAL RAG — HIPAA COMPLIANT</text>
+                        <rect x="330" y="142" width="240" height="12" rx="3" fill="rgba(25,135,84,0.1)"/>
+                        <text x="335" y="151" fill="rgba(255,255,255,0.5)" font-size="6" font-family="Segoe UI">🏥 Org: HIPAA rules, formulary, clinical guidelines</text>
+                        <rect x="350" y="156" width="220" height="12" rx="3" fill="rgba(13,202,240,0.08)"/>
+                        <text x="355" y="165" fill="rgba(255,255,255,0.45)" font-size="6" font-family="Segoe UI">👥 Dept: Cardiology KB, Radiology protocols, Billing codes</text>
+                        <rect x="370" y="170" width="200" height="12" rx="3" fill="rgba(188,140,255,0.08)"/>
+                        <text x="375" y="179" fill="rgba(255,255,255,0.4)" font-size="6" font-family="Segoe UI">👤 Personal: Doctor's notes, patient preferences</text>
+                        <rect x="320" y="195" width="80" height="24" rx="5" fill="rgba(255,193,7,0.06)" stroke="rgba(255,193,7,0.2)" stroke-width="1"/>
+                        <text x="328" y="210" fill="#ffc107" font-size="7" font-weight="600" font-family="Segoe UI">🔑 Vault</text>
+                        <rect x="407" y="195" width="80" height="24" rx="5" fill="rgba(13,202,240,0.06)" stroke="rgba(13,202,240,0.2)" stroke-width="1"/>
+                        <text x="415" y="210" fill="#0dcaf0" font-size="7" font-weight="600" font-family="Segoe UI">⚙️ Policies</text>
+                        <rect x="494" y="195" width="80" height="24" rx="5" fill="rgba(220,53,69,0.06)" stroke="rgba(220,53,69,0.2)" stroke-width="1"/>
+                        <text x="507" y="210" fill="#dc3545" font-size="7" font-weight="600" font-family="Segoe UI">📋 Audit</text>
+                        <rect x="320" y="225" width="260" height="24" rx="5" fill="rgba(13,202,240,0.04)" stroke="rgba(13,202,240,0.1)" stroke-width="1"/>
+                        <text x="330" y="240" fill="rgba(255,255,255,0.4)" font-size="7" font-family="Segoe UI">🔌 MCP: EHR · HL7 · Lab Systems · Pharmacy · Billing · +custom</text>
+                        <rect x="320" y="256" width="260" height="20" rx="4" fill="rgba(25,135,84,0.04)" stroke="rgba(25,135,84,0.1)" stroke-width="1"/>
+                        <text x="330" y="269" fill="rgba(25,135,84,0.6)" font-size="6.5" font-family="Segoe UI">🔒 Private Endpoints — HIPAA BAA   |   Managed Identity — Zero secrets</text>
+
+                        <!-- Shared infrastructure -->
+                        <rect x="605" y="10" width="280" height="300" rx="10" fill="rgba(255,193,7,0.03)" stroke="rgba(255,193,7,0.15)" stroke-width="1.5"/>
+                        <text x="620" y="28" fill="#ffc107" font-size="9" font-weight="700" font-family="Segoe UI">⚡ Shared Infrastructure Layer</text>
+                        <rect x="615" y="40" width="260" height="50" rx="6" fill="rgba(13,202,240,0.04)" stroke="rgba(13,202,240,0.1)" stroke-width="1"/>
+                        <text x="625" y="56" fill="#0dcaf0" font-size="8" font-weight="600" font-family="Segoe UI">☸️ Kubernetes (AKS / EKS / GKE)</text>
+                        <text x="625" y="70" fill="rgba(255,255,255,0.35)" font-size="6.5" font-family="Segoe UI">Auto-scaling · Namespace isolation · Network policies</text>
+                        <rect x="615" y="96" width="260" height="40" rx="6" fill="rgba(25,135,84,0.04)" stroke="rgba(25,135,84,0.1)" stroke-width="1"/>
+                        <text x="625" y="112" fill="#198754" font-size="8" font-weight="600" font-family="Segoe UI">🗄️ Data Tier</text>
+                        <text x="625" y="125" fill="rgba(255,255,255,0.35)" font-size="6.5" font-family="Segoe UI">Cosmos DB / DynamoDB · AI Search · Key Vault</text>
+                        <rect x="615" y="142" width="260" height="40" rx="6" fill="rgba(188,140,255,0.04)" stroke="rgba(188,140,255,0.1)" stroke-width="1"/>
+                        <text x="625" y="158" fill="#bc8cff" font-size="8" font-weight="600" font-family="Segoe UI">📊 Observability</text>
+                        <text x="625" y="171" fill="rgba(255,255,255,0.35)" font-size="6.5" font-family="Segoe UI">Grafana · Prometheus · Loki · Cluster View</text>
+                        <rect x="615" y="188" width="260" height="40" rx="6" fill="rgba(220,53,69,0.04)" stroke="rgba(220,53,69,0.1)" stroke-width="1"/>
+                        <text x="625" y="204" fill="#dc3545" font-size="8" font-weight="600" font-family="Segoe UI">🛡️ Network Security</text>
+                        <text x="625" y="217" fill="rgba(255,255,255,0.35)" font-size="6.5" font-family="Segoe UI">WAF · Private endpoints · mTLS · Certificate mgmt</text>
+                        <rect x="615" y="234" width="260" height="40" rx="6" fill="rgba(255,193,7,0.04)" stroke="rgba(255,193,7,0.1)" stroke-width="1"/>
+                        <text x="625" y="250" fill="#ffc107" font-size="8" font-weight="600" font-family="Segoe UI">📦 Deploy Tooling</text>
+                        <text x="625" y="263" fill="rgba(255,255,255,0.35)" font-size="6.5" font-family="Segoe UI">Helm charts · Terraform modules · CI/CD pipelines</text>
+                        <!-- Isolation indicator -->
+                        <rect x="615" y="280" width="260" height="22" rx="4" fill="rgba(25,135,84,0.06)" stroke="rgba(25,135,84,0.15)" stroke-width="1"/>
+                        <text x="625" y="294" fill="rgba(25,135,84,0.7)" font-size="7" font-weight="600" font-family="Segoe UI">🔒 Complete tenant isolation — data, credentials, policies, knowledge</text>
+                    </svg>
+                </div>
+            </div>
+            <p class="subheadline fade-in-delay-2" style="margin-top:.8rem;font-size:.95rem;color:rgba(230,237,243,0.5)">Each tenant is fully isolated — same infrastructure, zero cross-contamination</p>
+        </div>
+
+        <!-- Scene 13a: Unified Architecture — Same Stack Everywhere -->
+        <div class="scene" data-duration="13000">
+            <h2 class="headline" style="font-size: 1.8rem;">One Architecture. Every Scale.</h2>
+            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;max-width:950px;width:95%;margin:1.5rem auto;">
+                <!-- Individual -->
+                <div style="background:rgba(188,140,255,0.04);border:1px solid rgba(188,140,255,0.15);border-radius:12px;padding:1.2rem;opacity:0;animation:fadeSlideUp 0.5s 0.3s forwards;">
+                    <div style="text-align:center;font-size:1.8rem;margin-bottom:.5rem">💻</div>
+                    <h4 style="text-align:center;font-size:.95rem;font-weight:700;color:#bc8cff;margin-bottom:.8rem">Individual</h4>
+                    <div style="font-size:.7rem;color:rgba(255,255,255,0.45);line-height:1.9">
+                        🧠 Cerebro ✅<br>🔌 MCP Engine ✅<br>📚 RAG (1 level) ✅<br>🔑 Local vault ✅<br>⚙️ Policy engine ✅<br>📋 Audit log ✅
+                    </div>
+                </div>
+                <!-- SMB -->
+                <div style="background:rgba(13,202,240,0.04);border:1px solid rgba(13,202,240,0.15);border-radius:12px;padding:1.2rem;opacity:0;animation:fadeSlideUp 0.5s 0.6s forwards;">
+                    <div style="text-align:center;font-size:1.8rem;margin-bottom:.5rem">🏢</div>
+                    <h4 style="text-align:center;font-size:.95rem;font-weight:700;color:#0dcaf0;margin-bottom:.8rem">Small Business</h4>
+                    <div style="font-size:.7rem;color:rgba(255,255,255,0.45);line-height:1.9">
+                        🧠 Cerebro ✅<br>🔌 MCP Engine ✅<br>📚 HRAG (2 levels) ✅<br>🔑 Vault cascade ✅<br>⚙️ Policy engine ✅<br>📋 Audit log ✅<br>👥 Groups + RBAC ✅<br>🔐 Magic link auth ✅
+                    </div>
+                </div>
+                <!-- Enterprise -->
+                <div style="background:rgba(25,135,84,0.04);border:1px solid rgba(25,135,84,0.15);border-radius:12px;padding:1.2rem;opacity:0;animation:fadeSlideUp 0.5s 0.9s forwards;">
+                    <div style="text-align:center;font-size:1.8rem;margin-bottom:.5rem">🌍</div>
+                    <h4 style="text-align:center;font-size:.95rem;font-weight:700;color:#198754;margin-bottom:.8rem">Enterprise</h4>
+                    <div style="font-size:.7rem;color:rgba(255,255,255,0.45);line-height:1.9">
+                        🧠 Cerebro ✅<br>🔌 MCP Engine ✅<br>📚 HRAG (3 levels) ✅<br>🔑 Vault cascade ✅<br>⚙️ Policy engine ✅<br>📋 Audit log ✅<br>👥 Groups + RBAC ✅<br>🔐 SSO + MFA ✅<br>🔒 Private endpoints ✅<br>🏗️ Multi-tenant ✅
+                    </div>
+                </div>
+            </div>
+            <div style="margin-top:1.5rem;text-align:center;opacity:0;animation:fadeSlideUp 0.5s 1.2s forwards;">
+                <div style="background:linear-gradient(135deg,rgba(188,140,255,0.08),rgba(13,202,240,0.08),rgba(25,135,84,0.08));border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:1rem 1.5rem;display:inline-block;max-width:700px;">
+                    <div style="font-size:1.1rem;font-weight:700;color:#e6edf3;margin-bottom:.3rem">Same security DNA at every tier</div>
+                    <div style="font-size:.82rem;color:rgba(255,255,255,0.5)">The policy engine, vault, audit trail, and HRAG run identically whether you're a solo developer on Docker or a 100K-user enterprise on AKS. Scale adds layers — it never removes them.</div>
+                </div>
+            </div>
         </div>
 
         <!-- Scene 13b: Observability — Grafana & Prometheus -->
