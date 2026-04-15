@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="dark">
 <head>
-<script src="/gate.js"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>ContextWeaver — Internal Presentation</title>
@@ -1437,6 +1436,243 @@
       </table>
       <div class="plain-talk" style="font-size:.72rem;margin-top:.6rem">
         A hospital with patient data needs a <strong>dedicated building</strong> — no sharing whatsoever. A small marketing agency can use the <strong>apartment model</strong> — still secure, but sharing infrastructure to save costs. ContextWeaver supports both, so every company gets the level of isolation their industry requires.
+      </div>
+    </div>
+  </section>
+
+  <!-- Slide 28b: Deploy Model — Individual -->
+  <section>
+    <div class="content">
+      <h2><span class="purple">💻</span> Deploy Model: Individual</h2>
+      <p style="color:rgba(255,255,255,0.5);margin-bottom:1rem;font-size:.9rem">One command. Full platform. Your data never leaves your machine.</p>
+      <div class="grid2">
+        <div>
+          <div style="background:rgba(13,202,240,0.06);border:1px solid rgba(13,202,240,0.15);border-radius:10px;padding:1rem;margin-bottom:1rem">
+            <div style="font-family:monospace;font-size:1rem;color:#0dcaf0;margin-bottom:.5rem">$ docker-compose up</div>
+            <div style="font-size:.75rem;color:rgba(255,255,255,0.4)">Launches Cerebro + MCP Engine + RAG + Local Store</div>
+          </div>
+          <ul>
+            <li><strong>Cerebro runtime</strong> — full agent engine</li>
+            <li><strong>MCP Engine</strong> — 5 connectors included</li>
+            <li><strong>RAG</strong> — personal knowledge base (500 docs)</li>
+            <li><strong>Local vault</strong> — encrypted credential store</li>
+            <li><strong>Policy engine</strong> — same rules as enterprise</li>
+            <li><strong>Audit log</strong> — every action tracked locally</li>
+          </ul>
+        </div>
+        <div class="card bg-purple">
+          <h4>🔐 Same Security Stack</h4>
+          <p>The security architecture is <strong>identical</strong> to the enterprise version — vault, policy engine, and audit trail all run locally. The only difference is scope: one user instead of thousands.</p>
+          <div style="margin-top:1rem;border-top:1px solid rgba(255,255,255,0.08);padding-top:.8rem">
+            <h4 style="font-size:.8rem;color:rgba(255,255,255,0.4)">Best For</h4>
+            <p>Solo developers, researchers, personal productivity, POC evaluations. <strong>Free forever.</strong></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Slide 28c: Deploy Model — Small Business -->
+  <section>
+    <div class="content">
+      <h2><span class="cyan">🏢</span> Deploy Model: Small Business</h2>
+      <p style="color:rgba(255,255,255,0.5);margin-bottom:1rem;font-size:.9rem">5–50 users. Team-level isolation. No SSO required.</p>
+      <div class="grid2">
+        <div>
+          <div style="background:rgba(13,202,240,0.06);border:1px solid rgba(13,202,240,0.15);border-radius:10px;padding:1rem;margin-bottom:1rem">
+            <div style="font-family:monospace;font-size:1rem;color:#0dcaf0;margin-bottom:.5rem">$ helm install contextweaver</div>
+            <div style="font-size:.75rem;color:rgba(255,255,255,0.4)">Deploys to any Kubernetes cluster (cloud or on-prem)</div>
+          </div>
+          <ul>
+            <li><strong>Magic link auth</strong> — no Active Directory needed</li>
+            <li><strong>Groups</strong> — like Netflix family plans for teams</li>
+            <li><strong>2-level HRAG</strong> — Team knowledge + Personal knowledge</li>
+            <li><strong>Per-user vault</strong> — each person has own credentials</li>
+            <li><strong>RBAC</strong> — Manager / Developer / Viewer roles</li>
+            <li><strong>Shared + personal connectors</strong></li>
+          </ul>
+        </div>
+        <div class="card bg-cyan">
+          <h4>📚 Hierarchical RAG in Action</h4>
+          <p style="font-size:.82rem;line-height:1.7">Alice (Manager) asks: <em>"What's our Q3 budget?"</em></p>
+          <ul>
+            <li><span class="cyan">Team layer:</span> Finds Q3 budget doc ($500K)</li>
+            <li><span class="purple">Personal layer:</span> Finds her notes about planned spend</li>
+          </ul>
+          <p style="font-size:.82rem;line-height:1.7;margin-top:.5rem">Bob (Developer) asks the same question:</p>
+          <ul>
+            <li><span class="cyan">Team layer:</span> Same Q3 budget doc ($500K)</li>
+            <li><span class="purple">Personal layer:</span> His notes — different content</li>
+          </ul>
+          <p style="font-size:.78rem;color:rgba(255,255,255,0.4);margin-top:.5rem">Same team knowledge, different personal context. Bob can't see Alice's notes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Slide 28d: Deploy Model — Enterprise -->
+  <section>
+    <div class="content">
+      <h2><span class="green">🌍</span> Deploy Model: Enterprise / Multi-Tenant</h2>
+      <p style="color:rgba(255,255,255,0.5);margin-bottom:1rem;font-size:.9rem">500+ users. Multi-cloud. Complete tenant isolation.</p>
+      <div class="grid2">
+        <div class="card bg-green">
+          <h4>🏛️ Tenant A — Acme Corp (500 users)</h4>
+          <ul>
+            <li>Entra ID / SAML SSO + MFA</li>
+            <li>3-level HRAG: Org → Group → Personal</li>
+            <li>Org policy: $5,000 spending limit</li>
+            <li>Private endpoints (zero public internet)</li>
+            <li>MCP: Gmail, Jira, Confluence, Salesforce</li>
+          </ul>
+          <div class="thread-example" style="margin-top:.5rem;font-size:.72rem">
+            <strong>Example:</strong> Intern asks to buy $8,000 software → Org policy blocks at Cerebro level → Never reaches the tool → Full audit logged
+          </div>
+        </div>
+        <div class="card bg-cyan">
+          <h4>🏥 Tenant B — MedCo Health (200 users)</h4>
+          <ul>
+            <li>Same SSO, same infrastructure</li>
+            <li>HIPAA-compliant HRAG: Clinical → Dept → Personal</li>
+            <li>Org policy: Patient data access = doctor role only</li>
+            <li>Private endpoints + BAA</li>
+            <li>MCP: EHR, HL7, Lab Systems, Pharmacy</li>
+          </ul>
+          <div class="thread-example" style="margin-top:.5rem;font-size:.72rem">
+            <strong>Example:</strong> Billing clerk asks for patient labs → Policy blocks (not doctor role) → HIPAA violation prevented → Audit logged
+          </div>
+        </div>
+      </div>
+      <div class="highlight" style="margin-top:1rem;padding:1rem">
+        <p style="font-size:.85rem;color:rgba(255,255,255,0.6);margin:0;text-align:center">
+          <strong style="color:#198754">🔒 Complete isolation:</strong> Tenant A cannot see Tenant B's data, credentials, knowledge, or policies. Same Kubernetes cluster, zero cross-contamination.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Slide 28e: One Architecture, Every Scale -->
+  <section>
+    <div class="content">
+      <h2 style="text-align:center"><span class="purple">🧬</span> One Architecture. Every Scale.</h2>
+      <p style="text-align:center;color:rgba(255,255,255,0.5);margin-bottom:1.5rem;font-size:.9rem">The same security DNA runs at every tier — scale adds layers, never removes them</p>
+      <table>
+        <tr>
+          <th>Component</th>
+          <th style="text-align:center"><span class="purple">💻 Individual</span></th>
+          <th style="text-align:center"><span class="cyan">🏢 Small Business</span></th>
+          <th style="text-align:center"><span class="green">🌍 Enterprise</span></th>
+        </tr>
+        <tr><td>🧠 Cerebro Runtime</td><td style="text-align:center"><span class="green">✅</span></td><td style="text-align:center"><span class="green">✅</span></td><td style="text-align:center"><span class="green">✅</span></td></tr>
+        <tr><td>🔌 MCP Engine</td><td style="text-align:center"><span class="green">✅</span></td><td style="text-align:center"><span class="green">✅</span></td><td style="text-align:center"><span class="green">✅</span></td></tr>
+        <tr><td>🔑 Credential Vault</td><td style="text-align:center"><span class="green">✅</span> local</td><td style="text-align:center"><span class="green">✅</span> per-user</td><td style="text-align:center"><span class="green">✅</span> cascade</td></tr>
+        <tr><td>⚙️ Policy Engine</td><td style="text-align:center"><span class="green">✅</span></td><td style="text-align:center"><span class="green">✅</span></td><td style="text-align:center"><span class="green">✅</span> hierarchical</td></tr>
+        <tr><td>📋 Audit Trail</td><td style="text-align:center"><span class="green">✅</span></td><td style="text-align:center"><span class="green">✅</span></td><td style="text-align:center"><span class="green">✅</span></td></tr>
+        <tr><td>📚 Hierarchical RAG</td><td style="text-align:center">1 level</td><td style="text-align:center">2 levels</td><td style="text-align:center">3 levels</td></tr>
+        <tr><td>🔐 Authentication</td><td style="text-align:center">local</td><td style="text-align:center">magic link</td><td style="text-align:center">SSO + MFA</td></tr>
+        <tr><td>👥 Groups + RBAC</td><td style="text-align:center">—</td><td style="text-align:center"><span class="green">✅</span></td><td style="text-align:center"><span class="green">✅</span></td></tr>
+        <tr><td>🔒 Private Endpoints</td><td style="text-align:center">—</td><td style="text-align:center">optional</td><td style="text-align:center"><span class="green">✅</span></td></tr>
+        <tr><td>🏗️ Multi-Tenant</td><td style="text-align:center">—</td><td style="text-align:center">—</td><td style="text-align:center"><span class="green">✅</span></td></tr>
+      </table>
+      <div class="plain-talk" style="font-size:.75rem;margin-top:.8rem">
+        A solo developer running <code>docker-compose up</code> gets the <strong>same policy engine, vault, and audit trail</strong> as a 100,000-user enterprise on AKS. The architecture doesn't change — it just scales. This means you can <strong>start local and grow to enterprise without rearchitecting</strong>.
+      </div>
+    </div>
+  </section>
+
+  <!-- Slide 28f: Pricing Tiers -->
+  <section>
+    <div class="content">
+      <h2 style="text-align:center"><span class="green">💰</span> Pricing</h2>
+      <p style="text-align:center;color:rgba(255,255,255,0.5);margin-bottom:1.5rem;font-size:.9rem">From solo developers to Fortune 500 — a plan for every stage</p>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1rem">
+        <div class="card" style="text-align:center">
+          <div style="font-size:.65rem;font-weight:700;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:1px">Community</div>
+          <div style="font-size:2rem;font-weight:900;margin:.5rem 0">Free</div>
+          <div style="font-size:.75rem;color:rgba(255,255,255,0.4);margin-bottom:1rem">1 user · Docker</div>
+          <ul style="text-align:left;font-size:.75rem">
+            <li>5 connectors</li>
+            <li>1 knowledge base</li>
+            <li>Basic RAG</li>
+            <li>Community plugins</li>
+          </ul>
+        </div>
+        <div class="card" style="text-align:center;border-color:rgba(13,202,240,0.3)">
+          <div style="font-size:.65rem;font-weight:700;color:#0dcaf0;text-transform:uppercase;letter-spacing:1px">Team</div>
+          <div style="font-size:2rem;font-weight:900;margin:.5rem 0">$29<span style="font-size:.8rem;color:rgba(255,255,255,0.4)">/user/mo</span></div>
+          <div style="font-size:.75rem;color:rgba(255,255,255,0.4);margin-bottom:1rem">5–50 users</div>
+          <ul style="text-align:left;font-size:.75rem">
+            <li>Unlimited connectors</li>
+            <li>Group management</li>
+            <li>2-level HRAG</li>
+            <li>Magic link auth</li>
+          </ul>
+        </div>
+        <div class="card bg-purple" style="text-align:center;border-color:rgba(167,139,250,0.5);position:relative">
+          <div style="position:absolute;top:-10px;left:50%;transform:translateX(-50%);background:#a78bfa;color:#0d1117;padding:2px 12px;border-radius:10px;font-size:.6rem;font-weight:700">POPULAR</div>
+          <div style="font-size:.65rem;font-weight:700;color:#a78bfa;text-transform:uppercase;letter-spacing:1px;margin-top:4px">Business</div>
+          <div style="font-size:2rem;font-weight:900;margin:.5rem 0">$79<span style="font-size:.8rem;color:rgba(255,255,255,0.4)">/user/mo</span></div>
+          <div style="font-size:.75rem;color:rgba(255,255,255,0.4);margin-bottom:1rem">50–500 users</div>
+          <ul style="text-align:left;font-size:.75rem">
+            <li>SSO + RBAC + Vault</li>
+            <li>Full HRAG (3 levels)</li>
+            <li>Visual Designer</li>
+            <li>Plugin Builder</li>
+          </ul>
+        </div>
+        <div class="card" style="text-align:center;border-color:rgba(25,135,84,0.3)">
+          <div style="font-size:.65rem;font-weight:700;color:#198754;text-transform:uppercase;letter-spacing:1px">Enterprise</div>
+          <div style="font-size:2rem;font-weight:900;margin:.5rem 0">Custom</div>
+          <div style="font-size:.75rem;color:rgba(255,255,255,0.4);margin-bottom:1rem">500+ users</div>
+          <ul style="text-align:left;font-size:.75rem">
+            <li>Dedicated infra</li>
+            <li>Air-gapped deploy</li>
+            <li>Custom verticals</li>
+            <li>24/7 + TAM</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Slide 28g: Platform + Partner Ecosystem -->
+  <section>
+    <div class="content">
+      <h2 style="text-align:center"><span class="cyan">🤝</span> Platform + Partner Ecosystem</h2>
+      <p style="text-align:center;color:rgba(255,255,255,0.5);margin-bottom:1.5rem;font-size:.9rem">BrainzBytes builds the platform. Partners build the verticals.</p>
+      <div class="grid2">
+        <div class="card bg-purple">
+          <h4>🏢 What BrainzBytes Builds</h4>
+          <ul>
+            <li><strong>Cerebro Runtime</strong> — agent engine, RBAC, vault, audit</li>
+            <li><strong>Loom Designer</strong> — visual workflow builder</li>
+            <li><strong>Weave Knowledge</strong> — hierarchical RAG + policies</li>
+            <li><strong>Core Connectors</strong> — Gmail, Jira, GitHub, Slack (15+)</li>
+            <li><strong>Security Framework</strong> — SSO, managed identity, private endpoints</li>
+            <li><strong>Deploy Tooling</strong> — Helm, Terraform, Docker, CI/CD</li>
+          </ul>
+        </div>
+        <div class="card bg-cyan">
+          <h4>🤝 What Partners / Customers Build</h4>
+          <ul>
+            <li><strong>Industry Connectors</strong> — EHR, Bloomberg, ITAR, custom APIs</li>
+            <li><strong>Vertical Plugins</strong> — compliance rules, domain workflows</li>
+            <li><strong>Knowledge Packs</strong> — curated domain KBs, policy templates</li>
+            <li><strong>Custom Workflows</strong> — Loom automations for their use cases</li>
+            <li><strong>White-Label Solutions</strong> — branded products on ContextWeaver</li>
+          </ul>
+          <div style="margin-top:.5rem;padding:.5rem;background:rgba(13,202,240,0.08);border-radius:6px;font-size:.72rem;color:rgba(255,255,255,0.5)">
+            💡 <strong style="color:#0dcaf0">Plugin Builder included</strong> — build MCP connectors in hours, not months
+          </div>
+        </div>
+      </div>
+      <div class="highlight" style="margin-top:1rem;padding:.8rem">
+        <div style="display:flex;flex-wrap:wrap;gap:1.5rem;justify-content:center;font-size:.82rem;color:rgba(255,255,255,0.6)">
+          <span>💳 <strong style="color:#e6edf3">SaaS</strong> per-user subscription</span>
+          <span>🏢 <strong style="color:#e6edf3">License</strong> annual contract</span>
+          <span>🔌 <strong style="color:#e6edf3">Marketplace</strong> 20% rev-share</span>
+          <span>🎓 <strong style="color:#e6edf3">Services</strong> integration + training</span>
+        </div>
       </div>
     </div>
   </section>
