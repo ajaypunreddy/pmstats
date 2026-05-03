@@ -505,6 +505,104 @@ function hideDetail() {
 }
 document.addEventListener('keydown', e => { if (e.key === 'Escape') hideDetail(); });
 </script>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- PRODUCTION AKS TOPOLOGY (Current State)                    -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+
+<div style="max-width:1150px;margin:3rem auto 0;padding:0 1rem">
+  <h2 style="font-size:1.6rem;font-weight:800;text-align:center;margin-bottom:.3rem;background:linear-gradient(135deg,#a78bfa,#0dcaf0);-webkit-background-clip:text;-webkit-text-fill-color:transparent">☸️ Production AKS Topology — Current State</h2>
+  <p style="text-align:center;color:rgba(255,255,255,0.4);font-size:.82rem;margin-bottom:1.5rem">contextweaver-aks · 2–6 nodes (Standard_D4ds_v5) · Cluster Autoscaler · HPA · Valkey</p>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.5rem">
+    <!-- cerebro namespace -->
+    <div style="background:#161b22;border:1px solid rgba(167,139,250,0.3);border-radius:12px;padding:1.25rem;border-left:4px solid #a78bfa">
+      <h4 style="color:#a78bfa;font-size:.95rem;font-weight:700;margin-bottom:.75rem">🧠 cerebro namespace</h4>
+      <div style="font-size:.82rem;line-height:2;color:rgba(255,255,255,0.7)">
+        <div>⚡ <strong>cerebro-app</strong> — Flask backend <span style="background:rgba(167,139,250,0.15);color:#a78bfa;padding:2px 8px;border-radius:10px;font-size:.72rem;font-weight:600">2–8 replicas (HPA)</span></div>
+        <div>🖥️ <strong>contextweaver-frontend</strong> — React SPA <span style="background:rgba(13,202,240,0.15);color:#0dcaf0;padding:2px 8px;border-radius:10px;font-size:.72rem;font-weight:600">2–5 replicas (HPA)</span></div>
+        <div>🔴 <strong>Valkey</strong> — Redis-compatible (sessions + rate limiting)</div>
+        <div>💻 <strong>code-server</strong> — Standalone workspace (data source)</div>
+        <div style="color:rgba(255,255,255,0.4)">📋 ConfigMaps · Secrets (tokens, provider config)</div>
+      </div>
+    </div>
+
+    <!-- workspaces namespace -->
+    <div style="background:#161b22;border:1px solid rgba(13,202,240,0.3);border-radius:12px;padding:1.25rem;border-left:4px solid #0dcaf0">
+      <h4 style="color:#0dcaf0;font-size:.95rem;font-weight:700;margin-bottom:.75rem">☁️ workspaces namespace</h4>
+      <div style="font-size:.82rem;line-height:2;color:rgba(255,255,255,0.7)">
+        <div>👤 <strong>ws-{username}</strong> — code-server 4.115.0 per user</div>
+        <div>💾 Azure Disk PVC per user (ext4, persistent)</div>
+        <div>🐚 zsh + Oh-My-Zsh + kubectl/helm/git autocomplete</div>
+        <div>🛠️ Copilot CLI · Node.js 20 · Claude Code</div>
+        <div style="color:rgba(255,255,255,0.4)">📊 4 cores / 4Gi RAM per workspace</div>
+      </div>
+    </div>
+
+    <!-- jupyterhub namespace -->
+    <div style="background:#161b22;border:1px solid rgba(25,135,84,0.3);border-radius:12px;padding:1.25rem;border-left:4px solid #198754">
+      <h4 style="color:#198754;font-size:.95rem;font-weight:700;margin-bottom:.75rem">📓 jupyterhub namespace</h4>
+      <div style="font-size:.82rem;line-height:2;color:rgba(255,255,255,0.7)">
+        <div>🏠 <strong>JupyterHub</strong> — Multi-user notebook hub</div>
+        <div>👤 <strong>jupyter-{username}</strong> — Per-user notebook pods</div>
+        <div>🔐 Entra ID authentication</div>
+        <div>🐚 Custom zsh prompts with username</div>
+      </div>
+    </div>
+
+    <!-- monitoring + ingress -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">
+      <!-- monitoring namespace -->
+      <div style="background:#161b22;border:1px solid rgba(245,158,11,0.3);border-radius:12px;padding:1.25rem;border-left:4px solid #f59e0b">
+        <h4 style="color:#f59e0b;font-size:.9rem;font-weight:700;margin-bottom:.75rem">📊 monitoring</h4>
+        <div style="font-size:.78rem;line-height:2;color:rgba(255,255,255,0.7)">
+          <div>📈 Prometheus</div>
+          <div>📊 Grafana</div>
+          <div>📋 Loki + Promtail</div>
+          <div>🔔 Alertmanager</div>
+        </div>
+      </div>
+
+      <!-- ingress-nginx namespace -->
+      <div style="background:#161b22;border:1px solid rgba(220,53,69,0.3);border-radius:12px;padding:1.25rem;border-left:4px solid #dc3545">
+        <h4 style="color:#dc3545;font-size:.9rem;font-weight:700;margin-bottom:.75rem">🔒 ingress-nginx</h4>
+        <div style="font-size:.78rem;line-height:2;color:rgba(255,255,255,0.7)">
+          <div>🌐 NGINX Controller</div>
+          <div>🔐 TLS termination</div>
+          <div>↔️ SSL redirect</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Infrastructure badges -->
+  <div style="display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap;margin-bottom:2rem">
+    <span style="display:inline-flex;align-items:center;gap:6px;background:rgba(167,139,250,0.1);border:1px solid rgba(167,139,250,0.3);color:#a78bfa;padding:.4rem .9rem;border-radius:20px;font-size:.78rem;font-weight:600">⬆️ Cluster Autoscaler: 2–6 nodes</span>
+    <span style="display:inline-flex;align-items:center;gap:6px;background:rgba(13,202,240,0.1);border:1px solid rgba(13,202,240,0.3);color:#0dcaf0;padding:.4rem .9rem;border-radius:20px;font-size:.78rem;font-weight:600">📦 ACR: aiopmacr.azurecr.io</span>
+    <span style="display:inline-flex;align-items:center;gap:6px;background:rgba(25,135,84,0.1);border:1px solid rgba(25,135,84,0.3);color:#198754;padding:.4rem .9rem;border-radius:20px;font-size:.78rem;font-weight:600">🔴 Valkey: sessions + rate limiting</span>
+    <span style="display:inline-flex;align-items:center;gap:6px;background:rgba(220,53,69,0.1);border:1px solid rgba(220,53,69,0.3);color:#dc3545;padding:.4rem .9rem;border-radius:20px;font-size:.78rem;font-weight:600">🛡️ 20 req/min per-user rate limit</span>
+  </div>
+
+  <!-- Recent Changes -->
+  <div style="background:#161b22;border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:1.5rem;margin-bottom:2rem">
+    <h4 style="color:var(--accent-purple,#a78bfa);font-size:1rem;font-weight:700;margin-bottom:1rem">🆕 Recent Infrastructure Changes</h4>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:.75rem;font-size:.82rem">
+      <div style="color:rgba(255,255,255,0.6)">
+        <div style="margin-bottom:.5rem"><span style="color:#198754">●</span> Storage: Azure File (CIFS) → <strong style="color:#0dcaf0">Azure Disk (ext4)</strong></div>
+        <div style="margin-bottom:.5rem"><span style="color:#198754">●</span> Workspace memory: 256Mi → <strong style="color:#0dcaf0">4Gi</strong></div>
+        <div style="margin-bottom:.5rem"><span style="color:#198754">●</span> Build context: 336MB → <strong style="color:#0dcaf0">3.5MB</strong> via .dockerignore</div>
+        <div><span style="color:#198754">●</span> GitHub Copilot OAuth device flow integration</div>
+      </div>
+      <div style="color:rgba(255,255,255,0.6)">
+        <div style="margin-bottom:.5rem"><span style="color:#198754">●</span> Multi-LLM: GitHub Models / Azure OpenAI / Ollama</div>
+        <div style="margin-bottom:.5rem"><span style="color:#198754">●</span> Flask-Session with Redis backend for HA</div>
+        <div style="margin-bottom:.5rem"><span style="color:#198754">●</span> Per-user sliding window rate limiter</div>
+        <div><span style="color:#198754">●</span> Platform rebranding: <strong style="color:#a78bfa">ContextWeaver - AI Services Platform</strong></div>
+      </div>
+    </div>
+  </div>
+</div>
+
 </body>
 </html>
 
