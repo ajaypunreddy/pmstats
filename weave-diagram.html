@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-bs-theme="dark">
+<html lang="en" data-theme="midnight">
 <head>
 <script src="/gate.js"></script>
 <meta charset="UTF-8">
@@ -7,7 +7,7 @@
 <title>ContextWeaver — Weave: Plugins, Knowledge &amp; Connectors</title>
 <style>
   *{margin:0;padding:0;box-sizing:border-box}
-  body{background:#0d1117;color:#e6edf3;font-family:'Segoe UI',system-ui,sans-serif;overflow:auto;padding:2rem}
+  body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,sans-serif;overflow:auto;padding:2rem}
   h1{font-size:1.8rem;font-weight:800;text-align:center;margin-bottom:.3rem;background:linear-gradient(135deg,#198754,#0dcaf0,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
   .subtitle{text-align:center;color:rgba(255,255,255,0.35);font-size:.85rem;margin-bottom:1.5rem}
   svg{width:100%;max-width:1100px;margin:0 auto;display:block}
@@ -31,7 +31,7 @@
   .legend{display:flex;gap:1.5rem;justify-content:center;margin-top:1.5rem;flex-wrap:wrap;font-size:.78rem}
   .legend-item{display:flex;align-items:center;gap:6px}
   .legend-dot{width:14px;height:14px;border-radius:3px}
-  .detail-panel{display:none;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:#161b22;border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:1.5rem;max-width:520px;width:90%;z-index:100;box-shadow:0 20px 60px rgba(0,0,0,0.5)}
+  .detail-panel{display:none;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:var(--bg-card);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:1.5rem;max-width:520px;width:90%;z-index:100;box-shadow:0 20px 60px rgba(0,0,0,0.5)}
   .detail-panel.active{display:block}
   .detail-panel h3{color:#198754;margin-bottom:.75rem;font-size:1.1rem}
   .detail-panel p{color:rgba(255,255,255,0.6);font-size:.82rem;line-height:1.6;margin-bottom:.5rem}
