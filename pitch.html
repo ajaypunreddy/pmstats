@@ -19,10 +19,6 @@
 html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif}
 
 /* ─── NAV ─── */
-.bb-nav{background:rgba(13,17,23,.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);position:fixed;top:0;left:0;right:0;z-index:1050;height:48px;display:flex;align-items:center}
-.bb-nav .nav-link{color:var(--text-muted);font-size:.82rem;font-weight:500;padding:.35rem .7rem;transition:color .2s}
-.bb-nav .nav-link:hover,.bb-nav .nav-link.active{color:var(--text)}
-.bb-brand{font-weight:800;font-size:1.15rem;color:var(--accent-purple)!important;letter-spacing:-.02em;text-decoration:none;display:flex;align-items:center;gap:6px}
 
 /* ─── SLIDES ─── */
 .deck{position:relative;top:48px;width:100%;height:calc(100vh - 48px)}
@@ -74,30 +70,6 @@ table.comp td{border-color:var(--border);vertical-align:middle}
   <script src="theme.js" defer></script>
 </head>
 <body>
-
-<!-- ═══ NAVBAR ═══ -->
-<nav class="bb-nav">
-  <div class="container d-flex align-items-center justify-content-between">
-    <a href="index.html" class="bb-brand"><img src="logo.svg" alt="BrainzBytes" style="width:26px;height:26px"> BrainzBytes</a>
-    <div class="d-flex align-items-center gap-1">
-      <a href="index.html" class="nav-link">Home</a>
-      <a href="contextweaver/index.html" class="nav-link">ContextWeaver</a>
-      <div class="dropdown">
-        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Scenarios</a>
-        <ul class="dropdown-menu dropdown-menu-dark">
-          <li><a class="dropdown-item" href="scenario-travel-planner.html"><i class="bi bi-airplane me-2"></i>Travel Planner</a></li>
-          <li><a class="dropdown-item" href="scenario-devops.html"><i class="bi bi-gear me-2"></i>DevOps Pipeline</a></li>
-          <li><a class="dropdown-item" href="scenario-tax.html"><i class="bi bi-receipt me-2"></i>Tax &amp; Finance</a></li>
-          <li><a class="dropdown-item" href="scenario-trading.html"><i class="bi bi-graph-up me-2"></i>Smart Trading</a></li>
-        </ul>
-      </div>
-      <a href="security.html" class="nav-link"><i class="bi bi-shield-lock me-1"></i>Security</a>
-      <a href="business.html" class="nav-link"><i class="bi bi-briefcase me-1"></i>Business</a>
-      <a href="presentation.html" class="nav-link"><i class="bi bi-play-circle me-1"></i>Presentation</a>
-      <a href="index.html" class="nav-link"><i class="bi bi-arrow-left me-1"></i>Back to Site</a>
-    </div>
-  </div>
-</nav>
 
 <!-- ═══ SLIDE COUNTER & FULLSCREEN ═══ -->
 <div id="counter">1 / 18</div>

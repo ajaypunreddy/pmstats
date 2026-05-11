@@ -17,12 +17,6 @@
     code{background:rgba(255,255,255,0.06);padding:2px 6px;border-radius:4px;font-size:.85em}
 
     /* Navbar */
-    .bb-nav{background:rgba(13,17,23,0.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:1050}
-    .bb-nav .nav-link{color:var(--text-muted);font-size:.9rem;font-weight:500;transition:color .2s;padding:.5rem .85rem}
-    .bb-nav .nav-link:hover,.bb-nav .nav-link.active{color:var(--text)}
-    .bb-brand{font-weight:800;font-size:1.3rem;color:var(--accent-purple)!important;letter-spacing:-.02em}
-    .dropdown-menu{background:var(--bg-card);border-color:var(--border)}
-    .dropdown-item{color:var(--text-muted);font-size:.88rem}.dropdown-item:hover{background:var(--bg-elevated);color:var(--text)}
 
     /* Hero */
     .hero{padding:7rem 0 4rem;position:relative;overflow:hidden}
@@ -186,44 +180,6 @@
   <script src="theme.js" defer></script>
 </head>
 <body>
-
-  <!-- ═══════════════ NAVBAR ═══════════════ -->
-  <nav class="bb-nav py-2">
-    <div class="container">
-      <div class="d-flex align-items-center justify-content-between">
-        <a href="index.html" class="bb-brand text-decoration-none d-flex align-items-center gap-2">
-          <img src="logo.svg" alt="BrainzBytes" style="width:30px;height:30px">
-          BrainzBytes
-        </a>
-        <div class="d-flex align-items-center gap-1">
-          <a href="index.html" class="nav-link">Home</a>
-          <a href="contextweaver/index.html" class="nav-link">ContextWeaver</a>
-          <div class="dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Architecture</a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="architecture.html"><i class="bi bi-diagram-3 me-2"></i>Base (Cloud-Agnostic)</a></li>
-              <li><a class="dropdown-item" href="architecture-azure.html"><i class="bi bi-cloud me-2"></i>Azure</a></li>
-              <li><a class="dropdown-item" href="architecture-aws.html"><i class="bi bi-cloud me-2"></i>AWS</a></li>
-              <li><a class="dropdown-item" href="architecture-gcp.html"><i class="bi bi-cloud me-2"></i>GCP</a></li>
-            </ul>
-          </div>
-          <a href="security.html" class="nav-link active">Security</a>
-          <div class="dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Scenarios</a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="scenario-travel-planner.html"><i class="bi bi-airplane me-2"></i>Travel Planner</a></li>
-              <li><a class="dropdown-item" href="scenario-devops.html"><i class="bi bi-gear me-2"></i>DevOps Pipeline</a></li>
-              <li><a class="dropdown-item" href="scenario-tax.html"><i class="bi bi-receipt me-2"></i>Tax &amp; Finance</a></li>
-              <li><a class="dropdown-item" href="scenario-trading.html"><i class="bi bi-graph-up me-2"></i>Smart Trading</a></li>
-            </ul>
-          </div>
-          <a href="business.html" class="nav-link"><i class="bi bi-briefcase me-1"></i>Business</a>
-          <a href="presentation.html" class="nav-link"><i class="bi bi-play-circle me-1"></i>Presentation</a>
-          <a href="index.html#contact" class="nav-link">Contact</a>
-        </div>
-      </div>
-    </div>
-  </nav>
 
   <!-- ═══════════════ HERO ═══════════════ -->
   <section class="hero text-center">
