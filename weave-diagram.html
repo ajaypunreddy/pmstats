@@ -60,7 +60,7 @@
 <h1>🧶 Weave — Plugins, Knowledge, Scopes &amp; Connectors</h1>
 <p class="subtitle">The fabric that connects AI to your organization's tools, data, and rules — woven per user, per team, per company</p>
 
-<svg viewBox="0 0 1080 820" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 1080 940" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <marker id="aGreen" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0,8 3,0 6" fill="#198754"/></marker>
     <marker id="aCyan" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0,8 3,0 6" fill="#0dcaf0"/></marker>
@@ -77,8 +77,8 @@
   <g class="block" onclick="showDetail('build')">
     <rect x="30" y="40" width="155" height="65" rx="10" fill="url(#gGreen)" stroke="#198754" stroke-width="2"/>
     <text x="107" y="63" text-anchor="middle" fill="#198754" font-weight="700" font-size="12">🔨 Build</text>
-    <text x="107" y="78" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="8">No-code wizard or ZIP upload</text>
-    <text x="107" y="92" text-anchor="middle" fill="rgba(255,255,255,0.3)" font-size="7">manifest.json + Python code</text>
+    <text x="107" y="78" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="8">7-step wizard · Visual Designer</text>
+    <text x="107" y="92" text-anchor="middle" fill="rgba(255,255,255,0.3)" font-size="7">OpenAPI import · ZIP upload · no code</text>
   </g>
   <line x1="185" y1="72" x2="225" y2="72" stroke="#198754" stroke-width="1.5" class="flow-arrow" marker-end="url(#aGreen)"/>
   <g class="block" onclick="showDetail('install')">
@@ -204,64 +204,117 @@
     <text x="952" y="500" text-anchor="middle" fill="rgba(255,255,255,0.2)" font-size="7">Import spec → auto-generate connector</text>
   </g>
 
+
+  <!-- ═══ ROW 3.5: Multi-Source RAG Ingestion Pipeline ═══ -->
+  <text x="540" y="540" text-anchor="middle" fill="rgba(25,135,84,0.5)" font-size="10" font-weight="700" letter-spacing="2">MULTI-SOURCE INGESTION — Documents to Searchable Knowledge</text>
+
+  <g class="block" onclick="showDetail('ingest')">
+    <rect x="30" y="555" width="1030" height="85" rx="12" fill="rgba(25,135,84,0.03)" stroke="rgba(25,135,84,0.15)" stroke-width="1.5"/>
+
+    <rect x="50" y="570" width="80" height="35" rx="6" fill="rgba(25,135,84,0.08)" stroke="rgba(25,135,84,0.2)" stroke-width="1"/>
+    <text x="90" y="585" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="8" font-weight="600">📄 PDFs</text>
+    <text x="90" y="598" text-anchor="middle" fill="rgba(255,255,255,0.3)" font-size="6.5">Upload / Blob</text>
+
+    <rect x="140" y="570" width="80" height="35" rx="6" fill="rgba(25,135,84,0.08)" stroke="rgba(25,135,84,0.2)" stroke-width="1"/>
+    <text x="180" y="585" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="8" font-weight="600">🌐 URLs</text>
+    <text x="180" y="598" text-anchor="middle" fill="rgba(255,255,255,0.3)" font-size="6.5">Web pages</text>
+
+    <rect x="230" y="570" width="80" height="35" rx="6" fill="rgba(25,135,84,0.08)" stroke="rgba(25,135,84,0.2)" stroke-width="1"/>
+    <text x="270" y="585" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="8" font-weight="600">📝 Wikis</text>
+    <text x="270" y="598" text-anchor="middle" fill="rgba(255,255,255,0.3)" font-size="6.5">ADO / Confluence</text>
+
+    <rect x="320" y="570" width="80" height="35" rx="6" fill="rgba(25,135,84,0.08)" stroke="rgba(25,135,84,0.2)" stroke-width="1"/>
+    <text x="360" y="585" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="8" font-weight="600">🗄 Databases</text>
+    <text x="360" y="598" text-anchor="middle" fill="rgba(255,255,255,0.3)" font-size="6.5">SQL / NoSQL</text>
+
+    <rect x="410" y="570" width="80" height="35" rx="6" fill="rgba(25,135,84,0.08)" stroke="rgba(25,135,84,0.2)" stroke-width="1"/>
+    <text x="450" y="585" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="8" font-weight="600">📦 Blob</text>
+    <text x="450" y="598" text-anchor="middle" fill="rgba(255,255,255,0.3)" font-size="6.5">Azure / S3 / GCS</text>
+
+    <line x1="500" y1="587" x2="540" y2="587" stroke="#198754" stroke-width="1.5" class="flow-arrow" marker-end="url(#aGreen)"/>
+
+    <rect x="545" y="570" width="100" height="35" rx="6" fill="rgba(167,139,250,0.08)" stroke="rgba(167,139,250,0.25)" stroke-width="1.5"/>
+    <text x="595" y="585" text-anchor="middle" fill="#a78bfa" font-weight="700" font-size="8.5">✂ Chunk</text>
+    <text x="595" y="598" text-anchor="middle" fill="rgba(255,255,255,0.3)" font-size="6.5">Semantic splitting</text>
+
+    <line x1="645" y1="587" x2="665" y2="587" stroke="#a78bfa" stroke-width="1.5" class="flow-arrow" marker-end="url(#aPurple)"/>
+
+    <rect x="670" y="570" width="100" height="35" rx="6" fill="rgba(13,202,240,0.08)" stroke="rgba(13,202,240,0.25)" stroke-width="1.5"/>
+    <text x="720" y="585" text-anchor="middle" fill="#0dcaf0" font-weight="700" font-size="8.5">🧬 Embed</text>
+    <text x="720" y="598" text-anchor="middle" fill="rgba(255,255,255,0.3)" font-size="6.5">Azure OpenAI</text>
+
+    <line x1="770" y1="587" x2="790" y2="587" stroke="#0dcaf0" stroke-width="1.5" class="flow-arrow" marker-end="url(#aCyan)"/>
+
+    <rect x="795" y="570" width="120" height="35" rx="6" fill="rgba(255,193,7,0.08)" stroke="rgba(255,193,7,0.25)" stroke-width="1.5"/>
+    <text x="855" y="585" text-anchor="middle" fill="#ffc107" font-weight="700" font-size="8.5">🔍 Index</text>
+    <text x="855" y="598" text-anchor="middle" fill="rgba(255,255,255,0.3)" font-size="6.5">Azure AI Search</text>
+
+    <line x1="915" y1="587" x2="935" y2="587" stroke="#ffc107" stroke-width="1.5" class="flow-arrow" marker-end="url(#aYellow)"/>
+    <rect x="940" y="570" width="105" height="35" rx="6" fill="rgba(25,135,84,0.1)" stroke="rgba(25,135,84,0.3)" stroke-width="1.5"/>
+    <text x="992" y="585" text-anchor="middle" fill="#198754" font-weight="700" font-size="8.5">🔒 Scoped</text>
+    <text x="992" y="598" text-anchor="middle" fill="rgba(255,255,255,0.3)" font-size="6.5">User/Group/Org ACL</text>
+
+    <text x="540" y="628" text-anchor="middle" fill="rgba(255,255,255,0.25)" font-size="8">One-click ingestion · No code · Sources auto-chunked, embedded, and indexed with identity-scoped ACLs</text>
+  </g>
+
   <!-- ═══ ROW 4: Credential Vault Cascade ═══ -->
-  <text x="540" y="555" text-anchor="middle" fill="rgba(255,193,7,0.5)" font-size="10" font-weight="700" letter-spacing="2">CREDENTIAL VAULT — Per-User Key Resolution</text>
+  <text x="540" y="675" text-anchor="middle" fill="rgba(255,193,7,0.5)" font-size="10" font-weight="700" letter-spacing="2">CREDENTIAL VAULT — Per-User Key Resolution</text>
 
   <g class="block" onclick="showDetail('vault')">
-    <rect x="130" y="570" width="820" height="85" rx="12" fill="rgba(255,193,7,0.03)" stroke="rgba(255,193,7,0.2)" stroke-width="1.5"/>
+    <rect x="130" y="690" width="820" height="85" rx="12" fill="rgba(255,193,7,0.03)" stroke="rgba(255,193,7,0.2)" stroke-width="1.5"/>
     <!-- Cascade flow -->
-    <rect x="155" y="585" width="150" height="50" rx="8" fill="rgba(220,53,69,0.08)" stroke="rgba(220,53,69,0.3)" stroke-width="1.5"/>
-    <text x="230" y="607" text-anchor="middle" fill="#dc3545" font-weight="700" font-size="11">👤 User Key</text>
-    <text x="230" y="625" text-anchor="middle" fill="rgba(255,255,255,0.35)" font-size="8">Most specific — checked first</text>
-    <line x1="305" y1="610" x2="355" y2="610" stroke="#ffc107" stroke-width="2" class="flow-arrow" marker-end="url(#aYellow)"/>
-    <text x="330" y="600" fill="rgba(255,255,255,0.2)" font-size="7">miss?</text>
-    <rect x="360" y="585" width="150" height="50" rx="8" fill="rgba(255,193,7,0.08)" stroke="rgba(255,193,7,0.3)" stroke-width="1.5"/>
-    <text x="435" y="607" text-anchor="middle" fill="#ffc107" font-weight="700" font-size="11">👥 Group Key</text>
-    <text x="435" y="625" text-anchor="middle" fill="rgba(255,255,255,0.35)" font-size="8">Team/department shared key</text>
-    <line x1="510" y1="610" x2="560" y2="610" stroke="#ffc107" stroke-width="2" class="flow-arrow" marker-end="url(#aYellow)"/>
-    <text x="535" y="600" fill="rgba(255,255,255,0.2)" font-size="7">miss?</text>
-    <rect x="565" y="585" width="150" height="50" rx="8" fill="rgba(25,135,84,0.08)" stroke="rgba(25,135,84,0.3)" stroke-width="1.5"/>
-    <text x="640" y="607" text-anchor="middle" fill="#198754" font-weight="700" font-size="11">🏢 Org Key</text>
-    <text x="640" y="625" text-anchor="middle" fill="rgba(255,255,255,0.35)" font-size="8">Company-wide fallback</text>
-    <line x1="715" y1="610" x2="765" y2="610" stroke="rgba(220,53,69,0.5)" stroke-width="2" class="flow-arrow" marker-end="url(#aGreen)"/>
-    <text x="740" y="600" fill="rgba(255,255,255,0.2)" font-size="7">miss?</text>
-    <rect x="770" y="585" width="150" height="50" rx="8" fill="rgba(220,53,69,0.05)" stroke="rgba(220,53,69,0.2)" stroke-width="1"/>
-    <text x="845" y="607" text-anchor="middle" fill="#dc3545" font-weight="600" font-size="10">❌ No Credential</text>
-    <text x="845" y="625" text-anchor="middle" fill="rgba(255,255,255,0.3)" font-size="8">Tool call blocked</text>
+    <rect x="155" y="705" width="150" height="50" rx="8" fill="rgba(220,53,69,0.08)" stroke="rgba(220,53,69,0.3)" stroke-width="1.5"/>
+    <text x="230" y="727" text-anchor="middle" fill="#dc3545" font-weight="700" font-size="11">👤 User Key</text>
+    <text x="230" y="745" text-anchor="middle" fill="rgba(255,255,255,0.35)" font-size="8">Most specific — checked first</text>
+    <line x1="305" y1="730" x2="355" y2="730" stroke="#ffc107" stroke-width="2" class="flow-arrow" marker-end="url(#aYellow)"/>
+    <text x="330" y="720" fill="rgba(255,255,255,0.2)" font-size="7">miss?</text>
+    <rect x="360" y="705" width="150" height="50" rx="8" fill="rgba(255,193,7,0.08)" stroke="rgba(255,193,7,0.3)" stroke-width="1.5"/>
+    <text x="435" y="727" text-anchor="middle" fill="#ffc107" font-weight="700" font-size="11">👥 Group Key</text>
+    <text x="435" y="745" text-anchor="middle" fill="rgba(255,255,255,0.35)" font-size="8">Team/department shared key</text>
+    <line x1="510" y1="730" x2="560" y2="730" stroke="#ffc107" stroke-width="2" class="flow-arrow" marker-end="url(#aYellow)"/>
+    <text x="535" y="720" fill="rgba(255,255,255,0.2)" font-size="7">miss?</text>
+    <rect x="565" y="705" width="150" height="50" rx="8" fill="rgba(25,135,84,0.08)" stroke="rgba(25,135,84,0.3)" stroke-width="1.5"/>
+    <text x="640" y="727" text-anchor="middle" fill="#198754" font-weight="700" font-size="11">🏢 Org Key</text>
+    <text x="640" y="745" text-anchor="middle" fill="rgba(255,255,255,0.35)" font-size="8">Company-wide fallback</text>
+    <line x1="715" y1="730" x2="765" y2="730" stroke="rgba(220,53,69,0.5)" stroke-width="2" class="flow-arrow" marker-end="url(#aGreen)"/>
+    <text x="740" y="720" fill="rgba(255,255,255,0.2)" font-size="7">miss?</text>
+    <rect x="770" y="705" width="150" height="50" rx="8" fill="rgba(220,53,69,0.05)" stroke="rgba(220,53,69,0.2)" stroke-width="1"/>
+    <text x="845" y="727" text-anchor="middle" fill="#dc3545" font-weight="600" font-size="10">❌ No Credential</text>
+    <text x="845" y="745" text-anchor="middle" fill="rgba(255,255,255,0.3)" font-size="8">Tool call blocked</text>
   </g>
 
   <!-- ═══ ROW 5: Security Toggles ═══ -->
-  <text x="540" y="685" text-anchor="middle" fill="rgba(220,53,69,0.5)" font-size="10" font-weight="700" letter-spacing="2">SECURITY TOGGLES — Code-Enforced, Not Prompt-Based</text>
+  <text x="540" y="805" text-anchor="middle" fill="rgba(220,53,69,0.5)" font-size="10" font-weight="700" letter-spacing="2">SECURITY TOGGLES — Code-Enforced, Not Prompt-Based</text>
 
   <g class="block" onclick="showDetail('toggles')">
-    <rect x="30" y="700" width="500" height="105" rx="12" fill="rgba(220,53,69,0.03)" stroke="rgba(220,53,69,0.15)" stroke-width="1.5"/>
-    <text x="280" y="722" text-anchor="middle" fill="#dc3545" font-weight="700" font-size="11">🛡️ Per-Plugin Toggles</text>
-    <rect x="50" y="735" width="95" height="28" rx="5" fill="rgba(25,135,84,0.08)" stroke="rgba(25,135,84,0.2)" stroke-width="1"/>
-    <text x="97" y="753" text-anchor="middle" fill="rgba(25,135,84,0.7)" font-size="8">⏻ Enable/Disable</text>
-    <rect x="155" y="735" width="95" height="28" rx="5" fill="rgba(25,135,84,0.08)" stroke="rgba(25,135,84,0.2)" stroke-width="1"/>
-    <text x="202" y="753" text-anchor="middle" fill="rgba(25,135,84,0.7)" font-size="8">🔑 Require Creds</text>
-    <rect x="260" y="735" width="95" height="28" rx="5" fill="rgba(220,53,69,0.08)" stroke="rgba(220,53,69,0.2)" stroke-width="1"/>
-    <text x="307" y="753" text-anchor="middle" fill="rgba(220,53,69,0.7)" font-size="8">✏️ Write Ops</text>
-    <rect x="365" y="735" width="75" height="28" rx="5" fill="rgba(255,193,7,0.08)" stroke="rgba(255,193,7,0.2)" stroke-width="1"/>
-    <text x="402" y="753" text-anchor="middle" fill="rgba(255,193,7,0.7)" font-size="8">⏱ Rate Limit</text>
-    <rect x="450" y="735" width="65" height="28" rx="5" fill="rgba(167,139,250,0.08)" stroke="rgba(167,139,250,0.2)" stroke-width="1"/>
-    <text x="482" y="753" text-anchor="middle" fill="rgba(167,139,250,0.7)" font-size="8">📝 Audit</text>
-    <text x="280" y="790" text-anchor="middle" fill="rgba(255,255,255,0.25)" font-size="8">Each toggle enforced at code level — cannot be bypassed by prompt injection</text>
+    <rect x="30" y="820" width="500" height="105" rx="12" fill="rgba(220,53,69,0.03)" stroke="rgba(220,53,69,0.15)" stroke-width="1.5"/>
+    <text x="280" y="842" text-anchor="middle" fill="#dc3545" font-weight="700" font-size="11">🛡️ Per-Plugin Toggles</text>
+    <rect x="50" y="855" width="95" height="28" rx="5" fill="rgba(25,135,84,0.08)" stroke="rgba(25,135,84,0.2)" stroke-width="1"/>
+    <text x="97" y="873" text-anchor="middle" fill="rgba(25,135,84,0.7)" font-size="8">⏻ Enable/Disable</text>
+    <rect x="155" y="855" width="95" height="28" rx="5" fill="rgba(25,135,84,0.08)" stroke="rgba(25,135,84,0.2)" stroke-width="1"/>
+    <text x="202" y="873" text-anchor="middle" fill="rgba(25,135,84,0.7)" font-size="8">🔑 Require Creds</text>
+    <rect x="260" y="855" width="95" height="28" rx="5" fill="rgba(220,53,69,0.08)" stroke="rgba(220,53,69,0.2)" stroke-width="1"/>
+    <text x="307" y="873" text-anchor="middle" fill="rgba(220,53,69,0.7)" font-size="8">✏️ Write Ops</text>
+    <rect x="365" y="855" width="75" height="28" rx="5" fill="rgba(255,193,7,0.08)" stroke="rgba(255,193,7,0.2)" stroke-width="1"/>
+    <text x="402" y="873" text-anchor="middle" fill="rgba(255,193,7,0.7)" font-size="8">⏱ Rate Limit</text>
+    <rect x="450" y="855" width="65" height="28" rx="5" fill="rgba(167,139,250,0.08)" stroke="rgba(167,139,250,0.2)" stroke-width="1"/>
+    <text x="482" y="873" text-anchor="middle" fill="rgba(167,139,250,0.7)" font-size="8">📝 Audit</text>
+    <text x="280" y="910" text-anchor="middle" fill="rgba(255,255,255,0.25)" font-size="8">Each toggle enforced at code level — cannot be bypassed by prompt injection</text>
   </g>
 
   <g class="block" onclick="showDetail('toggles')">
-    <rect x="560" y="700" width="500" height="105" rx="12" fill="rgba(220,53,69,0.03)" stroke="rgba(220,53,69,0.15)" stroke-width="1.5"/>
-    <text x="810" y="722" text-anchor="middle" fill="#dc3545" font-weight="700" font-size="11">⚙️ Per-Engine Toggles</text>
-    <rect x="580" y="735" width="125" height="28" rx="5" fill="rgba(25,135,84,0.08)" stroke="rgba(25,135,84,0.2)" stroke-width="1"/>
-    <text x="642" y="753" text-anchor="middle" fill="rgba(25,135,84,0.7)" font-size="8">⏻ Engine Enable</text>
-    <rect x="715" y="735" width="140" height="28" rx="5" fill="rgba(220,53,69,0.08)" stroke="rgba(220,53,69,0.2)" stroke-width="1"/>
-    <text x="785" y="753" text-anchor="middle" fill="rgba(220,53,69,0.7)" font-size="8">🚫 Cross-Engine Calls</text>
-    <rect x="865" y="735" width="120" height="28" rx="5" fill="rgba(255,193,7,0.08)" stroke="rgba(255,193,7,0.2)" stroke-width="1"/>
-    <text x="925" y="753" text-anchor="middle" fill="rgba(255,193,7,0.7)" font-size="8">🔐 Require MFA</text>
-    <rect x="580" y="770" width="130" height="22" rx="5" fill="rgba(167,139,250,0.06)" stroke="rgba(167,139,250,0.12)" stroke-width="1"/>
-    <text x="645" y="785" text-anchor="middle" fill="rgba(167,139,250,0.6)" font-size="7.5">🔒 Maintenance Mode</text>
-    <rect x="720" y="770" width="130" height="22" rx="5" fill="rgba(167,139,250,0.06)" stroke="rgba(167,139,250,0.12)" stroke-width="1"/>
-    <text x="785" y="785" text-anchor="middle" fill="rgba(167,139,250,0.6)" font-size="7.5">📝 Audit All Calls</text>
+    <rect x="560" y="820" width="500" height="105" rx="12" fill="rgba(220,53,69,0.03)" stroke="rgba(220,53,69,0.15)" stroke-width="1.5"/>
+    <text x="810" y="842" text-anchor="middle" fill="#dc3545" font-weight="700" font-size="11">⚙️ Per-Engine Toggles</text>
+    <rect x="580" y="855" width="125" height="28" rx="5" fill="rgba(25,135,84,0.08)" stroke="rgba(25,135,84,0.2)" stroke-width="1"/>
+    <text x="642" y="873" text-anchor="middle" fill="rgba(25,135,84,0.7)" font-size="8">⏻ Engine Enable</text>
+    <rect x="715" y="855" width="140" height="28" rx="5" fill="rgba(220,53,69,0.08)" stroke="rgba(220,53,69,0.2)" stroke-width="1"/>
+    <text x="785" y="873" text-anchor="middle" fill="rgba(220,53,69,0.7)" font-size="8">🚫 Cross-Engine Calls</text>
+    <rect x="865" y="855" width="120" height="28" rx="5" fill="rgba(255,193,7,0.08)" stroke="rgba(255,193,7,0.2)" stroke-width="1"/>
+    <text x="925" y="873" text-anchor="middle" fill="rgba(255,193,7,0.7)" font-size="8">🔐 Require MFA</text>
+    <rect x="580" y="890" width="130" height="22" rx="5" fill="rgba(167,139,250,0.06)" stroke="rgba(167,139,250,0.12)" stroke-width="1"/>
+    <text x="645" y="905" text-anchor="middle" fill="rgba(167,139,250,0.6)" font-size="7.5">🔒 Maintenance Mode</text>
+    <rect x="720" y="890" width="130" height="22" rx="5" fill="rgba(167,139,250,0.06)" stroke="rgba(167,139,250,0.12)" stroke-width="1"/>
+    <text x="785" y="905" text-anchor="middle" fill="rgba(167,139,250,0.6)" font-size="7.5">📝 Audit All Calls</text>
   </g>
 
 </svg>
@@ -271,6 +324,7 @@
   <div class="legend-item"><div class="legend-dot" style="background:#a78bfa"></div> Hierarchical Knowledge (RAG)</div>
   <div class="legend-item"><div class="legend-dot" style="background:#0dcaf0"></div> Connectors</div>
   <div class="legend-item"><div class="legend-dot" style="background:#ffc107"></div> Credential Vault Cascade</div>
+  <div class="legend-item"><div class="legend-dot" style="background:linear-gradient(135deg,#198754,#0dcaf0)"></div> Ingestion Pipeline</div>
   <div class="legend-item"><div class="legend-dot" style="background:#dc3545"></div> Security Toggles</div>
 </div>
 
@@ -278,9 +332,10 @@
 
 <div class="detail-panel" id="detail-build"><span class="close" onclick="hideDetail()">✕</span>
   <h3>🔨 Build Plugins</h3>
-  <p><strong>No-code wizard:</strong> Import an OpenAPI spec → auto-generates a plugin with tools, connectors, and security settings.</p>
+  <p><strong>7-Step No-Code Wizard:</strong> Name & describe → Paste OpenAPI spec → Select tools → Configure auth (OAuth2, API Key, Bearer, mTLS) → Set scopes & permissions → Test in sandbox → Publish. Supports REST, gRPC, GraphQL, SOAP, and WebSocket APIs.</p>
+  <p><strong>Visual Designer:</strong> Drag engines, plugins, and connectors on the SVG canvas. Toggle security settings visually. Save as blueprints to Cosmos DB.</p>
   <p><strong>Code option:</strong> Write Python, create a <code>manifest.json</code> defining tools, resources, prompts, and security requirements. Package as a ZIP.</p>
-  <p><strong>Manifest includes:</strong> Tool definitions (name, description, parameters), required connectors, minimum role, security toggles, knowledge sources.</p>
+  <p><strong>Auto-generation:</strong> Import any OpenAPI spec → auto-generates plugin with tools, connectors, credential fields, and security toggles. No coding required.</p>
 </div>
 <div class="detail-panel" id="detail-install"><span class="close" onclick="hideDetail()">✕</span>
   <h3>📦 Install Plugins</h3>
@@ -290,10 +345,11 @@
 </div>
 <div class="detail-panel" id="detail-configure"><span class="close" onclick="hideDetail()">✕</span>
   <h3>⚙️ Configure Plugins</h3>
-  <p><strong>Connectors:</strong> Define which external services the plugin talks to. Each connector has credential fields (API keys, tokens, OAuth).</p>
+  <p><strong>Visual Designer:</strong> Configure everything from the drag-and-drop SVG canvas — attach connectors, toggle security, manage scopes with visual cards and inline controls.</p>
+  <p><strong>Connectors:</strong> Define which external services the plugin talks to. Each connector has credential fields (API keys, tokens, OAuth). Auto-generated from OpenAPI specs via the Plugin Builder.</p>
   <p><strong>Credentials:</strong> Set at user, group, or org level. The vault cascade resolves the right key at runtime.</p>
-  <p><strong>Security toggles:</strong> Enable/disable write operations, require credentials, set rate limits, enable audit logging — all per plugin.</p>
-  <p><strong>Knowledge sources:</strong> Add documents, URLs, or text to the plugin's RAG index. Scoped by user/group/org.</p>
+  <p><strong>Security toggles:</strong> Enable/disable write operations, require credentials, set rate limits (backed by Valkey cache), enable audit logging — all per plugin.</p>
+  <p><strong>Knowledge sources:</strong> Ingest from multiple sources — PDFs, URLs, wikis, databases, blob storage. Each source is chunked, embedded, and indexed in Azure AI Search. Scoped by user/group/org.</p>
 </div>
 <div class="detail-panel" id="detail-enable"><span class="close" onclick="hideDetail()">✕</span>
   <h3>⏻ Enable Plugins</h3>
@@ -329,7 +385,7 @@
   <p>Connectors define HOW a plugin talks to an external service. Each connector specifies credential fields, OAuth flows, and endpoint URLs.</p>
   <p><strong>Per-user credentials:</strong> Each user can configure their own API keys for a connector. The vault cascade finds the right key at runtime.</p>
   <p><strong>OAuth support:</strong> Google, Microsoft, GitHub OAuth flows built in. Users click "Connect with Google" and their token is stored in the vault.</p>
-  <p><strong>Extensible:</strong> Import any OpenAPI spec → auto-generate a connector with all required fields.</p>
+  <p><strong>Plugin Builder:</strong> The 7-step no-code wizard auto-generates connectors from any OpenAPI spec → auto-generate a connector with all required fields.</p>
 </div>
 <div class="detail-panel" id="detail-vault"><span class="close" onclick="hideDetail()">✕</span>
   <h3>🔐 Credential Vault Cascade</h3>
@@ -346,6 +402,16 @@
   <p><strong>Per-plugin:</strong> Enable/disable, require credentials, allow/block write operations, rate limiting, audit logging.</p>
   <p><strong>Per-engine:</strong> Enable/disable entire engine, block cross-engine calls, require MFA for admin, maintenance mode, audit all calls.</p>
   <p><strong>Visual Designer:</strong> Toggle switches are visible right on the canvas. Click 🔐 to toggle auth, 🔒 for read-only, 💰 for approval required.</p>
+</div>
+
+<div class="detail-panel" id="detail-ingest"><span class="close" onclick="hideDetail()">\u2715</span>
+  <h3>\ud83d\udce5 Multi-Source Ingestion Pipeline</h3>
+  <p><strong>Sources:</strong> Upload PDFs, paste URLs, connect wikis (Azure DevOps, Confluence), query databases (SQL, NoSQL), or link blob storage (Azure Blob, S3, GCS). Each source type has a dedicated ingestion adapter.</p>
+  <p><strong>Chunk:</strong> Documents are semantically split into overlapping chunks optimized for retrieval. Chunk size and overlap are configurable per source.</p>
+  <p><strong>Embed:</strong> Each chunk is embedded into a high-dimensional vector using Azure OpenAI embeddings (ada-002 or text-embedding-3). Supports custom embedding models.</p>
+  <p><strong>Index:</strong> Vectors are stored in Azure AI Search (or Elasticsearch/ChromaDB) with full-text + vector hybrid search. Each index is scoped by user/group/org with ACL enforcement.</p>
+  <p><strong>One-click:</strong> Select sources \u2192 click Ingest \u2192 the pipeline runs automatically. No code, no configuration files. Progress is shown in real-time.</p>
+  <p><strong>Incremental:</strong> Re-ingesting a source only processes new or changed content. Unchanged chunks are skipped.</p>
 </div>
 
 <script>
