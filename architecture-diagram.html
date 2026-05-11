@@ -48,7 +48,7 @@
 <h1>🧠 Cerebro — Secure Agentic AI, Any Model, Any Cloud, Any Channel</h1>
 <p class="subtitle">One platform where identity, credentials, knowledge, policy enforcement, and developer workspaces follow every action — regardless of which AI model powers it, which cloud runs it, or how you access it. Click any block for details.</p>
 
-<svg viewBox="0 0 1110 1080" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 1110 1230" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <marker id="arrowCyan" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
       <polygon points="0 0, 8 3, 0 6" fill="#0dcaf0"/>
@@ -205,28 +205,6 @@
   <line x1="220" y1="225" x2="555" y2="225" stroke="rgba(13,202,240,0.3)" stroke-width="1" stroke-dasharray="4,3"/>
   <line x1="220" y1="315" x2="400" y2="70" stroke="rgba(167,139,250,0.2)" stroke-width="1" stroke-dasharray="4,3"/>
 
-  <!-- ═══ LEFT SIDE: Developer Workspaces & Session Layer ═══ -->
-
-  <!-- Valkey (Redis) Session Store -->
-  <g class="block" onclick="showDetail('valkey')">
-    <rect x="250" y="190" width="200" height="60" rx="10" fill="rgba(220,53,69,0.08)" stroke="rgba(220,53,69,0.4)" stroke-width="1.5"/>
-    <text x="350" y="213" text-anchor="middle" fill="#dc3545" font-weight="700" font-size="11">🔴 Valkey (Redis)</text>
-    <text x="350" y="230" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="8.5">Sessions · Rate Limiting · Cache</text>
-    <text x="350" y="243" text-anchor="middle" fill="rgba(255,255,255,0.3)" font-size="7.5">20 req/min per user · Flask-Session HA</text>
-  </g>
-
-  <!-- React Frontend -->
-  <g class="block" onclick="showDetail('frontend')">
-    <rect x="250" y="268" width="200" height="55" rx="10" fill="rgba(13,202,240,0.08)" stroke="rgba(13,202,240,0.4)" stroke-width="1.5"/>
-    <text x="350" y="290" text-anchor="middle" fill="#0dcaf0" font-weight="700" font-size="11">⚛️ React Frontend</text>
-    <text x="350" y="305" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="8.5">Vite SPA · HPA 2–5 replicas</text>
-    <text x="350" y="316" text-anchor="middle" fill="rgba(255,255,255,0.3)" font-size="7.5">Chat · Admin · Visual Designer · Workspaces UI</text>
-  </g>
-
-  <!-- Arrow: Valkey ↔ Cerebro -->
-  <line x1="350" y1="190" x2="350" y2="130" stroke="rgba(220,53,69,0.3)" stroke-width="1" stroke-dasharray="3,3"/>
-  <!-- Arrow: Frontend → Cerebro -->
-  <line x1="400" y1="268" x2="420" y2="130" stroke="rgba(13,202,240,0.25)" stroke-width="1" stroke-dasharray="3,3"/>
 
   <!-- ═══ ROW 3: MCP Engines (Multiple) ═══ -->
 
@@ -414,6 +392,64 @@
     <text x="892" y="715" text-anchor="middle" fill="#198754" font-size="9">✨ Build Your Own</text>
   </g>
 
+  <!-- ═══ ROW 4.5: Developer Workspaces & Infrastructure ═══ -->
+
+  <text x="550" y="758" text-anchor="middle" fill="rgba(255,193,7,0.4)" font-size="10" font-weight="700">💻 DEVELOPER WORKSPACES — Browser-based IDEs & notebooks, per-user isolated pods</text>
+
+  <!-- Cloud Workspaces (code-server) -->
+  <g class="block" onclick="showDetail('workspaces')">
+    <rect x="30" y="770" width="330" height="100" rx="11" fill="rgba(255,193,7,0.06)" stroke="#ffc107" stroke-width="2"/>
+    <text x="195" y="792" text-anchor="middle" fill="#ffc107" font-weight="800" font-size="13">💻 Cloud Workspaces</text>
+    <text x="195" y="808" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="9">Per-user code-server IDE · ws-{username}</text>
+    <rect x="42" y="816" width="90" height="22" rx="5" fill="rgba(255,193,7,0.1)" stroke="rgba(255,193,7,0.25)" stroke-width="1"/>
+    <text x="87" y="831" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="8">🛠️ Copilot CLI</text>
+    <rect x="138" y="816" width="90" height="22" rx="5" fill="rgba(255,193,7,0.1)" stroke="rgba(255,193,7,0.25)" stroke-width="1"/>
+    <text x="183" y="831" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="8">🤖 Claude Code</text>
+    <rect x="234" y="816" width="55" height="22" rx="5" fill="rgba(255,193,7,0.1)" stroke="rgba(255,193,7,0.25)" stroke-width="1"/>
+    <text x="261" y="831" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="8">📝 Node</text>
+    <rect x="295" y="816" width="55" height="22" rx="5" fill="rgba(255,193,7,0.1)" stroke="rgba(255,193,7,0.25)" stroke-width="1"/>
+    <text x="322" y="831" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="8">⎈ kubectl</text>
+    <text x="195" y="858" text-anchor="middle" fill="rgba(255,255,255,0.3)" font-size="8">4 cores · 4Gi RAM · Azure Disk PVC · zsh + Oh-My-Zsh</text>
+  </g>
+
+  <!-- JupyterHub -->
+  <g class="block" onclick="showDetail('jupyterhub')">
+    <rect x="380" y="770" width="270" height="100" rx="11" fill="rgba(255,119,0,0.06)" stroke="rgba(255,119,0,0.5)" stroke-width="2"/>
+    <text x="515" y="792" text-anchor="middle" fill="#ff7700" font-weight="800" font-size="13">📓 JupyterHub</text>
+    <text x="515" y="808" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="9">Multi-user notebooks · jupyter-{username}</text>
+    <rect x="392" y="816" width="72" height="22" rx="5" fill="rgba(255,119,0,0.1)" stroke="rgba(255,119,0,0.25)" stroke-width="1"/>
+    <text x="428" y="831" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="8">🐍 Python</text>
+    <rect x="470" y="816" width="52" height="22" rx="5" fill="rgba(255,119,0,0.1)" stroke="rgba(255,119,0,0.25)" stroke-width="1"/>
+    <text x="496" y="831" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="8">�� R</text>
+    <rect x="528" y="816" width="110" height="22" rx="5" fill="rgba(255,119,0,0.1)" stroke="rgba(255,119,0,0.25)" stroke-width="1"/>
+    <text x="583" y="831" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="8">🔬 Data Science</text>
+    <text x="515" y="858" text-anchor="middle" fill="rgba(255,255,255,0.3)" font-size="8">Entra ID auth · Custom kernels · Persistent storage</text>
+  </g>
+
+  <!-- Valkey -->
+  <g class="block" onclick="showDetail('valkey')">
+    <rect x="670" y="770" width="170" height="100" rx="11" fill="rgba(220,53,69,0.06)" stroke="rgba(220,53,69,0.4)" stroke-width="2"/>
+    <text x="755" y="792" text-anchor="middle" fill="#dc3545" font-weight="800" font-size="13">🔴 Valkey</text>
+    <text x="755" y="808" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="9">Redis-compatible store</text>
+    <rect x="682" y="816" width="70" height="22" rx="5" fill="rgba(220,53,69,0.1)" stroke="rgba(220,53,69,0.2)" stroke-width="1"/>
+    <text x="717" y="831" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="8">🔐 Sessions</text>
+    <rect x="758" y="816" width="70" height="22" rx="5" fill="rgba(220,53,69,0.1)" stroke="rgba(220,53,69,0.2)" stroke-width="1"/>
+    <text x="793" y="831" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="8">⏱️ Rate Limit</text>
+    <text x="755" y="858" text-anchor="middle" fill="rgba(255,255,255,0.3)" font-size="8">20 req/min · Flask-Session HA</text>
+  </g>
+
+  <!-- React Frontend -->
+  <g class="block" onclick="showDetail('frontend')">
+    <rect x="860" y="770" width="160" height="100" rx="11" fill="rgba(13,202,240,0.06)" stroke="rgba(13,202,240,0.4)" stroke-width="2"/>
+    <text x="940" y="792" text-anchor="middle" fill="#0dcaf0" font-weight="800" font-size="13">⚛️ React SPA</text>
+    <text x="940" y="808" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="9">Vite · HPA 2–5 replicas</text>
+    <rect x="872" y="816" width="60" height="22" rx="5" fill="rgba(13,202,240,0.1)" stroke="rgba(13,202,240,0.2)" stroke-width="1"/>
+    <text x="902" y="831" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="8">💬 Chat</text>
+    <rect x="938" y="816" width="70" height="22" rx="5" fill="rgba(13,202,240,0.1)" stroke="rgba(13,202,240,0.2)" stroke-width="1"/>
+    <text x="973" y="831" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="8">🎨 Designer</text>
+    <text x="940" y="858" text-anchor="middle" fill="rgba(255,255,255,0.3)" font-size="8">Admin · Cluster View · Monitoring</text>
+  </g>
+
   <!-- ═══ ROW 5: Cloud-Agnostic Infrastructure (Loom) ═══ -->
 
   <g transform="translate(0,150)">
@@ -494,53 +530,27 @@
 
   </g>
 
-  <!-- ═══ LEFT SIDE: Developer Workspaces ═══ -->
-
-  <g class="block" onclick="showDetail('workspaces')">
-    <rect x="10" y="390" width="210" height="95" rx="10" fill="rgba(255,193,7,0.06)" stroke="#ffc107" stroke-width="2"/>
-    <text x="115" y="412" text-anchor="middle" fill="#ffc107" font-weight="800" font-size="12">💻 Cloud Workspaces</text>
-    <text x="115" y="427" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="8.5">Per-user code-server IDE</text>
-    <rect x="20" y="435" width="90" height="20" rx="4" fill="rgba(255,193,7,0.1)" stroke="rgba(255,193,7,0.2)" stroke-width="1"/>
-    <text x="65" y="449" text-anchor="middle" fill="rgba(255,255,255,0.55)" font-size="7.5">🛠️ Copilot CLI</text>
-    <rect x="115" y="435" width="95" height="20" rx="4" fill="rgba(255,193,7,0.1)" stroke="rgba(255,193,7,0.2)" stroke-width="1"/>
-    <text x="162" y="449" text-anchor="middle" fill="rgba(255,255,255,0.55)" font-size="7.5">🤖 Claude Code</text>
-    <text x="115" y="472" text-anchor="middle" fill="rgba(255,255,255,0.3)" font-size="7.5">4 cores · 4Gi RAM · Azure Disk PVC</text>
-    <text x="115" y="482" text-anchor="middle" fill="rgba(255,255,255,0.25)" font-size="7">ws-{username} · zsh · kubectl · helm · git</text>
-  </g>
-
-  <g class="block" onclick="showDetail('jupyterhub')">
-    <rect x="10" y="498" width="210" height="75" rx="10" fill="rgba(255,119,0,0.06)" stroke="rgba(255,119,0,0.5)" stroke-width="1.5"/>
-    <text x="115" y="518" text-anchor="middle" fill="#ff7700" font-weight="700" font-size="12">📓 JupyterHub</text>
-    <text x="115" y="533" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="8.5">Multi-user notebook server</text>
-    <text x="115" y="548" text-anchor="middle" fill="rgba(255,255,255,0.3)" font-size="7.5">jupyter-{username} · Entra ID auth</text>
-    <text x="115" y="560" text-anchor="middle" fill="rgba(255,255,255,0.25)" font-size="7">Python · R · Data Science · Custom kernels</text>
-  </g>
-
-  <!-- Arrow: Cerebro → Workspaces (spawn) -->
-  <path d="M 200 120 C 160 200, 130 300, 115 390" stroke="rgba(255,193,7,0.3)" stroke-width="1.5" fill="none" stroke-dasharray="4,3" marker-end="url(#arrowYellow)"/>
-  <text x="140" y="350" fill="rgba(255,193,7,0.5)" font-size="7" text-anchor="middle">spawn / manage</text>
-
-  <!-- ═══ LEFT SIDE: Cosmos DB & Observability (moved down) ═══ -->
+  <!-- ═══ LEFT SIDE: Cosmos DB & Observability ═══ -->
 
   <g class="block" onclick="showDetail('cosmos')">
-    <rect x="10" y="588" width="210" height="50" rx="10" fill="rgba(255,193,7,0.06)" stroke="rgba(255,193,7,0.3)" stroke-width="1.5"/>
-    <text x="115" y="610" text-anchor="middle" fill="#ffc107" font-weight="700" font-size="11">💾 Document DB 🔒</text>
-    <text x="115" y="625" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="8.5">Cosmos (PE) / DynamoDB / Firestore</text>
+    <rect x="20" y="420" width="180" height="60" rx="10" fill="rgba(255,193,7,0.06)" stroke="rgba(255,193,7,0.3)" stroke-width="1.5"/>
+    <text x="110" y="445" text-anchor="middle" fill="#ffc107" font-weight="700" font-size="11">💾 Document DB 🔒</text>
+    <text x="110" y="462" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="8.5">Cosmos (PE) / DynamoDB / Firestore</text>
   </g>
 
   <g class="block" onclick="showDetail('observability')">
-    <rect x="10" y="648" width="210" height="50" rx="10" fill="rgba(25,135,84,0.06)" stroke="rgba(25,135,84,0.3)" stroke-width="1.5"/>
-    <text x="115" y="670" text-anchor="middle" fill="#198754" font-weight="700" font-size="11">📊 Observability</text>
-    <text x="115" y="685" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="8.5">Prometheus · Grafana · Loki</text>
+    <rect x="20" y="500" width="180" height="60" rx="10" fill="rgba(25,135,84,0.06)" stroke="rgba(25,135,84,0.3)" stroke-width="1.5"/>
+    <text x="110" y="525" text-anchor="middle" fill="#198754" font-weight="700" font-size="11">📊 Observability</text>
+    <text x="110" y="542" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="8.5">Prometheus · Grafana · Loki</text>
   </g>
 
   <!-- Dashed lines to Cosmos/Observability -->
-  <line x1="220" y1="610" x2="435" y2="500" stroke="rgba(255,193,7,0.2)" stroke-width="1" stroke-dasharray="3,3"/>
-  <line x1="220" y1="670" x2="435" y2="530" stroke="rgba(25,135,84,0.2)" stroke-width="1" stroke-dasharray="3,3"/>
+  <line x1="200" y1="450" x2="435" y2="450" stroke="rgba(255,193,7,0.2)" stroke-width="1" stroke-dasharray="3,3"/>
+  <line x1="200" y1="530" x2="435" y2="500" stroke="rgba(25,135,84,0.2)" stroke-width="1" stroke-dasharray="3,3"/>
 
   <!-- Dashed lines: Cosmos/Observability → Cloud layer -->
-  <line x1="115" y1="638" x2="115" y2="918" stroke="rgba(255,193,7,0.15)" stroke-width="1" stroke-dasharray="3,3"/>
-  <line x1="115" y1="920" x2="150" y2="920" stroke="rgba(255,193,7,0.15)" stroke-width="1" stroke-dasharray="3,3"/>
+  <line x1="110" y1="560" x2="110" y2="920" stroke="rgba(255,193,7,0.15)" stroke-width="1" stroke-dasharray="3,3"/>
+  <line x1="110" y1="920" x2="150" y2="920" stroke="rgba(255,193,7,0.15)" stroke-width="1" stroke-dasharray="3,3"/>
 
   <!-- ═══ RIGHT SIDE: Return flow ═══ -->
 
