@@ -126,6 +126,119 @@
   color: var(--text-muted) !important;
 }
 
+
+
+/* ── Light theme: comprehensive element overrides ───────────── */
+[data-theme="light"] .section-alt,
+[data-theme="light"] .section.section-alt {
+  background: var(--bg-elevated) !important;
+}
+[data-theme="light"] .pillar-card,
+[data-theme="light"] .product-card,
+[data-theme="light"] .usecase-card,
+[data-theme="light"] .lego-card,
+[data-theme="light"] .connector-card {
+  background: var(--bg-card) !important;
+  border-color: var(--border) !important;
+}
+[data-theme="light"] .feat-pill {
+  background: rgba(79,70,229,0.08) !important;
+  border-color: rgba(79,70,229,0.2) !important;
+  color: var(--accent-purple) !important;
+}
+[data-theme="light"] .stat-badge {
+  background: var(--bg-card) !important;
+  border-color: var(--border) !important;
+}
+[data-theme="light"] .stat-num {
+  color: var(--accent-cyan) !important;
+}
+[data-theme="light"] code {
+  background: var(--code-bg) !important;
+  color: var(--accent) !important;
+}
+[data-theme="light"] .block,
+[data-theme="light"] .voice-bubble,
+[data-theme="light"] .agent-bubble {
+  border-color: var(--border) !important;
+}
+[data-theme="light"] .bb-footer,
+[data-theme="light"] .bb-site-footer {
+  background: var(--bg-elevated) !important;
+}
+[data-theme="light"] h1, [data-theme="light"] h2, [data-theme="light"] h3,
+[data-theme="light"] h4, [data-theme="light"] h5, [data-theme="light"] h6 {
+  color: var(--text-heading) !important;
+  -webkit-text-fill-color: var(--text-heading) !important;
+}
+[data-theme="light"] .hero h1 {
+  -webkit-text-fill-color: transparent !important;
+}
+[data-theme="light"] .section-title {
+  -webkit-text-fill-color: var(--text-heading) !important;
+}
+[data-theme="light"] p, [data-theme="light"] li, [data-theme="light"] span,
+[data-theme="light"] td, [data-theme="light"] th, [data-theme="light"] div {
+  color: inherit;
+}
+[data-theme="light"] strong {
+  color: var(--text-heading);
+}
+[data-theme="light"] .fw-bold {
+  color: var(--text-heading) !important;
+}
+[data-theme="light"] .border-bottom {
+  border-color: var(--border) !important;
+}
+[data-theme="light"] table {
+  color: var(--text) !important;
+}
+[data-theme="light"] thead {
+  background: var(--bg-elevated) !important;
+}
+[data-theme="light"] tbody tr {
+  border-color: var(--border) !important;
+}
+[data-theme="light"] .detail-panel {
+  background: var(--bg-card) !important;
+  border-color: var(--border) !important;
+  color: var(--text) !important;
+}
+[data-theme="light"] .detail-panel h3 {
+  color: var(--accent-purple) !important;
+  -webkit-text-fill-color: var(--accent-purple) !important;
+}
+[data-theme="light"] .detail-panel p {
+  color: var(--text-muted) !important;
+}
+[data-theme="light"] .overlay {
+  background: rgba(0,0,0,0.3) !important;
+}
+/* Light SVG text — make visible on light backgrounds */
+[data-theme="light"] svg text[fill*="rgba(255,255,255"] {
+  fill: var(--text-muted) !important;
+}
+
+/* ── Neon theme: comprehensive element overrides ────────────── */
+[data-theme="neon"] .section-alt,
+[data-theme="neon"] .section.section-alt {
+  background: var(--bg-elevated) !important;
+}
+[data-theme="neon"] .feat-pill {
+  background: rgba(168,85,247,0.1) !important;
+  border-color: rgba(168,85,247,0.3) !important;
+  color: var(--accent-purple) !important;
+}
+[data-theme="neon"] .stat-badge {
+  background: var(--bg-card) !important;
+  border-color: rgba(168,85,247,0.2) !important;
+}
+[data-theme="neon"] code {
+  background: var(--code-bg) !important;
+}
+[data-theme="neon"] .bb-site-footer {
+  background: var(--bg-card) !important;
+}
 /* ═══════════════════════════════════════════════════════════════
    Shared Transitions & Animations
    ═══════════════════════════════════════════════════════════════ */
@@ -374,23 +487,21 @@ html { scroll-behavior: smooth; }
   margin-top: 0;
   z-index: 99999;
 }
-/* Invisible bridge so mouse can travel from link to dropdown */
-.bb-nav-item.has-dropdown {
-  position: relative;
-}
-.bb-nav-item.has-dropdown::after {
-  content: '';
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100%;
-  height: 12px;
-  background: transparent;
-}
-.bb-nav-item.has-dropdown:hover .bb-nav-dropdown,
 .bb-nav-item.has-dropdown.show .bb-nav-dropdown {
   display: block;
 }
+/* Dropdown arrow indicator */
+.bb-nav-item.has-dropdown > .bb-nav-link::after {
+  content: ' \25BE';
+  font-size: 0.7em;
+  opacity: 0.5;
+  margin-left: 2px;
+}
+.bb-nav-item.has-dropdown.show > .bb-nav-link {
+  color: var(--text);
+  background: rgba(167,139,250,0.1);
+}
+
 .bb-nav-dd-link {
   display: block;
   padding: 8px 14px;

@@ -294,12 +294,20 @@
       }
     });
 
-    // ── Dropdown toggle on mobile ────────────────────────────
+    // ── Dropdown toggle (click-based, all screen sizes) ─────
     document.querySelectorAll('.bb-nav-item.has-dropdown > .bb-nav-link').forEach(function(link) {
       link.addEventListener('click', function(e) {
-        if (window.innerWidth <= 768) {
-          e.preventDefault();
-          link.parentElement.classList.toggle('show');
+        e.preventDefault();
+        e.stopPropagation();
+        var parent = link.parentElement;
+        var wasOpen = parent.classList.contains('show');
+        // Close all other dropdowns first
+        document.querySelectorAll('.bb-nav-item.has-dropdown').forEach(function(item) {
+          item.classList.remove('show');
+        });
+        // Toggle this one
+        if (!wasOpen) {
+          parent.classList.add('show');
         }
       });
     });
