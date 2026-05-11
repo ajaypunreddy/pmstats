@@ -48,7 +48,7 @@
 <h1>🌐 Loom — One Command to Deploy, Upgrade, or Tear Down on Any Cloud</h1>
 <p class="subtitle">Terraform provisions the infrastructure · Helm packages the application · Kubernetes runs the workloads · Same code, any cloud</p>
 
-<svg viewBox="0 0 1100 850" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 1100 950" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <marker id="aPurple" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0,8 3,0 6" fill="#a78bfa"/></marker>
     <marker id="aCyan" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0,8 3,0 6" fill="#0dcaf0"/></marker>
@@ -220,20 +220,23 @@
   <line x1="550" y1="385" x2="550" y2="428" stroke="#198754" stroke-width="2" class="flow-arrow" marker-end="url(#aGreen)"/>
 
   <!-- K8s cluster boundary -->
-  <rect x="30" y="435" width="1050" height="240" rx="14" fill="rgba(25,135,84,0.03)" stroke="rgba(25,135,84,0.2)" stroke-width="2" stroke-dasharray="6,3"/>
+  <rect x="30" y="435" width="1050" height="340" rx="14" fill="rgba(25,135,84,0.03)" stroke="rgba(25,135,84,0.2)" stroke-width="2" stroke-dasharray="6,3"/>
   <text x="60" y="455" fill="rgba(25,135,84,0.4)" font-size="9" font-weight="600">☸ Kubernetes Cluster</text>
 
   <!-- Namespace: default -->
   <g class="block" onclick="showDetail('ns-default')">
     <rect x="50" y="465" width="300" height="195" rx="10" fill="rgba(13,202,240,0.04)" stroke="rgba(13,202,240,0.2)" stroke-width="1.5"/>
-    <text x="200" y="485" text-anchor="middle" fill="#0dcaf0" font-weight="700" font-size="11">📦 default namespace</text>
+    <text x="200" y="485" text-anchor="middle" fill="#0dcaf0" font-weight="700" font-size="11">📦 cerebro namespace</text>
     <!-- Pods -->
     <rect x="65" y="495" width="130" height="40" rx="6" fill="rgba(13,202,240,0.08)" stroke="rgba(13,202,240,0.2)" stroke-width="1"/>
     <text x="130" y="513" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="9">🧠 cerebro-app</text>
-    <text x="130" y="527" text-anchor="middle" fill="rgba(255,255,255,0.3)" font-size="7">Flask · Gunicorn · 4 workers</text>
-    <rect x="205" y="495" width="130" height="40" rx="6" fill="rgba(13,202,240,0.06)" stroke="rgba(13,202,240,0.15)" stroke-width="1"/>
-    <text x="270" y="513" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="9">🔌 Ingress Controller</text>
-    <text x="270" y="527" text-anchor="middle" fill="rgba(255,255,255,0.3)" font-size="7">nginx · TLS termination</text>
+    <text x="130" y="527" text-anchor="middle" fill="rgba(255,255,255,0.3)" font-size="7">Flask · HPA 2–8 · Gunicorn</text>
+    <rect x="205" y="495" width="65" height="40" rx="6" fill="rgba(13,202,240,0.06)" stroke="rgba(13,202,240,0.15)" stroke-width="1"/>
+    <text x="237" y="513" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="8">⚛️ React</text>
+    <text x="237" y="527" text-anchor="middle" fill="rgba(255,255,255,0.3)" font-size="7">HPA 2–5</text>
+    <rect x="278" y="495" width="60" height="40" rx="6" fill="rgba(220,53,69,0.06)" stroke="rgba(220,53,69,0.15)" stroke-width="1"/>
+    <text x="308" y="513" text-anchor="middle" fill="rgba(220,53,69,0.6)" font-size="8">�� Valkey</text>
+    <text x="308" y="527" text-anchor="middle" fill="rgba(255,255,255,0.3)" font-size="7">Sessions</text>
     <!-- Services -->
     <rect x="65" y="545" width="270" height="32" rx="6" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
     <text x="200" y="565" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="8">Services: cerebro-app:5080 · Ingress: app.brainzbytes.com (Let's Encrypt TLS)</text>
@@ -288,10 +291,50 @@
     <text x="877" y="638" text-anchor="middle" fill="rgba(220,53,69,0.5)" font-size="8">🚨 Alert Rules: High error rate · Slow tools · Pod crashes · Disk full · Memory pressure</text>
   </g>
 
+  <!-- Namespace: workspaces -->
+  <g class="block" onclick="showDetail('ns-workspaces')">
+    <rect x="50" y="675" width="300" height="85" rx="10" fill="rgba(255,193,7,0.04)" stroke="rgba(255,193,7,0.25)" stroke-width="1.5"/>
+    <text x="200" y="695" text-anchor="middle" fill="#ffc107" font-weight="700" font-size="11">📦 workspaces namespace</text>
+    <rect x="65" y="705" width="130" height="30" rx="6" fill="rgba(255,193,7,0.08)" stroke="rgba(255,193,7,0.2)" stroke-width="1"/>
+    <text x="130" y="720" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="8">💻 ws-{username}</text>
+    <text x="130" y="730" text-anchor="middle" fill="rgba(255,255,255,0.3)" font-size="6.5">code-server · 4C/4Gi</text>
+    <rect x="205" y="705" width="130" height="30" rx="6" fill="rgba(255,193,7,0.06)" stroke="rgba(255,193,7,0.15)" stroke-width="1"/>
+    <text x="270" y="720" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="8">🛠️ Copilot + Claude</text>
+    <text x="270" y="730" text-anchor="middle" fill="rgba(255,255,255,0.3)" font-size="6.5">Azure Disk PVC</text>
+    <text x="200" y="752" text-anchor="middle" fill="rgba(255,255,255,0.3)" font-size="7">Auth-gated · zsh + Oh-My-Zsh · kubectl/helm/git</text>
+  </g>
+
+  <!-- Namespace: jupyterhub -->
+  <g class="block" onclick="showDetail('ns-jupyterhub')">
+    <rect x="370" y="675" width="300" height="85" rx="10" fill="rgba(255,119,0,0.04)" stroke="rgba(255,119,0,0.25)" stroke-width="1.5"/>
+    <text x="520" y="695" text-anchor="middle" fill="#ff7700" font-weight="700" font-size="11">📦 jupyterhub namespace</text>
+    <rect x="385" y="705" width="130" height="30" rx="6" fill="rgba(255,119,0,0.08)" stroke="rgba(255,119,0,0.2)" stroke-width="1"/>
+    <text x="450" y="720" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="8">🏠 JupyterHub</text>
+    <text x="450" y="730" text-anchor="middle" fill="rgba(255,255,255,0.3)" font-size="6.5">Multi-user hub</text>
+    <rect x="525" y="705" width="130" height="30" rx="6" fill="rgba(255,119,0,0.06)" stroke="rgba(255,119,0,0.15)" stroke-width="1"/>
+    <text x="590" y="720" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="8">👤 jupyter-{user}</text>
+    <text x="590" y="730" text-anchor="middle" fill="rgba(255,255,255,0.3)" font-size="6.5">Per-user pods</text>
+    <text x="520" y="752" text-anchor="middle" fill="rgba(255,255,255,0.3)" font-size="7">Entra ID auth · Python/R/Data Science kernels</text>
+  </g>
+
+  <!-- Namespace: ingress-nginx -->
+  <g class="block" onclick="showDetail('ns-ingress')">
+    <rect x="690" y="675" width="375" height="85" rx="10" fill="rgba(220,53,69,0.04)" stroke="rgba(220,53,69,0.2)" stroke-width="1.5"/>
+    <text x="877" y="695" text-anchor="middle" fill="#dc3545" font-weight="700" font-size="11">📦 ingress-nginx namespace</text>
+    <rect x="705" y="705" width="110" height="30" rx="6" fill="rgba(220,53,69,0.08)" stroke="rgba(220,53,69,0.2)" stroke-width="1"/>
+    <text x="760" y="724" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="8">🌐 NGINX Controller</text>
+    <rect x="825" y="705" width="110" height="30" rx="6" fill="rgba(220,53,69,0.06)" stroke="rgba(220,53,69,0.15)" stroke-width="1"/>
+    <text x="880" y="724" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="8">🔐 TLS / cert-mgr</text>
+    <rect x="945" y="705" width="105" height="30" rx="6" fill="rgba(220,53,69,0.06)" stroke="rgba(220,53,69,0.15)" stroke-width="1"/>
+    <text x="997" y="724" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="8">🔒 Auth-URL</text>
+    <text x="877" y="752" text-anchor="middle" fill="rgba(255,255,255,0.3)" font-size="7">Let's Encrypt auto-renew · SSL redirect · per-path auth gating</text>
+  </g>
+
   <!-- ═══════════════════════════════════════════════════════════ -->
   <!-- BOTTOM: Cloud providers (where it all runs)                -->
   <!-- ═══════════════════════════════════════════════════════════ -->
 
+  <g transform="translate(0,100)">
   <text x="550" y="705" text-anchor="middle" fill="rgba(255,255,255,0.2)" font-size="10" font-weight="700" letter-spacing="2">CLOUD PROVIDER — One terraform apply away</text>
 
   <!-- Arrow: K8s → Cloud -->
@@ -343,6 +386,8 @@
   <text x="565" y="777" text-anchor="middle" fill="rgba(255,255,255,0.15)" font-size="18">⇄</text>
   <text x="835" y="777" text-anchor="middle" fill="rgba(255,255,255,0.15)" font-size="18">⇄</text>
 
+</g>
+
 </svg>
 
 <!-- Legend -->
@@ -368,7 +413,7 @@
   <p><code>terraform plan</code> — Preview what will change (safe, read-only)</p>
   <p><code>terraform apply</code> — Create or update all infrastructure</p>
   <p><code>terraform destroy</code> — Tear everything down cleanly</p>
-  <p><strong>State:</strong> Stored in Azure Blob / S3 / GCS — encrypted, locked, versioned. Zero secrets in state files (uses Managed Identity references).</p>
+  <p><strong>State:</strong> Local backend (terraform.tfstate on deployment machine). Previously Azure Blob — migrated to local for simplicity since deployments run from a single PC.</p>
 </div>
 
 <div class="detail-panel" id="detail-plan">
@@ -437,9 +482,9 @@
 
 <div class="detail-panel" id="detail-ns-default">
   <span class="close" onclick="hideDetail()">✕</span>
-  <h3>📦 default namespace</h3>
+  <h3>📦 cerebro namespace</h3>
   <p>Runs the main Cerebro app — the Flask web server, OIDC + Magic Link auth, agent loop, Visual Designer, all API endpoints.</p>
-  <p><strong>Pods:</strong> cerebro-app (4 Gunicorn workers), ingress-nginx controller</p>
+  <p><strong>Pods:</strong> cerebro-app (HPA 2-8, Gunicorn), contextweaver-frontend (React SPA, HPA 2-5), Valkey (sessions + rate limiting), code-server (standalone workspace)</p>
   <p><strong>TLS:</strong> cert-manager auto-provisions Let's Encrypt certificates</p>
   <p><strong>Secrets:</strong> Cosmos endpoint, search keys, LLM keys, SSO secret — all injected via Helm values</p>
 </div>
@@ -467,7 +512,7 @@
   <span class="close" onclick="hideDetail()">✕</span>
   <h3>☁️ Azure — Current Production</h3>
   <p>Fully wired and running. <code>cd terraform/environments/azure && terraform apply</code></p>
-  <p>AKS (D4ds_v5 nodes), Cosmos DB, Azure AI Search, Azure OpenAI (GPT-5), Key Vault, ACR, ACS Email, Private Endpoints</p>
+  <p>AKS (D4as_v5 nodes), Cosmos DB, Azure AI Search, Azure OpenAI (GPT-5), Key Vault, ACR, ACS Email, Private Endpoints</p>
   <p><strong>Security:</strong> Managed Identity for all service-to-service auth — zero API keys stored in pods.</p>
 </div>
 
@@ -515,7 +560,7 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') hideDetail()
 
 <div style="max-width:1150px;margin:3rem auto 0;padding:0 1rem">
   <h2 style="font-size:1.6rem;font-weight:800;text-align:center;margin-bottom:.3rem;background:linear-gradient(135deg,#a78bfa,#0dcaf0);-webkit-background-clip:text;-webkit-text-fill-color:transparent">☸️ Production AKS Topology — Current State</h2>
-  <p style="text-align:center;color:rgba(255,255,255,0.4);font-size:.82rem;margin-bottom:1.5rem">contextweaver-aks · 2–6 nodes (Standard_D4ds_v5) · Cluster Autoscaler · HPA · Valkey</p>
+  <p style="text-align:center;color:rgba(255,255,255,0.4);font-size:.82rem;margin-bottom:1.5rem">contextweaver-aks · 2–6 nodes (Standard_D4as_v5) · Cluster Autoscaler · HPA · Valkey</p>
 
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.5rem">
     <!-- cerebro namespace -->
@@ -599,13 +644,42 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') hideDetail()
       <div style="color:rgba(255,255,255,0.6)">
         <div style="margin-bottom:.5rem"><span style="color:#198754">●</span> Multi-LLM: GitHub Models / Azure OpenAI / Ollama</div>
         <div style="margin-bottom:.5rem"><span style="color:#198754">●</span> Flask-Session with Redis backend for HA</div>
-        <div style="margin-bottom:.5rem"><span style="color:#198754">●</span> Per-user sliding window rate limiter</div>
-        <div><span style="color:#198754">●</span> Platform rebranding: <strong style="color:#a78bfa">ContextWeaver - AI Services Platform</strong></div>
+        <div style="margin-bottom:.5rem"><span style="color:#198754">●</span> 🔒 Private endpoints on Storage, Cosmos DB, Key Vault (public access disabled)</div>
+        <div style="margin-bottom:.5rem"><span style="color:#198754">●</span> Terraform state: Azure Blob → <strong style="color:#0dcaf0">Local backend</strong></div>
+        <div><span style="color:#198754">●</span> Per-user sliding window rate limiter (20 req/min)</div>
       </div>
     </div>
   </div>
 </div>
 
+
+<div class="detail-panel" id="detail-ns-workspaces">
+  <span class="close" onclick="hideDetail()">✕</span>
+  <h3>📦 workspaces namespace</h3>
+  <p>Per-user cloud IDE environments. Each user gets their own <code>ws-{username}</code> pod running code-server 4.115.0.</p>
+  <p><strong>Resources:</strong> 4 CPU cores, 4Gi RAM, Azure Disk PVC (ext4, persistent across restarts).</p>
+  <p><strong>Tools:</strong> GitHub Copilot CLI, Claude Code, Node.js 20, kubectl, helm, git, zsh + Oh-My-Zsh with autocomplete.</p>
+  <p><strong>Auth:</strong> nginx auth-url annotation gates access through <code>/api/auth/verify</code>.</p>
+  <p><strong>Lifecycle:</strong> Spawn/stop/delete via admin API. Each workspace is a separate Helm release.</p>
+</div>
+
+<div class="detail-panel" id="detail-ns-jupyterhub">
+  <span class="close" onclick="hideDetail()">✕</span>
+  <h3>📦 jupyterhub namespace</h3>
+  <p>Multi-user Jupyter notebook server. JupyterHub manages per-user <code>jupyter-{username}</code> pods with persistent storage.</p>
+  <p><strong>Auth:</strong> Entra ID (Azure AD) — same identity as the main platform.</p>
+  <p><strong>Kernels:</strong> Python 3, R, Julia, custom kernels. Pre-loaded data science libraries.</p>
+  <p><strong>Integration:</strong> Notebooks can call ContextWeaver APIs and interact with MCP engines programmatically.</p>
+</div>
+
+<div class="detail-panel" id="detail-ns-ingress">
+  <span class="close" onclick="hideDetail()">✕</span>
+  <h3>📦 ingress-nginx namespace</h3>
+  <p>NGINX Ingress Controller handles all external traffic routing with TLS termination.</p>
+  <p><strong>TLS:</strong> cert-manager auto-provisions and renews Let's Encrypt certificates for <code>app.brainzbytes.com</code>.</p>
+  <p><strong>Auth gating:</strong> <code>auth-url</code> annotations on workspace and JupyterHub ingresses route through <code>/api/auth/verify</code> — only authenticated users can access their resources.</p>
+  <p><strong>Public IP:</strong> 4.152.21.202 via Azure Load Balancer.</p>
+</div>
 </body>
 </html>
 
