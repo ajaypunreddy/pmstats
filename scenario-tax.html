@@ -9,11 +9,10 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    :root { --accent:#4da3ff; --accent-purple:#a78bfa; }
     body { font-family:'Inter',-apple-system,sans-serif; background:var(--bg); color:var(--text); padding:0 0 3rem 0; margin:0; }
-    .card { background:var(--bg-card); border-color:rgba(255,255,255,0.08); }
+    .card { background:var(--bg-card); border-color:var(--border); }
     a { color:var(--accent); }
-    code { background:rgba(255,255,255,0.06); padding:2px 6px; border-radius:4px; font-size:0.85em; }
+    code { background:var(--code-bg); padding:2px 6px; border-radius:4px; font-size:0.85em; }
     .block { border-radius:12px; padding:1rem 1.25rem; margin-bottom:0.75rem; }
     .block-hub { background:rgba(168,139,250,0.12); border:2px solid rgba(168,139,250,0.4); }
     .block-mcp { background:rgba(13,202,240,0.08); border:2px solid rgba(13,202,240,0.3); }
@@ -21,7 +20,7 @@
     .block-connector { background:rgba(255,193,7,0.08); border:2px solid rgba(255,193,7,0.3); }
     .block-rag { background:rgba(13,110,253,0.08); border:2px solid rgba(13,110,253,0.3); }
     .block-vault { background:rgba(220,53,69,0.08); border:2px solid rgba(220,53,69,0.3); }
-    .arrow { text-align:center; font-size:1.5rem; color:rgba(255,255,255,0.3); line-height:1; margin:0.25rem 0; }
+    .arrow { text-align:center; font-size:1.5rem; color:var(--text-muted); line-height:1; margin:0.25rem 0; }
     .voice-bubble { background:rgba(13,202,240,0.08); border:1px solid rgba(13,202,240,0.3); border-radius:12px; padding:0.75rem 1rem; display:inline-block; }
     .agent-bubble { background:rgba(25,135,84,0.08); border:1px solid rgba(25,135,84,0.3); border-radius:12px; padding:0.75rem 1rem; }
     .user-row { background:rgba(255,193,7,0.05); border-left:3px solid; padding:0.75rem 1rem; border-radius:0 8px 8px 0; margin-bottom:0.5rem; }
@@ -36,25 +35,7 @@
   <script src="theme.js" defer></script>
 </head>
 <body>
-  <nav class="py-3 mb-2 border-bottom" style="border-color:rgba(255,255,255,0.08)!important">
-    <div class="container-fluid" style="max-width:960px">
-      <div class="d-flex align-items-center gap-3 flex-wrap">
-        <a href="index.html" class="text-decoration-none d-flex align-items-center gap-2">
-          <img src="logo.svg" alt="CW" style="width:28px;height:28px">
-          <span class="fw-bold" style="color:var(--accent-purple)">ContextWeaver</span>
-        </a>
-        <span class="text-muted">|</span>
-        <a href="index.html" class="text-decoration-none small text-muted">Home</a>
-        <a href="contextweaver/index.html" class="text-decoration-none small text-muted">ContextWeaver</a>
-        <a href="scenario-travel-planner.html" class="text-decoration-none small text-muted">Travel Planner</a>
-        <a href="scenario-devops.html" class="text-decoration-none small text-muted">DevOps</a>
-        <a href="scenario-tax.html" class="text-decoration-none small text-info fw-bold">Tax &amp; Finance</a>
-        <a href="scenario-trading.html" class="text-decoration-none small text-muted">Smart Trading</a>
-      </div>
-    </div>
-  </nav>
-
-  <div class="container-fluid" style="max-width:960px">
+<div class="container-fluid" style="max-width:960px">
 
     <!-- Hero -->
     <div class="text-center py-4">

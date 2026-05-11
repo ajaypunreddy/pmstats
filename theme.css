@@ -369,9 +369,23 @@ html { scroll-behavior: smooth; }
   border: 1px solid var(--border);
   border-radius: 12px;
   padding: 8px;
+  padding-top: 12px;
   box-shadow: var(--card-shadow);
-  margin-top: 4px;
+  margin-top: 0;
   z-index: 99999;
+}
+/* Invisible bridge so mouse can travel from link to dropdown */
+.bb-nav-item.has-dropdown {
+  position: relative;
+}
+.bb-nav-item.has-dropdown::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 12px;
+  background: transparent;
 }
 .bb-nav-item.has-dropdown:hover .bb-nav-dropdown,
 .bb-nav-item.has-dropdown.show .bb-nav-dropdown {
