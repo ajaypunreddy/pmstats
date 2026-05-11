@@ -674,7 +674,7 @@
       <!-- Detailed comparison table -->
       <div class="card mb-4" style="overflow-x:auto">
         <div class="card-body p-0">
-          <table class="table table-sm mb-0" style="color:#e6edf3;font-size:.85rem">
+          <table class="table table-sm mb-0" style="color:var(--text);font-size:.85rem">
             <thead>
               <tr style="background:rgba(167,139,250,0.1)">
                 <th style="width:22%;padding:.75rem;border-color:rgba(255,255,255,0.08)">Capability</th>
@@ -688,11 +688,11 @@
             <tbody>
               <tr>
                 <td style="padding:.6rem .75rem;border-color:rgba(255,255,255,0.05)"><strong>Multi-system orchestration</strong><br><span class="text-muted" style="font-size:.75rem">Chain tools across different platforms in one request</span></td>
-                <td style="text-align:center;border-color:rgba(255,255,255,0.05);color:#ffc107">&#x26A0;&#xFE0F; Code only<br><span style="font-size:.7rem;color:#8b949e">Requires Python dev</span></td>
-                <td style="text-align:center;border-color:rgba(255,255,255,0.05);color:#dc3545">&#x274C; M365 only<br><span style="font-size:.7rem;color:#8b949e">Single ecosystem</span></td>
-                <td style="text-align:center;border-color:rgba(255,255,255,0.05);color:#ffc107">&#x26A0;&#xFE0F; ITSM only<br><span style="font-size:.7rem;color:#8b949e">ServiceNow ecosystem</span></td>
-                <td style="text-align:center;border-color:rgba(255,255,255,0.05);color:#dc3545">&#x274C; CRM only<br><span style="font-size:.7rem;color:#8b949e">Salesforce ecosystem</span></td>
-                <td style="text-align:center;border-color:rgba(255,255,255,0.05);color:#198754">&#x2705; <strong>Any system</strong><br><span style="font-size:.7rem;color:#8b949e">MCP protocol, unlimited</span></td>
+                <td style="text-align:center;border-color:rgba(255,255,255,0.05);color:#ffc107">&#x26A0;&#xFE0F; Code only<br><span style="font-size:.7rem;color:var(--text-muted)">Requires Python dev</span></td>
+                <td style="text-align:center;border-color:rgba(255,255,255,0.05);color:#dc3545">&#x274C; M365 only<br><span style="font-size:.7rem;color:var(--text-muted)">Single ecosystem</span></td>
+                <td style="text-align:center;border-color:rgba(255,255,255,0.05);color:#ffc107">&#x26A0;&#xFE0F; ITSM only<br><span style="font-size:.7rem;color:var(--text-muted)">ServiceNow ecosystem</span></td>
+                <td style="text-align:center;border-color:rgba(255,255,255,0.05);color:#dc3545">&#x274C; CRM only<br><span style="font-size:.7rem;color:var(--text-muted)">Salesforce ecosystem</span></td>
+                <td style="text-align:center;border-color:rgba(255,255,255,0.05);color:#198754">&#x2705; <strong>Any system</strong><br><span style="font-size:.7rem;color:var(--text-muted)">MCP protocol, unlimited</span></td>
               </tr>
               <tr style="background:rgba(255,255,255,0.02)">
                 <td style="padding:.6rem .75rem;border-color:rgba(255,255,255,0.05)"><strong>Per-user credential isolation</strong><br><span class="text-muted" style="font-size:.75rem">Different users get different API keys automatically</span></td>
@@ -700,23 +700,23 @@
                 <td style="text-align:center;border-color:rgba(255,255,255,0.05);color:#ffc107">&#x26A0;&#xFE0F; M365 tokens</td>
                 <td style="text-align:center;border-color:rgba(255,255,255,0.05);color:#ffc107">&#x26A0;&#xFE0F; ITSM sessions</td>
                 <td style="text-align:center;border-color:rgba(255,255,255,0.05);color:#ffc107">&#x26A0;&#xFE0F; CRM tokens</td>
-                <td style="text-align:center;border-color:rgba(255,255,255,0.05);color:#198754">&#x2705; <strong>Vault cascade</strong><br><span style="font-size:.7rem;color:#8b949e">User &rarr; Group &rarr; Org</span></td>
+                <td style="text-align:center;border-color:rgba(255,255,255,0.05);color:#198754">&#x2705; <strong>Vault cascade</strong><br><span style="font-size:.7rem;color:var(--text-muted)">User &rarr; Group &rarr; Org</span></td>
               </tr>
               <tr>
                 <td style="padding:.6rem .75rem;border-color:rgba(255,255,255,0.05)"><strong>Hierarchical policy enforcement</strong><br><span class="text-muted" style="font-size:.75rem">Org rules + team rules + user preferences, all via document upload</span></td>
                 <td style="text-align:center;border-color:rgba(255,255,255,0.05);color:#dc3545">&#x274C; None</td>
                 <td style="text-align:center;border-color:rgba(255,255,255,0.05);color:#dc3545">&#x274C; None</td>
-                <td style="text-align:center;border-color:rgba(255,255,255,0.05);color:#ffc107">&#x26A0;&#xFE0F; Workflow rules<br><span style="font-size:.7rem;color:#8b949e">Hardcoded, not RAG</span></td>
+                <td style="text-align:center;border-color:rgba(255,255,255,0.05);color:#ffc107">&#x26A0;&#xFE0F; Workflow rules<br><span style="font-size:.7rem;color:var(--text-muted)">Hardcoded, not RAG</span></td>
                 <td style="text-align:center;border-color:rgba(255,255,255,0.05);color:#dc3545">&#x274C; None</td>
-                <td style="text-align:center;border-color:rgba(255,255,255,0.05);color:#198754">&#x2705; <strong>RAG-based</strong><br><span style="font-size:.7rem;color:#8b949e">Any data source &rarr; vector index</span></td>
+                <td style="text-align:center;border-color:rgba(255,255,255,0.05);color:#198754">&#x2705; <strong>RAG-based</strong><br><span style="font-size:.7rem;color:var(--text-muted)">Any data source &rarr; vector index</span></td>
               </tr>
               <tr style="background:rgba(255,255,255,0.02)">
                 <td style="padding:.6rem .75rem;border-color:rgba(255,255,255,0.05)"><strong>No-code plugin builder</strong><br><span class="text-muted" style="font-size:.75rem">Non-developers can create new AI integrations</span></td>
                 <td style="text-align:center;border-color:rgba(255,255,255,0.05);color:#dc3545">&#x274C; Python only</td>
                 <td style="text-align:center;border-color:rgba(255,255,255,0.05);color:#dc3545">&#x274C; No custom</td>
-                <td style="text-align:center;border-color:rgba(255,255,255,0.05);color:#ffc107">&#x26A0;&#xFE0F; Flow Designer<br><span style="font-size:.7rem;color:#8b949e">ITSM-specific</span></td>
-                <td style="text-align:center;border-color:rgba(255,255,255,0.05);color:#ffc107">&#x26A0;&#xFE0F; Einstein Builder<br><span style="font-size:.7rem;color:#8b949e">CRM-specific</span></td>
-                <td style="text-align:center;border-color:rgba(255,255,255,0.05);color:#198754">&#x2705; <strong>7-step wizard</strong><br><span style="font-size:.7rem;color:#8b949e">Any system, drag &amp; drop</span></td>
+                <td style="text-align:center;border-color:rgba(255,255,255,0.05);color:#ffc107">&#x26A0;&#xFE0F; Flow Designer<br><span style="font-size:.7rem;color:var(--text-muted)">ITSM-specific</span></td>
+                <td style="text-align:center;border-color:rgba(255,255,255,0.05);color:#ffc107">&#x26A0;&#xFE0F; Einstein Builder<br><span style="font-size:.7rem;color:var(--text-muted)">CRM-specific</span></td>
+                <td style="text-align:center;border-color:rgba(255,255,255,0.05);color:#198754">&#x2705; <strong>7-step wizard</strong><br><span style="font-size:.7rem;color:var(--text-muted)">Any system, drag &amp; drop</span></td>
               </tr>
               <tr>
                 <td style="padding:.6rem .75rem;border-color:rgba(255,255,255,0.05)"><strong>Cloud-agnostic deployment</strong><br><span class="text-muted" style="font-size:.75rem">Run on any cloud or on-premises</span></td>
@@ -724,7 +724,7 @@
                 <td style="text-align:center;border-color:rgba(255,255,255,0.05);color:#dc3545">&#x274C; Azure only</td>
                 <td style="text-align:center;border-color:rgba(255,255,255,0.05);color:#dc3545">&#x274C; SaaS only</td>
                 <td style="text-align:center;border-color:rgba(255,255,255,0.05);color:#dc3545">&#x274C; SaaS only</td>
-                <td style="text-align:center;border-color:rgba(255,255,255,0.05);color:#198754">&#x2705; <strong>Any cloud + on-prem</strong><br><span style="font-size:.7rem;color:#8b949e">6 swappable backends</span></td>
+                <td style="text-align:center;border-color:rgba(255,255,255,0.05);color:#198754">&#x2705; <strong>Any cloud + on-prem</strong><br><span style="font-size:.7rem;color:var(--text-muted)">6 swappable backends</span></td>
               </tr>
               <tr style="background:rgba(255,255,255,0.02)">
                 <td style="padding:.6rem .75rem;border-color:rgba(255,255,255,0.05)"><strong>Open protocol (MCP)</strong><br><span class="text-muted" style="font-size:.75rem">Industry-standard protocol, not proprietary lock-in</span></td>
@@ -732,7 +732,7 @@
                 <td style="text-align:center;border-color:rgba(255,255,255,0.05);color:#dc3545">&#x274C; Proprietary</td>
                 <td style="text-align:center;border-color:rgba(255,255,255,0.05);color:#dc3545">&#x274C; Proprietary</td>
                 <td style="text-align:center;border-color:rgba(255,255,255,0.05);color:#dc3545">&#x274C; Proprietary</td>
-                <td style="text-align:center;border-color:rgba(255,255,255,0.05);color:#198754">&#x2705; <strong>MCP standard</strong><br><span style="font-size:.7rem;color:#8b949e">Anthropic's open protocol</span></td>
+                <td style="text-align:center;border-color:rgba(255,255,255,0.05);color:#198754">&#x2705; <strong>MCP standard</strong><br><span style="font-size:.7rem;color:var(--text-muted)">Anthropic's open protocol</span></td>
               </tr>
               <tr>
                 <td style="padding:.6rem .75rem;border-color:rgba(255,255,255,0.05)"><strong>Multi-connector plugins</strong><br><span class="text-muted" style="font-size:.75rem">One plugin can access multiple external systems</span></td>
@@ -740,7 +740,7 @@
                 <td style="text-align:center;border-color:rgba(255,255,255,0.05);color:#dc3545">&#x274C; No</td>
                 <td style="text-align:center;border-color:rgba(255,255,255,0.05);color:#dc3545">&#x274C; No</td>
                 <td style="text-align:center;border-color:rgba(255,255,255,0.05);color:#dc3545">&#x274C; No</td>
-                <td style="text-align:center;border-color:rgba(255,255,255,0.05);color:#198754">&#x2705; <strong>N:N attach</strong><br><span style="font-size:.7rem;color:#8b949e">UI checkbox attach</span></td>
+                <td style="text-align:center;border-color:rgba(255,255,255,0.05);color:#198754">&#x2705; <strong>N:N attach</strong><br><span style="font-size:.7rem;color:var(--text-muted)">UI checkbox attach</span></td>
               </tr>
               <tr style="background:rgba(255,255,255,0.02)">
                 <td style="padding:.6rem .75rem;border-color:rgba(255,255,255,0.05)"><strong>Policy via multi-source knowledge ingestion</strong><br><span class="text-muted" style="font-size:.75rem">Ingest from PDFs, URLs, wikis, databases &mdash; vectorized into searchable indexes</span></td>
@@ -748,7 +748,7 @@
                 <td style="text-align:center;border-color:rgba(255,255,255,0.05);color:#dc3545">&#x274C; No</td>
                 <td style="text-align:center;border-color:rgba(255,255,255,0.05);color:#dc3545">&#x274C; No</td>
                 <td style="text-align:center;border-color:rgba(255,255,255,0.05);color:#dc3545">&#x274C; No</td>
-                <td style="text-align:center;border-color:rgba(255,255,255,0.05);color:#198754">&#x2705; <strong>Multi-source RAG</strong><br><span style="font-size:.7rem;color:#8b949e">Files, URLs, wikis, DBs &rarr; vector index</span></td>
+                <td style="text-align:center;border-color:rgba(255,255,255,0.05);color:#198754">&#x2705; <strong>Multi-source RAG</strong><br><span style="font-size:.7rem;color:var(--text-muted)">Files, URLs, wikis, DBs &rarr; vector index</span></td>
               </tr>
               <tr>
                 <td style="padding:.6rem .75rem;border-color:rgba(255,255,255,0.05)"><strong>Same request, different users</strong><br><span class="text-muted" style="font-size:.75rem">Different policies, credentials, and outcomes per user</span></td>
@@ -756,7 +756,7 @@
                 <td style="text-align:center;border-color:rgba(255,255,255,0.05);color:#ffc107">&#x26A0;&#xFE0F; M365 role-based</td>
                 <td style="text-align:center;border-color:rgba(255,255,255,0.05);color:#ffc107">&#x26A0;&#xFE0F; ITSM roles</td>
                 <td style="text-align:center;border-color:rgba(255,255,255,0.05);color:#ffc107">&#x26A0;&#xFE0F; CRM profiles</td>
-                <td style="text-align:center;border-color:rgba(255,255,255,0.05);color:#198754">&#x2705; <strong>Full cascade</strong><br><span style="font-size:.7rem;color:#8b949e">Creds + policies + prefs</span></td>
+                <td style="text-align:center;border-color:rgba(255,255,255,0.05);color:#198754">&#x2705; <strong>Full cascade</strong><br><span style="font-size:.7rem;color:var(--text-muted)">Creds + policies + prefs</span></td>
               </tr>
               <tr style="background:rgba(255,255,255,0.02)">
                 <td style="padding:.6rem .75rem;border-color:rgba(255,255,255,0.05)"><strong>LLM / AI model choice</strong><br><span class="text-muted" style="font-size:.75rem">Swap between AI models without code changes</span></td>
@@ -764,7 +764,7 @@
                 <td style="text-align:center;border-color:rgba(255,255,255,0.05);color:#dc3545">&#x274C; GPT-4 only</td>
                 <td style="text-align:center;border-color:rgba(255,255,255,0.05);color:#dc3545">&#x274C; Their model</td>
                 <td style="text-align:center;border-color:rgba(255,255,255,0.05);color:#dc3545">&#x274C; Their model</td>
-                <td style="text-align:center;border-color:rgba(255,255,255,0.05);color:#198754">&#x2705; <strong>Any LLM</strong><br><span style="font-size:.7rem;color:#8b949e">Azure, Ollama, any API</span></td>
+                <td style="text-align:center;border-color:rgba(255,255,255,0.05);color:#198754">&#x2705; <strong>Any LLM</strong><br><span style="font-size:.7rem;color:var(--text-muted)">Azure, Ollama, any API</span></td>
               </tr>
               <tr>
                 <td style="padding:.6rem .75rem;border-color:rgba(255,255,255,0.05)"><strong>Connector marketplace potential</strong><br><span class="text-muted" style="font-size:.75rem">Ecosystem of third-party integrations</span></td>
@@ -772,15 +772,15 @@
                 <td style="text-align:center;border-color:rgba(255,255,255,0.05);color:#ffc107">&#x26A0;&#xFE0F; Copilot Plugins</td>
                 <td style="text-align:center;border-color:rgba(255,255,255,0.05);color:#ffc107">&#x26A0;&#xFE0F; NOW Store</td>
                 <td style="text-align:center;border-color:rgba(255,255,255,0.05);color:#ffc107">&#x26A0;&#xFE0F; AppExchange</td>
-                <td style="text-align:center;border-color:rgba(255,255,255,0.05);color:#198754">&#x2705; <strong>MCP ecosystem</strong><br><span style="font-size:.7rem;color:#8b949e">Build + proxy + extend</span></td>
+                <td style="text-align:center;border-color:rgba(255,255,255,0.05);color:#198754">&#x2705; <strong>MCP ecosystem</strong><br><span style="font-size:.7rem;color:var(--text-muted)">Build + proxy + extend</span></td>
               </tr>
               <tr style="background:rgba(255,255,255,0.02)">
                 <td style="padding:.6rem .75rem;border-color:rgba(255,255,255,0.05)"><strong>Pricing model</strong><br><span class="text-muted" style="font-size:.75rem">Cost structure for enterprises</span></td>
                 <td style="text-align:center;border-color:rgba(255,255,255,0.05);color:#198754">&#x2705; Open source</td>
-                <td style="text-align:center;border-color:rgba(255,255,255,0.05);color:#dc3545">&#x274C; $30/user/mo<br><span style="font-size:.7rem;color:#8b949e">+ M365 required</span></td>
-                <td style="text-align:center;border-color:rgba(255,255,255,0.05);color:#dc3545">&#x274C; $100+/user/mo<br><span style="font-size:.7rem;color:#8b949e">Enterprise lock-in</span></td>
-                <td style="text-align:center;border-color:rgba(255,255,255,0.05);color:#dc3545">&#x274C; $50+/user/mo<br><span style="font-size:.7rem;color:#8b949e">Per cloud pricing</span></td>
-                <td style="text-align:center;border-color:rgba(255,255,255,0.05);color:#198754">&#x2705; <strong>Free + $29/$99</strong><br><span style="font-size:.7rem;color:#8b949e">Community tier free</span></td>
+                <td style="text-align:center;border-color:rgba(255,255,255,0.05);color:#dc3545">&#x274C; $30/user/mo<br><span style="font-size:.7rem;color:var(--text-muted)">+ M365 required</span></td>
+                <td style="text-align:center;border-color:rgba(255,255,255,0.05);color:#dc3545">&#x274C; $100+/user/mo<br><span style="font-size:.7rem;color:var(--text-muted)">Enterprise lock-in</span></td>
+                <td style="text-align:center;border-color:rgba(255,255,255,0.05);color:#dc3545">&#x274C; $50+/user/mo<br><span style="font-size:.7rem;color:var(--text-muted)">Per cloud pricing</span></td>
+                <td style="text-align:center;border-color:rgba(255,255,255,0.05);color:#198754">&#x2705; <strong>Free + $29/$99</strong><br><span style="font-size:.7rem;color:var(--text-muted)">Community tier free</span></td>
               </tr>
             </tbody>
           </table>

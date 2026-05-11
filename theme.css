@@ -239,6 +239,78 @@
 [data-theme="neon"] .bb-site-footer {
   background: var(--bg-card) !important;
 }
+
+/* ═══════════════════════════════════════════════════════════════
+   Force Theme Variables — override inline styles
+   ═══════════════════════════════════════════════════════════════ */
+body {
+  background: var(--bg) !important;
+  color: var(--text) !important;
+}
+.section, section {
+  background-color: var(--bg) !important;
+  color: var(--text) !important;
+}
+.section-alt, section.section-alt, .section.section-alt {
+  background-color: var(--section-alt) !important;
+}
+.card, .product-card, .pillar-card, .usecase-card, .lego-card,
+.connector-card, .stream-card, .metric-card, .card-dark, .card-dark-sm,
+.block, .voice-bubble, .agent-bubble, .connector-badge {
+  background: var(--bg-card) !important;
+  border-color: var(--border) !important;
+  color: var(--text) !important;
+}
+.text-muted {
+  color: var(--text-muted) !important;
+}
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-heading) !important;
+}
+/* Override gradient headings — they use -webkit-text-fill-color */
+.hero h1, .section-title-glow {
+  -webkit-text-fill-color: transparent !important;
+}
+p, li, span, td, th, div, label, small {
+  color: inherit;
+}
+a:not(.bb-nav-link):not(.bb-nav-dd-link):not(.bb-nav-brand):not(.btn):not(.btn-glow) {
+  color: var(--accent);
+}
+table {
+  color: var(--text) !important;
+}
+thead, th {
+  color: var(--text-heading) !important;
+  background: var(--bg-elevated) !important;
+}
+tbody tr {
+  border-color: var(--border) !important;
+}
+code, pre {
+  background: var(--code-bg) !important;
+  color: var(--accent) !important;
+}
+.table { color: var(--text) !important; }
+input, select, textarea {
+  background: var(--input-bg) !important;
+  border-color: var(--input-border) !important;
+  color: var(--text) !important;
+}
+.bb-site-footer, .bb-page-nav {
+  background: var(--bg-elevated) !important;
+  color: var(--text) !important;
+}
+.bb-site-footer a, .bb-page-nav a {
+  color: var(--text-muted) !important;
+}
+.bb-site-footer a:hover, .bb-page-nav a:hover {
+  color: var(--accent-purple) !important;
+}
+/* Theme transition flash prevention */
+html {
+  background: var(--bg);
+}
 /* ═══════════════════════════════════════════════════════════════
    Shared Transitions & Animations
    ═══════════════════════════════════════════════════════════════ */
@@ -453,22 +525,24 @@ html { scroll-behavior: smooth; }
 }
 .bb-nav-link {
   display: block;
-  padding: 8px 14px;
-  color: var(--text-muted);
+  padding: 10px 16px;
+  color: var(--text);
   text-decoration: none;
-  font-size: 0.88rem;
-  font-weight: 500;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
   border-radius: 8px;
   transition: color 0.2s, background 0.2s;
   white-space: nowrap;
 }
 .bb-nav-link:hover {
-  color: var(--text);
-  background: rgba(167,139,250,0.08);
+  color: var(--accent-purple);
+  background: rgba(167,139,250,0.12);
 }
 .bb-nav-item.active > .bb-nav-link {
   color: var(--accent-purple);
-  background: rgba(167,139,250,0.1);
+  background: rgba(167,139,250,0.15);
+  box-shadow: inset 0 -2px 0 var(--accent-purple);
 }
 
 /* Dropdown */
@@ -507,7 +581,8 @@ html { scroll-behavior: smooth; }
   padding: 8px 14px;
   color: var(--text-muted);
   text-decoration: none;
-  font-size: 0.84rem;
+  font-size: 0.9rem;
+  font-weight: 500;
   border-radius: 8px;
   transition: all 0.15s;
 }
@@ -523,13 +598,24 @@ html { scroll-behavior: smooth; }
 /* Nav theme buttons */
 .bb-nav-theme {
   display: flex;
-  gap: 4px;
-  margin-left: 16px;
+  gap: 6px;
+  margin-left: 20px;
+  padding-left: 16px;
+  border-left: 1px solid var(--border);
 }
 .bb-nav-theme .theme-btn {
-  width: 30px;
-  height: 30px;
-  font-size: 0.8rem;
+  width: 36px;
+  height: 36px;
+  font-size: 1rem;
+  border: 1px solid var(--border);
+}
+.bb-nav-theme .theme-btn:hover {
+  border-color: var(--accent-purple);
+  transform: scale(1.1);
+}
+.bb-nav-theme .theme-btn.active {
+  border-color: transparent;
+  transform: scale(1.15);
 }
 
 /* Hamburger (mobile) */

@@ -543,7 +543,7 @@
         <!-- Phase 1: Authentication -->
         <h5 class="mt-4 mb-3" style="color:var(--accent-purple)">&#x1F510; Phase 1: Authentication (before anything happens)</h5>
         <div class="block" style="background:rgba(168,139,250,0.04);border:1px solid rgba(168,139,250,0.15);font-size:0.8rem">
-          <table class="table table-sm table-borderless mb-0" style="color:#e6edf3">
+          <table class="table table-sm table-borderless mb-0" style="color:var(--text)">
             <tr>
               <td style="width:30px"><span class="badge bg-secondary">1</span></td>
               <td><strong>Browser &rarr; Keycloak</strong></td>
@@ -568,7 +568,7 @@
         <!-- Phase 2: Discovery -->
         <h5 class="mt-4 mb-3" style="color:var(--accent-purple)">&#x1F50C; Phase 2: Tool Discovery</h5>
         <div class="block" style="background:rgba(13,202,240,0.04);border:1px solid rgba(13,202,240,0.15);font-size:0.8rem">
-          <table class="table table-sm table-borderless mb-0" style="color:#e6edf3">
+          <table class="table table-sm table-borderless mb-0" style="color:var(--text)">
             <tr>
               <td style="width:30px"><span class="badge bg-info">4</span></td>
               <td><strong>Agent &rarr; MCP Engine</strong></td>
@@ -594,7 +594,7 @@
         <!-- Phase 3: LLM + Policy Check -->
         <h5 class="mt-4 mb-3" style="color:var(--accent-purple)">&#x1F9E0; Phase 3: LLM Decides + Policy Check (RAG)</h5>
         <div class="block" style="background:rgba(25,135,84,0.04);border:1px solid rgba(25,135,84,0.15);font-size:0.8rem">
-          <table class="table table-sm table-borderless mb-0" style="color:#e6edf3">
+          <table class="table table-sm table-borderless mb-0" style="color:var(--text)">
             <tr>
               <td style="width:30px"><span class="badge bg-success">7</span></td>
               <td><strong>Agent &rarr; Azure OpenAI</strong></td>
@@ -634,7 +634,7 @@
         <!-- Phase 4: Flight Search -->
         <h5 class="mt-4 mb-3" style="color:var(--accent-purple)">&#x2708;&#xFE0F; Phase 4: Flight Search</h5>
         <div class="block" style="background:rgba(255,193,7,0.04);border:1px solid rgba(255,193,7,0.15);font-size:0.8rem">
-          <table class="table table-sm table-borderless mb-0" style="color:#e6edf3">
+          <table class="table table-sm table-borderless mb-0" style="color:var(--text)">
             <tr>
               <td style="width:30px"><span class="badge bg-warning text-dark">12</span></td>
               <td><strong>Agent &rarr; MCP Engine</strong></td>
@@ -661,7 +661,7 @@
         <!-- Phase 5: Payment -->
         <h5 class="mt-4 mb-3" style="color:var(--accent-purple)">&#x1F4B3; Phase 5: Payment (Stripe)</h5>
         <div class="block" style="background:rgba(220,53,69,0.04);border:1px solid rgba(220,53,69,0.15);font-size:0.8rem">
-          <table class="table table-sm table-borderless mb-0" style="color:#e6edf3">
+          <table class="table table-sm table-borderless mb-0" style="color:var(--text)">
             <tr>
               <td style="width:30px"><span class="badge bg-danger">15</span></td>
               <td><strong>Agent &rarr; MCP Engine</strong></td>
@@ -701,7 +701,7 @@
         <!-- Phase 6: Email + Calendar -->
         <h5 class="mt-4 mb-3" style="color:var(--accent-purple)">&#x1F4E7; Phase 6: Email &amp; Calendar</h5>
         <div class="block" style="background:rgba(13,110,253,0.04);border:1px solid rgba(13,110,253,0.15);font-size:0.8rem">
-          <table class="table table-sm table-borderless mb-0" style="color:#e6edf3">
+          <table class="table table-sm table-borderless mb-0" style="color:var(--text)">
             <tr>
               <td style="width:30px"><span class="badge bg-primary">20</span></td>
               <td><strong>MCP Engine &rarr; Vault</strong></td>
@@ -734,7 +734,7 @@
         <!-- Phase 7: Response -->
         <h5 class="mt-4 mb-3" style="color:var(--accent-purple)">&#x2705; Phase 7: Final Response</h5>
         <div class="block" style="background:rgba(25,135,84,0.04);border:1px solid rgba(25,135,84,0.15);font-size:0.8rem">
-          <table class="table table-sm table-borderless mb-0" style="color:#e6edf3">
+          <table class="table table-sm table-borderless mb-0" style="color:var(--text)">
             <tr>
               <td style="width:30px"><span class="badge bg-success">24</span></td>
               <td><strong>Agent &rarr; Azure OpenAI</strong></td>
@@ -915,7 +915,7 @@
         <div class="block" style="background:rgba(13,110,253,0.06);border:1px solid rgba(13,110,253,0.2)">
           <h5>&#x1F5C4;&#xFE0F; "What about the personal vault? Where is that data stored?"</h5>
           <p><strong>Short answer: The vault uses industry-standard secret managers &mdash; the same ones that protect bank infrastructure.</strong></p>
-          <table class="table table-sm table-bordered mb-3" style="font-size:0.8rem;color:#e6edf3">
+          <table class="table table-sm table-bordered mb-3" style="font-size:0.8rem;color:var(--text)">
             <thead><tr><th>Vault Backend</th><th>Where Data Lives</th><th>Encryption</th><th>Who Uses It</th></tr></thead>
             <tbody>
               <tr><td><i class="bi bi-cloud text-info"></i> Azure Key Vault</td><td>Microsoft Azure data center (your region)</td><td>AES-256 + HSM hardware</td><td>Banks, governments, Fortune 500</td></tr>
