@@ -46,9 +46,9 @@
 </div>
 
 <h1>🧠 Cerebro — Secure Agentic AI, Any Model, Any Cloud, Any Channel</h1>
-<p class="subtitle">One platform where identity, credentials, knowledge, and policy enforcement follow every action — regardless of which AI model powers it, which cloud runs it, or how you access it. Click any block for details.</p>
+<p class="subtitle">One platform where identity, credentials, knowledge, policy enforcement, and developer workspaces follow every action — regardless of which AI model powers it, which cloud runs it, or how you access it. Click any block for details.</p>
 
-<svg viewBox="0 0 1110 930" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 1110 1080" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <marker id="arrowCyan" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
       <polygon points="0 0, 8 3, 0 6" fill="#0dcaf0"/>
@@ -103,7 +103,7 @@
   <g class="block" onclick="showDetail('cerebro')">
     <rect x="200" y="10" width="320" height="120" rx="12" fill="url(#gradCyan)" stroke="#0dcaf0" stroke-width="2"/>
     <text x="360" y="35" text-anchor="middle" fill="#0dcaf0" font-weight="800" font-size="14">🧠 Cerebro App</text>
-    <text x="360" y="52" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="10">Flask · app.py · /api/agent/chat</text>
+    <text x="360" y="52" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="10">Flask · HPA 2–8 replicas · /api/agent/chat</text>
     <!-- Sub-blocks inside -->
     <rect x="215" y="60" width="90" height="28" rx="6" fill="rgba(13,202,240,0.1)" stroke="rgba(13,202,240,0.3)" stroke-width="1"/>
     <text x="260" y="78" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="9">🔐 OIDC Auth</text>
@@ -204,6 +204,29 @@
   <!-- Arrows: Vault/RAG → Agent -->
   <line x1="220" y1="225" x2="555" y2="225" stroke="rgba(13,202,240,0.3)" stroke-width="1" stroke-dasharray="4,3"/>
   <line x1="220" y1="315" x2="400" y2="70" stroke="rgba(167,139,250,0.2)" stroke-width="1" stroke-dasharray="4,3"/>
+
+  <!-- ═══ LEFT SIDE: Developer Workspaces & Session Layer ═══ -->
+
+  <!-- Valkey (Redis) Session Store -->
+  <g class="block" onclick="showDetail('valkey')">
+    <rect x="250" y="190" width="200" height="60" rx="10" fill="rgba(220,53,69,0.08)" stroke="rgba(220,53,69,0.4)" stroke-width="1.5"/>
+    <text x="350" y="213" text-anchor="middle" fill="#dc3545" font-weight="700" font-size="11">🔴 Valkey (Redis)</text>
+    <text x="350" y="230" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="8.5">Sessions · Rate Limiting · Cache</text>
+    <text x="350" y="243" text-anchor="middle" fill="rgba(255,255,255,0.3)" font-size="7.5">20 req/min per user · Flask-Session HA</text>
+  </g>
+
+  <!-- React Frontend -->
+  <g class="block" onclick="showDetail('frontend')">
+    <rect x="250" y="268" width="200" height="55" rx="10" fill="rgba(13,202,240,0.08)" stroke="rgba(13,202,240,0.4)" stroke-width="1.5"/>
+    <text x="350" y="290" text-anchor="middle" fill="#0dcaf0" font-weight="700" font-size="11">⚛️ React Frontend</text>
+    <text x="350" y="305" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="8.5">Vite SPA · HPA 2–5 replicas</text>
+    <text x="350" y="316" text-anchor="middle" fill="rgba(255,255,255,0.3)" font-size="7.5">Chat · Admin · Visual Designer · Workspaces UI</text>
+  </g>
+
+  <!-- Arrow: Valkey ↔ Cerebro -->
+  <line x1="350" y1="190" x2="350" y2="130" stroke="rgba(220,53,69,0.3)" stroke-width="1" stroke-dasharray="3,3"/>
+  <!-- Arrow: Frontend → Cerebro -->
+  <line x1="400" y1="268" x2="420" y2="130" stroke="rgba(13,202,240,0.25)" stroke-width="1" stroke-dasharray="3,3"/>
 
   <!-- ═══ ROW 3: MCP Engines (Multiple) ═══ -->
 
@@ -393,7 +416,8 @@
 
   <!-- ═══ ROW 5: Cloud-Agnostic Infrastructure (Loom) ═══ -->
 
-  <text x="550" y="758" text-anchor="middle" fill="rgba(255,255,255,0.2)" font-size="10" font-weight="700">☁️ LOOM — Cloud-Agnostic Infrastructure Layer (Terraform modules swap the cloud, not the app)</text>
+  <g transform="translate(0,150)">
+    <text x="550" y="758" text-anchor="middle" fill="rgba(255,255,255,0.2)" font-size="10" font-weight="700">☁️ LOOM — Cloud-Agnostic Infrastructure Layer (Terraform modules swap the cloud, not the app)</text>
 
   <!-- Azure (current) -->
   <g class="block" onclick="showDetail('cloud')">
@@ -408,10 +432,10 @@
     <rect x="155" y="825" width="100" height="20" rx="4" fill="rgba(13,202,240,0.1)" stroke="rgba(13,202,240,0.2)" stroke-width="1"/>
     <text x="205" y="839" text-anchor="middle" fill="rgba(255,255,255,0.55)" font-size="8">Azure OpenAI</text>
     <rect x="45" y="850" width="100" height="20" rx="4" fill="rgba(13,202,240,0.1)" stroke="rgba(13,202,240,0.2)" stroke-width="1"/>
-    <text x="95" y="864" text-anchor="middle" fill="rgba(255,255,255,0.55)" font-size="8">Key Vault</text>
+    <text x="95" y="864" text-anchor="middle" fill="rgba(255,255,255,0.55)" font-size="8">Key Vault 🔒</text>
     <rect x="155" y="850" width="100" height="20" rx="4" fill="rgba(13,202,240,0.1)" stroke="rgba(13,202,240,0.2)" stroke-width="1"/>
     <text x="205" y="864" text-anchor="middle" fill="rgba(255,255,255,0.55)" font-size="8">ACR (Registry)</text>
-    <text x="150" y="904" text-anchor="middle" fill="rgba(13,202,240,0.5)" font-size="8">terraform apply → ~20 min</text>
+    <text x="150" y="904" text-anchor="middle" fill="rgba(13,202,240,0.5)" font-size="8">🔒 All PEs · Autoscaler 2–6 nodes · terraform apply</text>
   </g>
 
   <!-- Swap arrows -->
@@ -468,31 +492,59 @@
     <text x="970" y="893" text-anchor="middle" fill="rgba(255,255,255,0.25)" font-size="7">Air-gapped</text>
   </g>
 
+  </g>
+
+  <!-- ═══ LEFT SIDE: Developer Workspaces ═══ -->
+
+  <g class="block" onclick="showDetail('workspaces')">
+    <rect x="10" y="390" width="210" height="95" rx="10" fill="rgba(255,193,7,0.06)" stroke="#ffc107" stroke-width="2"/>
+    <text x="115" y="412" text-anchor="middle" fill="#ffc107" font-weight="800" font-size="12">💻 Cloud Workspaces</text>
+    <text x="115" y="427" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="8.5">Per-user code-server IDE</text>
+    <rect x="20" y="435" width="90" height="20" rx="4" fill="rgba(255,193,7,0.1)" stroke="rgba(255,193,7,0.2)" stroke-width="1"/>
+    <text x="65" y="449" text-anchor="middle" fill="rgba(255,255,255,0.55)" font-size="7.5">🛠️ Copilot CLI</text>
+    <rect x="115" y="435" width="95" height="20" rx="4" fill="rgba(255,193,7,0.1)" stroke="rgba(255,193,7,0.2)" stroke-width="1"/>
+    <text x="162" y="449" text-anchor="middle" fill="rgba(255,255,255,0.55)" font-size="7.5">🤖 Claude Code</text>
+    <text x="115" y="472" text-anchor="middle" fill="rgba(255,255,255,0.3)" font-size="7.5">4 cores · 4Gi RAM · Azure Disk PVC</text>
+    <text x="115" y="482" text-anchor="middle" fill="rgba(255,255,255,0.25)" font-size="7">ws-{username} · zsh · kubectl · helm · git</text>
+  </g>
+
+  <g class="block" onclick="showDetail('jupyterhub')">
+    <rect x="10" y="498" width="210" height="75" rx="10" fill="rgba(255,119,0,0.06)" stroke="rgba(255,119,0,0.5)" stroke-width="1.5"/>
+    <text x="115" y="518" text-anchor="middle" fill="#ff7700" font-weight="700" font-size="12">📓 JupyterHub</text>
+    <text x="115" y="533" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="8.5">Multi-user notebook server</text>
+    <text x="115" y="548" text-anchor="middle" fill="rgba(255,255,255,0.3)" font-size="7.5">jupyter-{username} · Entra ID auth</text>
+    <text x="115" y="560" text-anchor="middle" fill="rgba(255,255,255,0.25)" font-size="7">Python · R · Data Science · Custom kernels</text>
+  </g>
+
+  <!-- Arrow: Cerebro → Workspaces (spawn) -->
+  <path d="M 200 120 C 160 200, 130 300, 115 390" stroke="rgba(255,193,7,0.3)" stroke-width="1.5" fill="none" stroke-dasharray="4,3" marker-end="url(#arrowYellow)"/>
+  <text x="140" y="350" fill="rgba(255,193,7,0.5)" font-size="7" text-anchor="middle">spawn / manage</text>
+
   <!-- ═══ LEFT SIDE: Cosmos DB & Observability (moved down) ═══ -->
 
   <g class="block" onclick="showDetail('cosmos')">
-    <rect x="20" y="420" width="180" height="60" rx="10" fill="rgba(255,193,7,0.06)" stroke="rgba(255,193,7,0.3)" stroke-width="1.5"/>
-    <text x="110" y="445" text-anchor="middle" fill="#ffc107" font-weight="700" font-size="11">💾 Document DB</text>
-    <text x="110" y="462" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="8.5">Cosmos / DynamoDB / Firestore</text>
+    <rect x="10" y="588" width="210" height="50" rx="10" fill="rgba(255,193,7,0.06)" stroke="rgba(255,193,7,0.3)" stroke-width="1.5"/>
+    <text x="115" y="610" text-anchor="middle" fill="#ffc107" font-weight="700" font-size="11">💾 Document DB 🔒</text>
+    <text x="115" y="625" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="8.5">Cosmos (PE) / DynamoDB / Firestore</text>
   </g>
 
   <g class="block" onclick="showDetail('observability')">
-    <rect x="20" y="500" width="180" height="60" rx="10" fill="rgba(25,135,84,0.06)" stroke="rgba(25,135,84,0.3)" stroke-width="1.5"/>
-    <text x="110" y="525" text-anchor="middle" fill="#198754" font-weight="700" font-size="11">📊 Observability</text>
-    <text x="110" y="542" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="8.5">Prometheus · Grafana · Loki</text>
+    <rect x="10" y="648" width="210" height="50" rx="10" fill="rgba(25,135,84,0.06)" stroke="rgba(25,135,84,0.3)" stroke-width="1.5"/>
+    <text x="115" y="670" text-anchor="middle" fill="#198754" font-weight="700" font-size="11">📊 Observability</text>
+    <text x="115" y="685" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="8.5">Prometheus · Grafana · Loki</text>
   </g>
 
   <!-- Dashed lines to Cosmos/Observability -->
-  <line x1="200" y1="450" x2="435" y2="450" stroke="rgba(255,193,7,0.2)" stroke-width="1" stroke-dasharray="3,3"/>
-  <line x1="200" y1="530" x2="435" y2="500" stroke="rgba(25,135,84,0.2)" stroke-width="1" stroke-dasharray="3,3"/>
+  <line x1="220" y1="610" x2="435" y2="500" stroke="rgba(255,193,7,0.2)" stroke-width="1" stroke-dasharray="3,3"/>
+  <line x1="220" y1="670" x2="435" y2="530" stroke="rgba(25,135,84,0.2)" stroke-width="1" stroke-dasharray="3,3"/>
 
   <!-- Dashed lines: Cosmos/Observability → Cloud layer -->
-  <line x1="110" y1="560" x2="110" y2="770" stroke="rgba(255,193,7,0.15)" stroke-width="1" stroke-dasharray="3,3"/>
-  <line x1="110" y1="770" x2="150" y2="770" stroke="rgba(255,193,7,0.15)" stroke-width="1" stroke-dasharray="3,3"/>
+  <line x1="115" y1="638" x2="115" y2="918" stroke="rgba(255,193,7,0.15)" stroke-width="1" stroke-dasharray="3,3"/>
+  <line x1="115" y1="920" x2="150" y2="920" stroke="rgba(255,193,7,0.15)" stroke-width="1" stroke-dasharray="3,3"/>
 
   <!-- ═══ RIGHT SIDE: Return flow ═══ -->
 
-  <path d="M 940 485 C 1060 485, 1090 300, 1090 70 C 1090 20, 100 20, 82 20" stroke="rgba(13,202,240,0.25)" stroke-width="1.5" fill="none" stroke-dasharray="5,4" class="data-arrow" marker-end="url(#arrowCyan)"/>
+  <path d="M 940 485 C 1060 485, 1095 300, 1095 70 C 1095 20, 100 20, 82 20" stroke="rgba(13,202,240,0.25)" stroke-width="1.5" fill="none" stroke-dasharray="5,4" class="data-arrow" marker-end="url(#arrowCyan)"/>
   <text x="1095" y="280" fill="rgba(13,202,240,0.5)" font-size="9" transform="rotate(90,1095,280)">Response streams back via SSE / REST / Voice</text>
 
   <circle cx="1080" cy="200" r="9" class="step-circle" style="fill:rgba(13,202,240,0.6)"/><text x="1080" y="203" text-anchor="middle" class="step-num">8</text>
@@ -507,6 +559,8 @@
   <div class="legend-item"><div class="legend-dot" style="background:#dc3545"></div> Security + Industry Verticals</div>
   <div class="legend-item"><div class="legend-dot" style="background:#198754"></div> MCP Engine + Available Plugins</div>
   <div class="legend-item"><div class="legend-dot" style="background:#ff9900"></div> Cloud-Agnostic (Azure / AWS / GCP / Local)</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#ffc107;border:1px solid rgba(255,193,7,0.5)"></div> Workspaces (code-server + JupyterHub)</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#dc3545;border-radius:50%"></div> Valkey (Sessions + Rate Limiting)</div>
 </div>
 
 <!-- Overlay -->
@@ -717,6 +771,46 @@ function hideDetail() {
 }
 document.addEventListener('keydown', e => { if (e.key === 'Escape') hideDetail(); });
 </script>
+
+<div class="detail-panel" id="detail-workspaces">
+  <span class="close" onclick="hideDetail()">✕</span>
+  <h3>💻 Cloud Workspaces (code-server)</h3>
+  <p><strong>What:</strong> Full VS Code IDE running in the browser — per-user isolated environments. Each user gets their own <code>ws-{username}</code> pod in the <code>workspaces</code> namespace.</p>
+  <p><strong>Resources:</strong> 4 CPU cores, 4Gi RAM, Azure Disk PVC (persistent storage across restarts).</p>
+  <p><strong>Pre-installed tools:</strong> GitHub Copilot CLI, Claude Code, Node.js 20, kubectl, helm, git, zsh + Oh-My-Zsh with autocomplete.</p>
+  <p><strong>Security:</strong> Auth-gated via nginx <code>auth-url</code> annotation → <code>/api/auth/verify</code>. Only authenticated users can access their own workspace.</p>
+  <p><strong>Lifecycle:</strong> Spawn, stop, start, delete via admin API or Workspaces UI tab. Each workspace is a separate Helm release.</p>
+  <p><strong>Use case:</strong> Developers can code, test, and deploy directly from the browser — no local setup needed. Full access to the AKS cluster from inside the workspace.</p>
+</div>
+
+<div class="detail-panel" id="detail-jupyterhub">
+  <span class="close" onclick="hideDetail()">✕</span>
+  <h3>📓 JupyterHub — Multi-User Notebooks</h3>
+  <p><strong>What:</strong> Multi-user Jupyter notebook server. Each user gets their own <code>jupyter-{username}</code> pod with persistent storage.</p>
+  <p><strong>Auth:</strong> Entra ID (Azure AD) authentication — same identity as the main platform.</p>
+  <p><strong>Kernels:</strong> Python 3, R, Julia, and custom kernels. Pre-loaded with data science libraries (numpy, pandas, scikit-learn, matplotlib).</p>
+  <p><strong>Integration:</strong> Notebooks can call ContextWeaver APIs, access RAG indexes, and interact with MCP engines programmatically.</p>
+  <p><strong>Use case:</strong> Data scientists and analysts can explore data, build models, and create visualizations — all within the platform's security perimeter.</p>
+</div>
+
+<div class="detail-panel" id="detail-valkey">
+  <span class="close" onclick="hideDetail()">✕</span>
+  <h3>🔴 Valkey — Redis-Compatible Session Store</h3>
+  <p><strong>What:</strong> In-memory key-value store (Redis wire protocol compatible). Runs in the <code>cerebro</code> namespace.</p>
+  <p><strong>Sessions:</strong> Flask-Session with Redis backend for high availability. Sessions survive pod restarts and are shared across replicas.</p>
+  <p><strong>Rate Limiting:</strong> Per-user sliding window rate limiter — 20 requests/min on <code>/api/chat</code>. Prevents abuse without affecting legitimate usage.</p>
+  <p><strong>Cache:</strong> Dashboard data, plugin metadata, and frequently-accessed configs are cached to reduce Cosmos DB calls.</p>
+  <p><strong>Why Valkey:</strong> Open-source Redis fork (BSD license) — no licensing concerns. Drop-in replacement for Redis.</p>
+</div>
+
+<div class="detail-panel" id="detail-frontend">
+  <span class="close" onclick="hideDetail()">✕</span>
+  <h3>⚛️ React Frontend (SPA)</h3>
+  <p><strong>What:</strong> Modern React + Vite single-page application. Migrated from Flask-served static templates to a standalone deployment.</p>
+  <p><strong>Scaling:</strong> HPA with 2–5 replicas, separate from the backend. Frontend scales independently based on traffic.</p>
+  <p><strong>Features:</strong> Chat UI with SSE streaming, Admin dashboard, Visual Designer, Workspaces management, Plugin Library, Cluster View, Monitoring dashboards.</p>
+  <p><strong>Deployment:</strong> <code>contextweaver-frontend</code> in the <code>cerebro</code> namespace. Served via nginx ingress with TLS termination.</p>
+</div>
 </body>
 </html>
 
