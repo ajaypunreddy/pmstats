@@ -110,9 +110,24 @@
   }
 
   function isActivePage(href) {
-    var p = location.pathname;
-    var norm = href.replace('../', '/').replace(/^\.\//, '/');
-    return p.endsWith(norm.replace(/^\//, '')) || p.endsWith('/' + norm);
+    // Extract filename from current URL and href, compare exactly
+    var p = location.pathname.replace(/.*\//, '') || 'index.html';
+    var h = href.replace(/.*\//, '') || 'index.html';
+    // Special case: contextweaver/index.html vs root index.html
+    if (href.indexOf('contextweaver/') >= 0) {
+      return location.pathname.indexOf('contextweaver/') >= 0 && p === h;
+    }
+    return p === h && location.pathname.indexOf('contextweaver/') < 0;
+  }
+
+  function isSectionActive(section) {
+    if (isActivePage(section.href)) return true;
+    if (section.children) {
+      for (var i = 0; i < section.children.length; i++) {
+        if (isActivePage(section.children[i].href)) return true;
+      }
+    }
+    return false;
   }
 
   // ── Build Navigation Bar ──────────────────────────────────
@@ -131,7 +146,7 @@
     var linksContainer = nav.querySelector('.bb-nav-links');
     NAV_SECTIONS.forEach(function(section) {
       var item = document.createElement('div');
-      item.className = 'bb-nav-item' + (isActivePage(section.href) ? ' active' : '');
+      item.className = 'bb-nav-item' + (isSectionActive(section) ? ' active' : '');
 
       var link = document.createElement('a');
       link.href = section.href;
