@@ -552,12 +552,20 @@
   <line x1="110" y1="560" x2="110" y2="920" stroke="rgba(255,193,7,0.15)" stroke-width="1" stroke-dasharray="3,3"/>
   <line x1="110" y1="920" x2="150" y2="920" stroke="rgba(255,193,7,0.15)" stroke-width="1" stroke-dasharray="3,3"/>
 
-  <!-- ═══ RIGHT SIDE: Return flow ═══ -->
+  <!-- ═══ RIGHT SIDE: Return flow (STEP 8) ═══ -->
 
-  <path d="M 940 485 C 1060 485, 1095 300, 1095 70 C 1095 20, 100 20, 82 20" stroke="rgba(13,202,240,0.25)" stroke-width="1.5" fill="none" stroke-dasharray="5,4" class="data-arrow" marker-end="url(#arrowCyan)"/>
-  <text x="1095" y="280" fill="rgba(13,202,240,0.5)" font-size="9" transform="rotate(90,1095,280)">Response streams back via SSE / REST / Voice</text>
+  <path d="M 940 485 C 1060 485, 1095 300, 1095 70 C 1095 20, 100 20, 82 20" stroke="#0dcaf0" stroke-width="2.5" fill="none" stroke-dasharray="6,3" class="data-arrow" marker-end="url(#arrowCyan)"/>
 
-  <circle cx="1080" cy="200" r="9" class="step-circle" style="fill:rgba(13,202,240,0.6)"/><text x="1080" y="203" text-anchor="middle" class="step-num">8</text>
+  <!-- Step 8 badge -->
+  <rect x="1050" y="150" rx="12" ry="12" width="70" height="100" fill="rgba(13,202,240,0.1)" stroke="#0dcaf0" stroke-width="2"/>
+  <circle cx="1085" cy="175" r="14" class="step-circle" style="fill:#0dcaf0"/>
+  <text x="1085" y="180" text-anchor="middle" class="step-num" style="font-size:.85rem;font-weight:900">8</text>
+  <text x="1085" y="200" fill="#0dcaf0" font-size="9" font-weight="800" text-anchor="middle">FINAL</text>
+  <text x="1085" y="212" fill="#0dcaf0" font-size="9" font-weight="800" text-anchor="middle">RESPONSE</text>
+  <text x="1085" y="232" fill="rgba(13,202,240,0.9)" font-size="7.5" font-weight="600" text-anchor="middle">SSE / REST</text>
+  <text x="1085" y="244" fill="rgba(13,202,240,0.9)" font-size="7.5" font-weight="600" text-anchor="middle">/ Voice</text>
+
+  <text x="1112" y="370" fill="rgba(13,202,240,0.7)" font-size="8.5" font-weight="600" transform="rotate(90,1112,370)">Response streams back to user</text>
 
 </svg>
 
