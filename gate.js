@@ -12,6 +12,13 @@
     }).catch(function(){});
   } catch(e) {}
 
+  // ─────────────────────────────────────────────────────────────────────────
+  // ACCESS GATE DISABLED — site is public (passwordless).
+  // The visitor analytics hit-tracking above still runs on every page load.
+  // To RE-ENABLE the password/access-code gate, delete the `return;` below.
+  // ─────────────────────────────────────────────────────────────────────────
+  return;
+
   if (sessionStorage.getItem(KEY) === 'granted') return;
 
   // Block page rendering
